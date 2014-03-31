@@ -8,9 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		166FDD5A18E9D02F0005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5918E9D02F0005803F /* Foundation.framework */; };
-		166FDD5F18E9D02F0005803F /* n2ui.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166FDD5E18E9D02F0005803F /* n2ui.h */; };
-		166FDD6118E9D02F0005803F /* n2ui.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDD6018E9D02F0005803F /* n2ui.m */; };
 		166FDD8018E9D0880005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
+		166FDDC018E9D5680005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5918E9D02F0005803F /* Foundation.framework */; };
+		166FDDC218E9D5680005803F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDC118E9D5680005803F /* CoreGraphics.framework */; };
+		166FDDC918E9D5680005803F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 166FDDC718E9D5680005803F /* InfoPlist.strings */; };
+		166FDDCB18E9D5680005803F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCA18E9D5680005803F /* main.m */; };
+		166FDDCF18E9D5680005803F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCE18E9D5680005803F /* AppDelegate.m */; };
+		166FDDD118E9D5680005803F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166FDDD018E9D5680005803F /* Images.xcassets */; };
+		166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5618E9D02F0005803F /* libn2ui.a */; };
+		166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
+		166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDEC18E9D5B80005803F /* UIKit.framework */; };
+		166FDDF018E9D6030005803F /* N2Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDEF18E9D6030005803F /* N2Application.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,7 +28,6 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				166FDD5F18E9D02F0005803F /* n2ui.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -30,11 +37,19 @@
 		166FDD5618E9D02F0005803F /* libn2ui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libn2ui.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		166FDD5918E9D02F0005803F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		166FDD5D18E9D02F0005803F /* n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "n2ui-Prefix.pch"; sourceTree = "<group>"; };
-		166FDD5E18E9D02F0005803F /* n2ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = n2ui.h; sourceTree = "<group>"; };
-		166FDD6018E9D02F0005803F /* n2ui.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = n2ui.m; sourceTree = "<group>"; };
-		166FDD6718E9D02F0005803F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		166FDD6A18E9D02F0005803F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		166FDD7F18E9D0880005803F /* libn2core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2core.a; path = "../../../Users/wybo/Library/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos/libn2core.a"; sourceTree = "<group>"; };
+		166FDDBF18E9D5680005803F /* sample.n2ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.n2ui.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		166FDDC118E9D5680005803F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		166FDDC618E9D5680005803F /* sample.n2ui-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sample.n2ui-Info.plist"; sourceTree = "<group>"; };
+		166FDDC818E9D5680005803F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		166FDDCA18E9D5680005803F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		166FDDCC18E9D5680005803F /* sample.n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sample.n2ui-Prefix.pch"; sourceTree = "<group>"; };
+		166FDDCD18E9D5680005803F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		166FDDCE18E9D5680005803F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		166FDDD018E9D5680005803F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		166FDDEC18E9D5B80005803F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		166FDDEE18E9D6030005803F /* N2Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Application.h; path = ../../src/ui/N2Application.h; sourceTree = "<group>"; };
+		166FDDEF18E9D6030005803F /* N2Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = N2Application.m; path = ../../src/ui/N2Application.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +62,18 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		166FDDBC18E9D5680005803F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */,
+				166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */,
+				166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */,
+				166FDDC218E9D5680005803F /* CoreGraphics.framework in Frameworks */,
+				166FDDC018E9D5680005803F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -54,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				166FDD5B18E9D02F0005803F /* n2ui */,
+				166FDDC418E9D5680005803F /* sample.n2ui */,
 				166FDD5818E9D02F0005803F /* Frameworks */,
 				166FDD5718E9D02F0005803F /* Products */,
 			);
@@ -63,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				166FDD5618E9D02F0005803F /* libn2ui.a */,
+				166FDDBF18E9D5680005803F /* sample.n2ui.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,10 +99,10 @@
 		166FDD5818E9D02F0005803F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				166FDDEC18E9D5B80005803F /* UIKit.framework */,
 				166FDD7F18E9D0880005803F /* libn2core.a */,
 				166FDD5918E9D02F0005803F /* Foundation.framework */,
-				166FDD6718E9D02F0005803F /* XCTest.framework */,
-				166FDD6A18E9D02F0005803F /* UIKit.framework */,
+				166FDDC118E9D5680005803F /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -81,8 +110,7 @@
 		166FDD5B18E9D02F0005803F /* n2ui */ = {
 			isa = PBXGroup;
 			children = (
-				166FDD5E18E9D02F0005803F /* n2ui.h */,
-				166FDD6018E9D02F0005803F /* n2ui.m */,
+				166FDDBA18E9D5360005803F /* src */,
 				166FDD5C18E9D02F0005803F /* Supporting Files */,
 			);
 			path = n2ui;
@@ -92,6 +120,37 @@
 			isa = PBXGroup;
 			children = (
 				166FDD5D18E9D02F0005803F /* n2ui-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		166FDDBA18E9D5360005803F /* src */ = {
+			isa = PBXGroup;
+			children = (
+				166FDDEE18E9D6030005803F /* N2Application.h */,
+				166FDDEF18E9D6030005803F /* N2Application.m */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		166FDDC418E9D5680005803F /* sample.n2ui */ = {
+			isa = PBXGroup;
+			children = (
+				166FDDCD18E9D5680005803F /* AppDelegate.h */,
+				166FDDCE18E9D5680005803F /* AppDelegate.m */,
+				166FDDD018E9D5680005803F /* Images.xcassets */,
+				166FDDC518E9D5680005803F /* Supporting Files */,
+			);
+			path = sample.n2ui;
+			sourceTree = "<group>";
+		};
+		166FDDC518E9D5680005803F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				166FDDC618E9D5680005803F /* sample.n2ui-Info.plist */,
+				166FDDC718E9D5680005803F /* InfoPlist.strings */,
+				166FDDCA18E9D5680005803F /* main.m */,
+				166FDDCC18E9D5680005803F /* sample.n2ui-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -116,6 +175,23 @@
 			productReference = 166FDD5618E9D02F0005803F /* libn2ui.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		166FDDBE18E9D5680005803F /* sample.n2ui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 166FDDE418E9D5680005803F /* Build configuration list for PBXNativeTarget "sample.n2ui" */;
+			buildPhases = (
+				166FDDBB18E9D5680005803F /* Sources */,
+				166FDDBC18E9D5680005803F /* Frameworks */,
+				166FDDBD18E9D5680005803F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = sample.n2ui;
+			productName = sample.n2ui;
+			productReference = 166FDDBF18E9D5680005803F /* sample.n2ui.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -138,20 +214,53 @@
 			projectRoot = "";
 			targets = (
 				166FDD5518E9D02F0005803F /* n2ui */,
+				166FDDBE18E9D5680005803F /* sample.n2ui */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		166FDDBD18E9D5680005803F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				166FDDC918E9D5680005803F /* InfoPlist.strings in Resources */,
+				166FDDD118E9D5680005803F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		166FDD5218E9D02F0005803F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166FDD6118E9D02F0005803F /* n2ui.m in Sources */,
+				166FDDF018E9D6030005803F /* N2Application.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		166FDDBB18E9D5680005803F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				166FDDCF18E9D5680005803F /* AppDelegate.m in Sources */,
+				166FDDCB18E9D5680005803F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		166FDDC718E9D5680005803F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				166FDDC818E9D5680005803F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		166FDD7718E9D02F0005803F /* Debug */ = {
@@ -254,6 +363,58 @@
 			};
 			name = Release;
 		};
+		166FDDE518E9D5680005803F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sample.n2ui/sample.n2ui-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "sample.n2ui/sample.n2ui-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		166FDDE618E9D5680005803F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "sample.n2ui/sample.n2ui-Prefix.pch";
+				INFOPLIST_FILE = "sample.n2ui/sample.n2ui-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -274,6 +435,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		166FDDE418E9D5680005803F /* Build configuration list for PBXNativeTarget "sample.n2ui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				166FDDE518E9D5680005803F /* Debug */,
+				166FDDE618E9D5680005803F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -10,6 +10,10 @@
 # define N2_C 1
 #endif
 
+#ifdef __OBJC__
+# define N2_OBJC 1
+#endif
+
 #ifdef N2_CXX
 # define N2_BEGIN namespace N2_NAME {
 # define N2_END }
@@ -27,5 +31,16 @@
 #endif
 
 #define PASS
+#define TODO
+
+#define N2_NOCOPY(cls) private: cls(cls const&); cls& operator = (cls const&);
+
+N2_BEGIN
+
+typedef long long longlong;
+typedef unsigned long long ulonglong;
+typedef unsigned int uint;
+
+N2_END
 
 #endif

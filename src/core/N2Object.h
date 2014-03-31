@@ -6,11 +6,20 @@ N2_BEGIN
 
 class Object
 {
+    N2_NOCOPY(Object);
+    
 public:
     
     Object();
     virtual ~Object();
     
+    // 引用计数
+    Object* retain() const;
+    bool release() const;
+
+private:
+    
+    mutable ulonglong _refcount;
 };
 
 N2_END

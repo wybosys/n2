@@ -5,4 +5,8 @@
 #define N2UI_BEGIN N2_BEGIN_NS(ui)
 #define N2UI_END N2_END_NS
 
+#ifdef N2_OBJC
+# import <UIKit/UIKit.h>
+#endif
+
 #endif

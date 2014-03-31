@@ -8,20 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		166FDCF018E9CB2E0005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDCEF18E9CB2E0005803F /* Foundation.framework */; };
-		166FDCFF18E9CB2E0005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDCEF18E9CB2E0005803F /* Foundation.framework */; };
-		166FDD0418E9CB2E0005803F /* libn2.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDCEC18E9CB2E0005803F /* libn2.a */; };
-		166FDD1818E9CCDE0005803F /* n2.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDD1718E9CCDE0005803F /* n2.m */; };
+		166FDD1818E9CCDE0005803F /* n2.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDD1718E9CCDE0005803F /* n2.mm */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		166FDD0218E9CB2E0005803F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 166FDCE418E9CB2E0005803F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 166FDCEB18E9CB2E0005803F;
-			remoteInfo = n2;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		166FDCEA18E9CB2E0005803F /* CopyFiles */ = {
@@ -38,9 +26,8 @@
 /* Begin PBXFileReference section */
 		166FDCEC18E9CB2E0005803F /* libn2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libn2.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		166FDCEF18E9CB2E0005803F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		166FDCFC18E9CB2E0005803F /* n2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = n2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		166FDD1618E9CCDE0005803F /* n2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = n2.h; sourceTree = SOURCE_ROOT; };
-		166FDD1718E9CCDE0005803F /* n2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = n2.m; sourceTree = SOURCE_ROOT; };
+		166FDD1718E9CCDE0005803F /* n2.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = n2.mm; sourceTree = SOURCE_ROOT; };
 		166FDD1918E9CD670005803F /* prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = prefix.pch; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -50,15 +37,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				166FDCF018E9CB2E0005803F /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		166FDCF918E9CB2E0005803F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				166FDD0418E9CB2E0005803F /* libn2.a in Frameworks */,
-				166FDCFF18E9CB2E0005803F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,7 +56,6 @@
 			isa = PBXGroup;
 			children = (
 				166FDCEC18E9CB2E0005803F /* libn2.a */,
-				166FDCFC18E9CB2E0005803F /* n2Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -105,7 +82,7 @@
 			children = (
 				166FDD1918E9CD670005803F /* prefix.pch */,
 				166FDD1618E9CCDE0005803F /* n2.h */,
-				166FDD1718E9CCDE0005803F /* n2.m */,
+				166FDD1718E9CCDE0005803F /* n2.mm */,
 			);
 			name = support;
 			sourceTree = "<group>";
@@ -137,24 +114,6 @@
 			productReference = 166FDCEC18E9CB2E0005803F /* libn2.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		166FDCFB18E9CB2E0005803F /* n2Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 166FDD1218E9CB2E0005803F /* Build configuration list for PBXNativeTarget "n2Tests" */;
-			buildPhases = (
-				166FDCF818E9CB2E0005803F /* Sources */,
-				166FDCF918E9CB2E0005803F /* Frameworks */,
-				166FDCFA18E9CB2E0005803F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				166FDD0318E9CB2E0005803F /* PBXTargetDependency */,
-			);
-			name = n2Tests;
-			productName = n2Tests;
-			productReference = 166FDCFC18E9CB2E0005803F /* n2Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -177,46 +136,20 @@
 			projectRoot = "";
 			targets = (
 				166FDCEB18E9CB2E0005803F /* n2 */,
-				166FDCFB18E9CB2E0005803F /* n2Tests */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		166FDCFA18E9CB2E0005803F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		166FDCE818E9CB2E0005803F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166FDD1818E9CCDE0005803F /* n2.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		166FDCF818E9CB2E0005803F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				166FDD1818E9CCDE0005803F /* n2.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		166FDD0318E9CB2E0005803F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 166FDCEB18E9CB2E0005803F /* n2 */;
-			targetProxy = 166FDD0218E9CB2E0005803F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		166FDD0D18E9CB2E0005803F /* Debug */ = {
@@ -294,6 +227,10 @@
 				DSTROOT = /tmp/n2.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"N2LIB=1",
+					"DEBUG=1",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -309,47 +246,12 @@
 				DSTROOT = /tmp/n2.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = N2LIB;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		166FDD1318E9CB2E0005803F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "n2/n2-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "n2Tests/n2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		166FDD1418E9CB2E0005803F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "n2/n2-Prefix.pch";
-				INFOPLIST_FILE = "n2Tests/n2Tests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -370,15 +272,6 @@
 			buildConfigurations = (
 				166FDD1018E9CB2E0005803F /* Debug */,
 				166FDD1118E9CB2E0005803F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		166FDD1218E9CB2E0005803F /* Build configuration list for PBXNativeTarget "n2Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				166FDD1318E9CB2E0005803F /* Debug */,
-				166FDD1418E9CB2E0005803F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

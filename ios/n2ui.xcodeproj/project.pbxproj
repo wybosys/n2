@@ -1,0 +1,281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		166FDD5A18E9D02F0005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5918E9D02F0005803F /* Foundation.framework */; };
+		166FDD5F18E9D02F0005803F /* n2ui.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 166FDD5E18E9D02F0005803F /* n2ui.h */; };
+		166FDD6118E9D02F0005803F /* n2ui.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDD6018E9D02F0005803F /* n2ui.m */; };
+		166FDD8018E9D0880005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		166FDD5418E9D02F0005803F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				166FDD5F18E9D02F0005803F /* n2ui.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		166FDD5618E9D02F0005803F /* libn2ui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libn2ui.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		166FDD5918E9D02F0005803F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		166FDD5D18E9D02F0005803F /* n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "n2ui-Prefix.pch"; sourceTree = "<group>"; };
+		166FDD5E18E9D02F0005803F /* n2ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = n2ui.h; sourceTree = "<group>"; };
+		166FDD6018E9D02F0005803F /* n2ui.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = n2ui.m; sourceTree = "<group>"; };
+		166FDD6718E9D02F0005803F /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		166FDD6A18E9D02F0005803F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		166FDD7F18E9D0880005803F /* libn2core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2core.a; path = "../../../Users/wybo/Library/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos/libn2core.a"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		166FDD5318E9D02F0005803F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				166FDD8018E9D0880005803F /* libn2core.a in Frameworks */,
+				166FDD5A18E9D02F0005803F /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		166FDD4D18E9D02F0005803F = {
+			isa = PBXGroup;
+			children = (
+				166FDD5B18E9D02F0005803F /* n2ui */,
+				166FDD5818E9D02F0005803F /* Frameworks */,
+				166FDD5718E9D02F0005803F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		166FDD5718E9D02F0005803F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				166FDD5618E9D02F0005803F /* libn2ui.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		166FDD5818E9D02F0005803F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				166FDD7F18E9D0880005803F /* libn2core.a */,
+				166FDD5918E9D02F0005803F /* Foundation.framework */,
+				166FDD6718E9D02F0005803F /* XCTest.framework */,
+				166FDD6A18E9D02F0005803F /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		166FDD5B18E9D02F0005803F /* n2ui */ = {
+			isa = PBXGroup;
+			children = (
+				166FDD5E18E9D02F0005803F /* n2ui.h */,
+				166FDD6018E9D02F0005803F /* n2ui.m */,
+				166FDD5C18E9D02F0005803F /* Supporting Files */,
+			);
+			path = n2ui;
+			sourceTree = "<group>";
+		};
+		166FDD5C18E9D02F0005803F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				166FDD5D18E9D02F0005803F /* n2ui-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		166FDD5518E9D02F0005803F /* n2ui */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 166FDD7918E9D02F0005803F /* Build configuration list for PBXNativeTarget "n2ui" */;
+			buildPhases = (
+				166FDD5218E9D02F0005803F /* Sources */,
+				166FDD5318E9D02F0005803F /* Frameworks */,
+				166FDD5418E9D02F0005803F /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = n2ui;
+			productName = n2ui;
+			productReference = 166FDD5618E9D02F0005803F /* libn2ui.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		166FDD4E18E9D02F0005803F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = wybosys;
+			};
+			buildConfigurationList = 166FDD5118E9D02F0005803F /* Build configuration list for PBXProject "n2ui" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 166FDD4D18E9D02F0005803F;
+			productRefGroup = 166FDD5718E9D02F0005803F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				166FDD5518E9D02F0005803F /* n2ui */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		166FDD5218E9D02F0005803F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				166FDD6118E9D02F0005803F /* n2ui.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		166FDD7718E9D02F0005803F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		166FDD7818E9D02F0005803F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		166FDD7A18E9D02F0005803F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/n2ui.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "n2ui/n2ui-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		166FDD7B18E9D02F0005803F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/n2ui.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "n2ui/n2ui-Prefix.pch";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		166FDD5118E9D02F0005803F /* Build configuration list for PBXProject "n2ui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				166FDD7718E9D02F0005803F /* Debug */,
+				166FDD7818E9D02F0005803F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		166FDD7918E9D02F0005803F /* Build configuration list for PBXNativeTarget "n2ui" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				166FDD7A18E9D02F0005803F /* Debug */,
+				166FDD7B18E9D02F0005803F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 166FDD4E18E9D02F0005803F /* Project object */;
+}

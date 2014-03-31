@@ -13,11 +13,12 @@
 		166FDDC218E9D5680005803F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDC118E9D5680005803F /* CoreGraphics.framework */; };
 		166FDDC918E9D5680005803F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 166FDDC718E9D5680005803F /* InfoPlist.strings */; };
 		166FDDCB18E9D5680005803F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCA18E9D5680005803F /* main.m */; };
-		166FDDCF18E9D5680005803F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCE18E9D5680005803F /* AppDelegate.m */; };
+		166FDDCF18E9D5680005803F /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCE18E9D5680005803F /* AppDelegate.cpp */; };
 		166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5618E9D02F0005803F /* libn2ui.a */; };
 		166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
 		166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDEC18E9D5B80005803F /* UIKit.framework */; };
 		166FDDF018E9D6030005803F /* N2Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDEF18E9D6030005803F /* N2Application.mm */; };
+		166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDF518E9DA2A0005803F /* N2Ui.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,11 +45,12 @@
 		166FDDCA18E9D5680005803F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		166FDDCC18E9D5680005803F /* sample.n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sample.n2ui-Prefix.pch"; sourceTree = "<group>"; };
 		166FDDCD18E9D5680005803F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		166FDDCE18E9D5680005803F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		166FDDCE18E9D5680005803F /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
 		166FDDEC18E9D5B80005803F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		166FDDEE18E9D6030005803F /* N2Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Application.h; path = ../../src/ui/N2Application.h; sourceTree = "<group>"; };
 		166FDDEF18E9D6030005803F /* N2Application.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Application.mm; path = ../../src/ui/N2Application.mm; sourceTree = "<group>"; };
 		166FDDF218E9D8870005803F /* N2Ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Ui.h; path = ../../src/ui/N2Ui.h; sourceTree = "<group>"; };
+		166FDDF518E9DA2A0005803F /* N2Ui.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Ui.mm; path = ../../src/ui/N2Ui.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				166FDDF218E9D8870005803F /* N2Ui.h */,
+				166FDDF518E9DA2A0005803F /* N2Ui.mm */,
 				166FDDEE18E9D6030005803F /* N2Application.h */,
 				166FDDEF18E9D6030005803F /* N2Application.mm */,
 			);
@@ -137,7 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				166FDDCD18E9D5680005803F /* AppDelegate.h */,
-				166FDDCE18E9D5680005803F /* AppDelegate.m */,
+				166FDDCE18E9D5680005803F /* AppDelegate.cpp */,
 				166FDDC518E9D5680005803F /* Supporting Files */,
 			);
 			path = sample.n2ui;
@@ -235,6 +238,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				166FDDF018E9D6030005803F /* N2Application.mm in Sources */,
+				166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,7 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166FDDCF18E9D5680005803F /* AppDelegate.m in Sources */,
+				166FDDCF18E9D5680005803F /* AppDelegate.cpp in Sources */,
 				166FDDCB18E9D5680005803F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,6 +391,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = ../src;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -411,6 +416,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = ../src;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

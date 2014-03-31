@@ -1,5 +1,5 @@
 
-#import "N2Kernel.h"
+#import "N2Core.h"
 #import "N2Object.h"
 
 N2_BEGIN

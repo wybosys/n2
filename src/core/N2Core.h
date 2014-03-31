@@ -5,4 +5,10 @@
 #include "N2Kernel.h"
 #include "N2Object.h"
 
+#define N2CORE_BEGIN N2_BEGIN_NS(core)
+#define N2CORE_END N2_END_NS
+
+#define N2SAMPLE_BEGIN N2_BEGIN_NS(sample)
+#define N2SAMPLE_END N2_END_NS
+
 #endif

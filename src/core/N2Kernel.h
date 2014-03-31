@@ -15,11 +15,15 @@
 # define N2_END }
 # define N2_BEGIN_C exten "C" {
 # define N2_END_C }
+# define N2_BEGIN_NS(ns) N2_BEGIN namespace ns {
+# define N2_END_NS } N2_END
 #else
 # define N2_BEGIN
 # define N2_END
 # define N2_BEGIN_C
 # define N2_END_C
+# define N2_BEIGN_NS(ns)
+# define N2_END_NS
 #endif
 
 #define PASS

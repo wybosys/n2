@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#include "N2Application.h"
 
 @implementation AppDelegate
 

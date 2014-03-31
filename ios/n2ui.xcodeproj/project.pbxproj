@@ -17,7 +17,7 @@
 		166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5618E9D02F0005803F /* libn2ui.a */; };
 		166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
 		166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDEC18E9D5B80005803F /* UIKit.framework */; };
-		166FDDF018E9D6030005803F /* N2Application.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDEF18E9D6030005803F /* N2Application.m */; };
+		166FDDF018E9D6030005803F /* N2Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDEF18E9D6030005803F /* N2Application.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,7 +47,8 @@
 		166FDDCE18E9D5680005803F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		166FDDEC18E9D5B80005803F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		166FDDEE18E9D6030005803F /* N2Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Application.h; path = ../../src/ui/N2Application.h; sourceTree = "<group>"; };
-		166FDDEF18E9D6030005803F /* N2Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = N2Application.m; path = ../../src/ui/N2Application.m; sourceTree = "<group>"; };
+		166FDDEF18E9D6030005803F /* N2Application.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Application.mm; path = ../../src/ui/N2Application.mm; sourceTree = "<group>"; };
+		166FDDF218E9D8870005803F /* N2Ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Ui.h; path = ../../src/ui/N2Ui.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,8 +126,9 @@
 		166FDDBA18E9D5360005803F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				166FDDF218E9D8870005803F /* N2Ui.h */,
 				166FDDEE18E9D6030005803F /* N2Application.h */,
-				166FDDEF18E9D6030005803F /* N2Application.m */,
+				166FDDEF18E9D6030005803F /* N2Application.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -232,7 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166FDDF018E9D6030005803F /* N2Application.m in Sources */,
+				166FDDF018E9D6030005803F /* N2Application.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +342,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = ../src;
 			};
 			name = Debug;
 		};
@@ -356,6 +359,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = ../src;
 			};
 			name = Release;
 		};

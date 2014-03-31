@@ -34,6 +34,7 @@
 		166FDDB518E9D31A0005803F /* N2Object.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Object.mm; path = ../../src/core/N2Object.mm; sourceTree = "<group>"; };
 		166FDDB718E9D3950005803F /* N2Kernel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Kernel.h; path = ../../src/core/N2Kernel.h; sourceTree = "<group>"; };
 		166FDDB818E9D3950005803F /* N2Kernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Kernel.mm; path = ../../src/core/N2Kernel.mm; sourceTree = "<group>"; };
+		166FDDF118E9D87F0005803F /* N2Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Core.h; path = ../../src/core/N2Core.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +96,7 @@
 		166FDDB318E9D2A40005803F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				166FDDF118E9D87F0005803F /* N2Core.h */,
 				166FDDB718E9D3950005803F /* N2Kernel.h */,
 				166FDDB818E9D3950005803F /* N2Kernel.mm */,
 				166FDDB418E9D31A0005803F /* N2Object.h */,

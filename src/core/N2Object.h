@@ -4,7 +4,24 @@
 
 N2_BEGIN
 
+class MetaObject
+{
+public:
+    
+    MetaObject();
+    virtual ~MetaObject();
+    
+protected:
+    
+    void setMeta(metapointer_t);
+    metapointer_t getMeta() const;
+    
+private:
+    mutable metapointer_t _pmeta;
+};
+
 class Object
+: public MetaObject
 {
     N2_NOCOPY(Object);
     
@@ -17,9 +34,10 @@ public:
     Object* retain() const;
     bool release() const;
 
-private:
+protected:
     
-    mutable ulonglong _refcount;
+    mutable ulonglong _refcnt;
+    
 };
 
 N2_END

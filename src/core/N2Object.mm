@@ -4,26 +4,47 @@
 
 N2_BEGIN
 
+MetaObject::MetaObject()
+: _pmeta(nil)
+{
+    
+}
+
+MetaObject::~MetaObject()
+{
+    _pmeta = nil;
+}
+
+void MetaObject::setMeta(metapointer_t p)
+{
+    _pmeta = p;
+}
+
+metapointer_t MetaObject::getMeta() const
+{
+    return _pmeta;
+}
+
 Object::Object()
-: _refcount(1)
+: _refcnt(1)
 {
     
 }
 
 Object::~Object()
 {
-    
+
 }
 
 Object* Object::retain() const
 {
-    ++_refcount;
+    ++_refcnt;
     return const_cast<Object*>(this);
 }
 
 bool Object::release() const
 {
-    if (--_refcount == 0)
+    if (--_refcnt == 0)
     {
         delete this;
         return true;

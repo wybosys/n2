@@ -39,7 +39,19 @@ N2_BEGIN
 
 typedef long long longlong;
 typedef unsigned long long ulonglong;
-typedef unsigned int uint;
+typedef signed int dword;
+typedef unsigned int uint, udword;
+typedef unsigned long ulong;
+typedef unsigned char ubyte, uchar;
+typedef signed char sbyte;
+typedef unsigned short ushort, uword;
+typedef signed short word;
+
+#ifdef N2_OBJC
+typedef id metapointer_t;
+#else
+typedef void* metapointer_t;
+#endif
 
 N2_END
 

@@ -11,6 +11,7 @@
 		166FDDB618E9D31A0005803F /* N2Object.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDB518E9D31A0005803F /* N2Object.mm */; };
 		166FDDB918E9D3950005803F /* N2Kernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDB818E9D3950005803F /* N2Kernel.mm */; };
 		166FDDF418E9D97F0005803F /* N2Core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDF318E9D97F0005803F /* N2Core.mm */; };
+		166FDDFC18E9E2BC0005803F /* N2Values.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDFB18E9E2BC0005803F /* N2Values.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -37,6 +38,8 @@
 		166FDDB818E9D3950005803F /* N2Kernel.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Kernel.mm; path = ../../src/core/N2Kernel.mm; sourceTree = "<group>"; };
 		166FDDF118E9D87F0005803F /* N2Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Core.h; path = ../../src/core/N2Core.h; sourceTree = "<group>"; };
 		166FDDF318E9D97F0005803F /* N2Core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Core.mm; path = ../../src/core/N2Core.mm; sourceTree = "<group>"; };
+		166FDDFA18E9E2BC0005803F /* N2Values.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Values.h; path = ../../src/core/N2Values.h; sourceTree = "<group>"; };
+		166FDDFB18E9E2BC0005803F /* N2Values.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Values.mm; path = ../../src/core/N2Values.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +107,8 @@
 				166FDDB818E9D3950005803F /* N2Kernel.mm */,
 				166FDDB418E9D31A0005803F /* N2Object.h */,
 				166FDDB518E9D31A0005803F /* N2Object.mm */,
+				166FDDFA18E9E2BC0005803F /* N2Values.h */,
+				166FDDFB18E9E2BC0005803F /* N2Values.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				166FDDF418E9D97F0005803F /* N2Core.mm in Sources */,
 				166FDDB918E9D3950005803F /* N2Kernel.mm in Sources */,
 				166FDDB618E9D31A0005803F /* N2Object.mm in Sources */,
+				166FDDFC18E9E2BC0005803F /* N2Values.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

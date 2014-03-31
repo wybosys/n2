@@ -14,7 +14,6 @@
 		166FDDC918E9D5680005803F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 166FDDC718E9D5680005803F /* InfoPlist.strings */; };
 		166FDDCB18E9D5680005803F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCA18E9D5680005803F /* main.m */; };
 		166FDDCF18E9D5680005803F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCE18E9D5680005803F /* AppDelegate.m */; };
-		166FDDD118E9D5680005803F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 166FDDD018E9D5680005803F /* Images.xcassets */; };
 		166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5618E9D02F0005803F /* libn2ui.a */; };
 		166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
 		166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDEC18E9D5B80005803F /* UIKit.framework */; };
@@ -46,7 +45,6 @@
 		166FDDCC18E9D5680005803F /* sample.n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sample.n2ui-Prefix.pch"; sourceTree = "<group>"; };
 		166FDDCD18E9D5680005803F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		166FDDCE18E9D5680005803F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		166FDDD018E9D5680005803F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		166FDDEC18E9D5B80005803F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		166FDDEE18E9D6030005803F /* N2Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Application.h; path = ../../src/ui/N2Application.h; sourceTree = "<group>"; };
 		166FDDEF18E9D6030005803F /* N2Application.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = N2Application.m; path = ../../src/ui/N2Application.m; sourceTree = "<group>"; };
@@ -138,7 +136,6 @@
 			children = (
 				166FDDCD18E9D5680005803F /* AppDelegate.h */,
 				166FDDCE18E9D5680005803F /* AppDelegate.m */,
-				166FDDD018E9D5680005803F /* Images.xcassets */,
 				166FDDC518E9D5680005803F /* Supporting Files */,
 			);
 			path = sample.n2ui;
@@ -225,7 +222,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				166FDDC918E9D5680005803F /* InfoPlist.strings in Resources */,
-				166FDDD118E9D5680005803F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,3 +10,17 @@
 @implementation N2AppDelegate
 
 @end
+
+N2UI_BEGIN
+
+Application::Application()
+{
+    
+}
+
+Application::~Application()
+{
+    
+}
+
+N2UI_END

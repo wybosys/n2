@@ -7,13 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF28D18FC92E3004C7D1C /* N2View.mm */; };
+		161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29018FC9363004C7D1C /* N2Navigation.mm */; };
+		161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29318FC937B004C7D1C /* N2Tabbar.mm */; };
+		161CF29718FC93A4004C7D1C /* N2Widgets.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29618FC93A4004C7D1C /* N2Widgets.mm */; };
 		166FDD5A18E9D02F0005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5918E9D02F0005803F /* Foundation.framework */; };
 		166FDD8018E9D0880005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
 		166FDDC018E9D5680005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5918E9D02F0005803F /* Foundation.framework */; };
 		166FDDC218E9D5680005803F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDC118E9D5680005803F /* CoreGraphics.framework */; };
 		166FDDC918E9D5680005803F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 166FDDC718E9D5680005803F /* InfoPlist.strings */; };
-		166FDDCB18E9D5680005803F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCA18E9D5680005803F /* main.m */; };
-		166FDDCF18E9D5680005803F /* AppDelegate.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCE18E9D5680005803F /* AppDelegate.cpp */; };
+		166FDDCB18E9D5680005803F /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCA18E9D5680005803F /* main.mm */; };
+		166FDDCF18E9D5680005803F /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDCE18E9D5680005803F /* AppDelegate.mm */; };
 		166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5618E9D02F0005803F /* libn2ui.a */; };
 		166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
 		166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDDEC18E9D5B80005803F /* UIKit.framework */; };
@@ -35,6 +39,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		161CF28C18FC92E3004C7D1C /* N2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2View.h; path = ../../src/ui/N2View.h; sourceTree = "<group>"; };
+		161CF28D18FC92E3004C7D1C /* N2View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2View.mm; path = ../../src/ui/N2View.mm; sourceTree = "<group>"; };
+		161CF28F18FC9363004C7D1C /* N2Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Navigation.h; path = ../../src/ui/N2Navigation.h; sourceTree = "<group>"; };
+		161CF29018FC9363004C7D1C /* N2Navigation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Navigation.mm; path = ../../src/ui/N2Navigation.mm; sourceTree = "<group>"; };
+		161CF29218FC937B004C7D1C /* N2Tabbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Tabbar.h; path = ../../src/ui/N2Tabbar.h; sourceTree = "<group>"; };
+		161CF29318FC937B004C7D1C /* N2Tabbar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Tabbar.mm; path = ../../src/ui/N2Tabbar.mm; sourceTree = "<group>"; };
+		161CF29518FC93A4004C7D1C /* N2Widgets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Widgets.h; path = ../../src/ui/N2Widgets.h; sourceTree = "<group>"; };
+		161CF29618FC93A4004C7D1C /* N2Widgets.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Widgets.mm; path = ../../src/ui/N2Widgets.mm; sourceTree = "<group>"; };
 		166FDD5618E9D02F0005803F /* libn2ui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libn2ui.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		166FDD5918E9D02F0005803F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		166FDD5D18E9D02F0005803F /* n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "n2ui-Prefix.pch"; sourceTree = "<group>"; };
@@ -43,10 +55,10 @@
 		166FDDC118E9D5680005803F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		166FDDC618E9D5680005803F /* sample.n2ui-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "sample.n2ui-Info.plist"; sourceTree = "<group>"; };
 		166FDDC818E9D5680005803F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		166FDDCA18E9D5680005803F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		166FDDCA18E9D5680005803F /* main.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = main.mm; sourceTree = "<group>"; };
 		166FDDCC18E9D5680005803F /* sample.n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "sample.n2ui-Prefix.pch"; sourceTree = "<group>"; };
 		166FDDCD18E9D5680005803F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		166FDDCE18E9D5680005803F /* AppDelegate.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AppDelegate.cpp; sourceTree = "<group>"; };
+		166FDDCE18E9D5680005803F /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
 		166FDDEC18E9D5B80005803F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		166FDDEE18E9D6030005803F /* N2Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Application.h; path = ../../src/ui/N2Application.h; sourceTree = "<group>"; };
 		166FDDEF18E9D6030005803F /* N2Application.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Application.mm; path = ../../src/ui/N2Application.mm; sourceTree = "<group>"; };
@@ -137,6 +149,14 @@
 				166FDDEF18E9D6030005803F /* N2Application.mm */,
 				166FDDF718E9E0510005803F /* N2ViewController.h */,
 				166FDDF818E9E0510005803F /* N2ViewController.mm */,
+				161CF28C18FC92E3004C7D1C /* N2View.h */,
+				161CF28D18FC92E3004C7D1C /* N2View.mm */,
+				161CF28F18FC9363004C7D1C /* N2Navigation.h */,
+				161CF29018FC9363004C7D1C /* N2Navigation.mm */,
+				161CF29218FC937B004C7D1C /* N2Tabbar.h */,
+				161CF29318FC937B004C7D1C /* N2Tabbar.mm */,
+				161CF29518FC93A4004C7D1C /* N2Widgets.h */,
+				161CF29618FC93A4004C7D1C /* N2Widgets.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -145,7 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				166FDDCD18E9D5680005803F /* AppDelegate.h */,
-				166FDDCE18E9D5680005803F /* AppDelegate.cpp */,
+				166FDDCE18E9D5680005803F /* AppDelegate.mm */,
 				166FDDC518E9D5680005803F /* Supporting Files */,
 			);
 			path = sample.n2ui;
@@ -156,7 +176,7 @@
 			children = (
 				166FDDC618E9D5680005803F /* sample.n2ui-Info.plist */,
 				166FDDC718E9D5680005803F /* InfoPlist.strings */,
-				166FDDCA18E9D5680005803F /* main.m */,
+				166FDDCA18E9D5680005803F /* main.mm */,
 				166FDDCC18E9D5680005803F /* sample.n2ui-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -243,7 +263,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				166FDDF918E9E0510005803F /* N2ViewController.mm in Sources */,
+				161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */,
 				166FDDF018E9D6030005803F /* N2Application.mm in Sources */,
+				161CF29718FC93A4004C7D1C /* N2Widgets.mm in Sources */,
+				161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */,
+				161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */,
 				166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,8 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166FDDCF18E9D5680005803F /* AppDelegate.cpp in Sources */,
-				166FDDCB18E9D5680005803F /* main.m in Sources */,
+				166FDDCF18E9D5680005803F /* AppDelegate.mm in Sources */,
+				166FDDCB18E9D5680005803F /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,6 +479,7 @@
 				166FDDE618E9D5680005803F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

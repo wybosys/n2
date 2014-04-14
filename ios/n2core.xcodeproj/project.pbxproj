@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161CF29A18FC93E4004C7D1C /* N2SignalSlot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29918FC93E4004C7D1C /* N2SignalSlot.mm */; };
+		161CF29D18FC9D4A004C7D1C /* N2Objc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29C18FC9D4A004C7D1C /* N2Objc.mm */; };
 		166FDD2818E9CFC70005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD2718E9CFC70005803F /* Foundation.framework */; };
 		166FDDB618E9D31A0005803F /* N2Object.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDB518E9D31A0005803F /* N2Object.mm */; };
 		166FDDB918E9D3950005803F /* N2Kernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDB818E9D3950005803F /* N2Kernel.mm */; };
@@ -27,6 +29,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		161CF29818FC93E4004C7D1C /* N2SignalSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2SignalSlot.h; path = ../../src/core/N2SignalSlot.h; sourceTree = "<group>"; };
+		161CF29918FC93E4004C7D1C /* N2SignalSlot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2SignalSlot.mm; path = ../../src/core/N2SignalSlot.mm; sourceTree = "<group>"; };
+		161CF29B18FC9D4A004C7D1C /* N2Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Objc.h; path = ../../src/core/N2Objc.h; sourceTree = "<group>"; };
+		161CF29C18FC9D4A004C7D1C /* N2Objc.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Objc.mm; path = ../../src/core/N2Objc.mm; sourceTree = "<group>"; };
 		166FDD2418E9CFC70005803F /* libn2core.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libn2core.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		166FDD2718E9CFC70005803F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		166FDD2B18E9CFC70005803F /* n2core-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "n2core-Prefix.pch"; sourceTree = "<group>"; };
@@ -107,8 +113,12 @@
 				166FDDB818E9D3950005803F /* N2Kernel.mm */,
 				166FDDB418E9D31A0005803F /* N2Object.h */,
 				166FDDB518E9D31A0005803F /* N2Object.mm */,
+				161CF29818FC93E4004C7D1C /* N2SignalSlot.h */,
+				161CF29918FC93E4004C7D1C /* N2SignalSlot.mm */,
 				166FDDFA18E9E2BC0005803F /* N2Values.h */,
 				166FDDFB18E9E2BC0005803F /* N2Values.mm */,
+				161CF29B18FC9D4A004C7D1C /* N2Objc.h */,
+				161CF29C18FC9D4A004C7D1C /* N2Objc.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -166,6 +176,8 @@
 			files = (
 				166FDDF418E9D97F0005803F /* N2Core.mm in Sources */,
 				166FDDB918E9D3950005803F /* N2Kernel.mm in Sources */,
+				161CF29A18FC93E4004C7D1C /* N2SignalSlot.mm in Sources */,
+				161CF29D18FC9D4A004C7D1C /* N2Objc.mm in Sources */,
 				166FDDB618E9D31A0005803F /* N2Object.mm in Sources */,
 				166FDDFC18E9E2BC0005803F /* N2Values.mm in Sources */,
 			);

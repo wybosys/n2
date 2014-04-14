@@ -7,10 +7,22 @@ N2UI_BEGIN
 class Application
 : public Object
 {
+    PRIVATE(Application);
+    
 public:
     
     Application();
     virtual ~Application();
+
+    static Application& shared();
+    
+    // 启动
+    int execute();
+    int execute(int, char**);
+    
+    // 启动，顺序 bootstrap->load
+    bool bootstrap();
+    bool load();
     
 };
 

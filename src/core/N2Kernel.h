@@ -3,6 +3,7 @@
 #define __N2KERNEL_A32EA0AE2D8245E49F1442C4F9B20793_H_INCLUDED
 
 #define N2_NAME n2
+#define N2NS N2_NAME
 
 #ifdef __cplusplus
 # define N2_CXX 1
@@ -15,7 +16,7 @@
 #endif
 
 #ifdef N2_CXX
-# define N2_BEGIN namespace N2_NAME {
+# define N2_BEGIN namespace N2NS {
 # define N2_END }
 # define N2_BEGIN_C exten "C" {
 # define N2_END_C }
@@ -49,9 +50,55 @@ typedef signed short word;
 
 #ifdef N2_OBJC
 typedef id metapointer_t;
+
+# define API_IOS8
+# define API_IOS7
+# define API_IOS6
+# define API_IOS5
+
+# ifndef N2_OBJC_ARC
+#  define NOARC_TODO
+# endif
+
+# ifdef __IPHONE_7_0
+#  define IOS_SDK_7 1
+# endif
+
+# define IOS7_FEATURES
+
+# if !defined(IOS_SDK_7) && defined(IOS7_FEATURES)
+#  undef IOS7_FEATURES
+# endif
+
 #else
 typedef void* metapointer_t;
 #endif
+
+# define LOG(fmt, ...)
+# define INFO(fmt, ...)
+# define WARN(fmt, ...)
+# define FATAL(fmt, ...)
+
+inline bool mask_check(uint mask, uint val)
+{
+    return (val & mask) == mask;
+}
+
+inline uint mask_set(uint mask, uint val)
+{
+    if (mask_check(mask, val))
+        return val;
+    val |= mask;
+    return val;
+}
+
+inline uint mask_unset(uint mask, uint val)
+{
+    if (!mask_check(mask, val))
+        return val;
+    val ^= mask;
+    return val;
+}
 
 N2_END
 

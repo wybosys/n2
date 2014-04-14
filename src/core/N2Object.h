@@ -17,7 +17,9 @@ protected:
     metapointer_t getMeta() const;
     
 private:
+    
     mutable metapointer_t _pmeta;
+    
 };
 
 class Object
@@ -39,6 +41,33 @@ protected:
     mutable ulonglong _refcnt;
     
 };
+
+#define PRIVATE_CLASS(cls) cls##_Private
+
+#define PRIVATE_IMPL(cls) \
+class PRIVATE_CLASS(cls) \
+{ \
+friend class cls; \
+cls* d_owner; \
+
+#define PRIVATE_END \
+};
+
+#define PRIVATE_CONSTRUCT \
+d_ptr = new private_t(); \
+d_ptr->d_owner = this; \
+d_ptr->init();
+
+#define PRIVATE_DESTROY \
+d_ptr->fin(); \
+delete d_ptr; \
+d_ptr = NULL;
+
+#define PRIVATE(cls) \
+private: \
+friend class PRIVATE_CLASS(cls); \
+typedef class PRIVATE_CLASS(cls) private_t; \
+private_t *d_ptr;
 
 N2_END
 

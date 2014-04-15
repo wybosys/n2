@@ -22,6 +22,7 @@
 # define N2_END_C }
 # define N2_BEGIN_NS(ns) N2_BEGIN namespace ns {
 # define N2_END_NS } N2_END
+# define N2_USE using namespace N2NS;
 #else
 # define N2_BEGIN
 # define N2_END

@@ -66,6 +66,15 @@ inline void refobj_release(T*& l)
 }
 
 template <typename T>
+inline void refobj_zero(T*& l)
+{
+    if (l) {
+        l->release();
+        l = NULL;
+    }
+}
+
+template <typename T>
 class RefPtr
 : public Ptr<T>
 {

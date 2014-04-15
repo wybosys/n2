@@ -1,6 +1,28 @@
 
 #import "N2Core.h"
 #import "N2Object.h"
+#import "N2Ptr.h"
+#include <objc/runtime.h>
+
+@interface N2MetaObject : NSObject
+
+@property (nonatomic, assign) ::N2NS::Object* cxxobj;
+
+@end
+
+@implementation N2MetaObject
+
+- (void)setCxxobj:(::N2NS::Object*)cxxobj {
+    N2_USE;
+    refobj_set(_cxxobj, cxxobj);
+}
+
+- (void)dealloc {
+    N2_USE;
+    refobj_zero(_cxxobj);
+}
+
+@end
 
 N2_BEGIN
 
@@ -19,7 +41,7 @@ MetaObject::MetaObject(MetaObject const& r)
 
 MetaObject::~MetaObject()
 {
-    _pmeta = nil;
+    setMeta(nil);
 }
 
 void MetaObject::setMeta(metapointer_t p)
@@ -48,7 +70,7 @@ Object::Object()
 
 Object::~Object()
 {
-
+    
 }
 
 Object* Object::retain() const
@@ -65,6 +87,20 @@ bool Object::release() const
         return true;
     }
     return false;
+}
+
+static const char kMetaObjectKey = ' ';
+
+void Object::setMeta(metapointer_t p)
+{
+    N2MetaObject* mo = nil;
+    if (p) {
+        mo = [[N2MetaObject alloc] init];
+        mo.cxxobj = this;
+    }
+    objc_setAssociatedObject(getMeta(), &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    MetaObject::setMeta(p);
 }
 
 N2_END

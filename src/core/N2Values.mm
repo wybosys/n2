@@ -167,6 +167,13 @@ String& String::operator += (String const& r)
     return *this;
 }
 
+String& String::operator = (String const& r)
+{
+    setMeta([r copy]);
+    metamutable = r.metamutable;
+    return *this;
+}
+
 size_t String::length() const
 {
     return [getMeta() length];

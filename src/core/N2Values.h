@@ -58,6 +58,7 @@ public:
     String(NSMutableString*);
     
     String& operator += (String const&);
+    String& operator = (String const&);
     size_t length() const;
     
 };

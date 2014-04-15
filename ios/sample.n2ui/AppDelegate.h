@@ -7,6 +7,8 @@ class SampleApp
 : public ui::Application
 {
 public:
+
+    void load();
     
 };
 

@@ -77,9 +77,9 @@ bool Application::bootstrap()
     return YES;
 }
 
-bool Application::load()
+void Application::load()
 {
-    return YES;
+    PASS;
 }
 
 N2UI_END
@@ -112,10 +112,9 @@ N2UI_END
         FATAL("应用初始化失败");
         return NO;
     }
-    if (!rapp.load()) {
-        FATAL("应用加载失败");
-        return NO;
-    }
+    
+    // 加载应用
+    rapp.load();
     
     return YES;
 }

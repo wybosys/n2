@@ -9,11 +9,15 @@ class MetaObject
 public:
     
     MetaObject();
+    MetaObject(MetaObject const&);
     virtual ~MetaObject();
     
     inline operator metapointer_t () const {
         return _pmeta;
     }
+    
+    // 复制一个对象
+    MetaObject copy() const;
     
 protected:
     

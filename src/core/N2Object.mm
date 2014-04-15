@@ -10,6 +10,13 @@ MetaObject::MetaObject()
     
 }
 
+MetaObject::MetaObject(MetaObject const& r)
+: _pmeta(nil)
+{
+    setMeta(r);
+    metamutable = r.metamutable;
+}
+
 MetaObject::~MetaObject()
 {
     _pmeta = nil;
@@ -23,6 +30,14 @@ void MetaObject::setMeta(metapointer_t p)
 metapointer_t MetaObject::getMeta() const
 {
     return _pmeta;
+}
+
+MetaObject MetaObject::copy() const
+{
+    id obj = [_pmeta copy];
+    MetaObject ret;
+    ret.setMeta(obj);
+    return ret;
 }
 
 Object::Object()

@@ -2,7 +2,7 @@
 #include "N2Core.h"
 #include "N2Values.h"
 
-N2CORE_BEGIN
+N2_BEGIN
 
 Number::Number(char v)
 {
@@ -152,6 +152,11 @@ String::String(NSString* str)
     setMeta(str);
 }
 
+String::String(String const& r)
+{
+    *this = r;
+}
+
 String::String(NSMutableString* str)
 {
     setMeta(str);
@@ -169,7 +174,7 @@ String& String::operator += (String const& r)
 
 String& String::operator = (String const& r)
 {
-    setMeta([r copy]);
+    setMeta(r.copy());
     metamutable = r.metamutable;
     return *this;
 }
@@ -184,4 +189,4 @@ Value::Value()
     
 }
 
-N2CORE_END
+N2_END

@@ -2,7 +2,7 @@
 #ifndef __N2VALUES_413E577417484C43847B8DCB14C3C9BD_H_INCLUDED
 #define __N2VALUES_413E577417484C43847B8DCB14C3C9BD_H_INCLUDED
 
-N2CORE_BEGIN
+N2_BEGIN
 
 class Number
 : public Object
@@ -56,6 +56,7 @@ public:
     String();
     String(NSString*);
     String(NSMutableString*);
+    String(String const&);
     
     String& operator += (String const&);
     String& operator = (String const&);
@@ -76,6 +77,6 @@ public:
     
 };
 
-N2CORE_END
+N2_END
 
 #endif

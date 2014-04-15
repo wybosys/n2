@@ -22,7 +22,7 @@ public:
     
     // 启动，顺序 bootstrap->load
     virtual bool bootstrap();
-    virtual bool load();
+    virtual void load();
     
 };
 

@@ -9,6 +9,8 @@ N2CORE_BEGIN
 
 typedef ::std::string Signal;
 class Object;
+class Slots;
+class Signals;
 
 class Slot
 {
@@ -43,8 +45,26 @@ protected:
     
 };
 
+class Slots
+{
+public:
+    
+    Slots();
+    
+protected:
+    
+# ifdef DEBUG_MODE
+    Signal signal;
+    Ptr<Signals> source;
+# endif
+    
+};
+
 class Signals
 {
+public:
+    
+    Signals();
     
 };
 

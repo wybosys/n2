@@ -11,6 +11,10 @@ public:
     MetaObject();
     virtual ~MetaObject();
     
+    inline operator metapointer_t () const {
+        return _pmeta;
+    }
+    
 protected:
     
     void setMeta(metapointer_t);

@@ -20,4 +20,14 @@ void Slot::emit()
     
 }
 
+Slots::Slots()
+{
+    
+}
+
+Signals::Signals()
+{
+    
+}
+
 N2CORE_END

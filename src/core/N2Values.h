@@ -22,12 +22,30 @@ public:
     Number(longlong);
     Number(ulonglong);
     
+    operator char () const;
+    operator uchar () const;
+    operator short () const;
+    operator ushort () const;
+    operator int () const;
+    operator uint () const;
+    operator float () const;
+    operator double () const;
+    operator long () const;
+    operator ulong () const;
+    operator longlong () const;
+    operator ulonglong () const;
+    
 };
 
 class String
 : public Object
 {
 public:
+  
+    String();
+    String(NSString*);
+    
+    String& operator += (String const&);
     
 };
 

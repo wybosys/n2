@@ -31,6 +31,25 @@
 # define N2_END_NS
 #endif
 
+#if defined(_DEBUG) || defined(_DEBUG_) || defined(DEBUG)
+# define PRECOMP_DEBUG_MODE
+#endif
+
+#ifdef PRECOMP_DEBUG_MODE
+# define DEBUG_MODE
+# define DEBUG_EXPRESS(exp) exp
+# define RELEASE_EXPRESS(exp) {}
+# define DEBUG_SYMBOL(sym) sym
+# define RELEASE_SYMBOL(sym)
+# define TEST_EXPRESS(exp) exp
+#else
+# define RELEASE_MODE
+# define DEBUG_EXPRESS(exp) {}
+# define RELEASE_EXPRESS(exp) exp
+# define DEBUG_SYMBOL(sym)
+# define RELEASE_SYMBOL(sym) sym
+#endif
+
 #define PASS
 #define TODO
 

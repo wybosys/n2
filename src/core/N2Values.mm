@@ -124,6 +124,22 @@ Number::operator ulonglong() const
     return [getMeta() unsignedLongLongValue];
 }
 
+Data::Data()
+{
+    
+}
+
+Data::Data(NSData* d)
+{
+    setMeta(d);
+}
+
+Data::Data(NSMutableData* d)
+{
+    setMeta(d);
+    metamutable = true;
+}
+
 String::String()
 {
     setMeta(@"");
@@ -136,10 +152,24 @@ String::String(NSString* str)
     setMeta(str);
 }
 
+String::String(NSMutableString* str)
+{
+    setMeta(str);
+    metamutable = true;
+}
+
 String& String::operator += (String const& r)
 {
-    setMeta([getMeta() stringByAppendingString:r]);
+    if (metamutable)
+        [getMeta() appendString:r];
+    else
+        setMeta([getMeta() stringByAppendingString:r]);
     return *this;
+}
+
+size_t String::length() const
+{
+    return [getMeta() length];
 }
 
 Value::Value()

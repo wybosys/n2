@@ -5,7 +5,7 @@
 N2_BEGIN
 
 MetaObject::MetaObject()
-: _pmeta(nil)
+: _pmeta(nil), metamutable(false)
 {
     
 }

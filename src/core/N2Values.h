@@ -37,6 +37,17 @@ public:
     
 };
 
+class Data
+: public Object
+{
+public:
+    
+    Data();
+    Data(NSData*);
+    Data(NSMutableData*);
+    
+};
+
 class String
 : public Object
 {
@@ -44,8 +55,10 @@ public:
   
     String();
     String(NSString*);
+    String(NSMutableString*);
     
     String& operator += (String const&);
+    size_t length() const;
     
 };
 

@@ -14,6 +14,7 @@
 		166FDDB918E9D3950005803F /* N2Kernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDB818E9D3950005803F /* N2Kernel.mm */; };
 		166FDDF418E9D97F0005803F /* N2Core.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDF318E9D97F0005803F /* N2Core.mm */; };
 		166FDDFC18E9E2BC0005803F /* N2Values.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDFB18E9E2BC0005803F /* N2Values.mm */; };
+		16F8562318FCCCCD007984F7 /* N2Ptr.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16F8562218FCCCCD007984F7 /* N2Ptr.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,6 +47,8 @@
 		166FDDF318E9D97F0005803F /* N2Core.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Core.mm; path = ../../src/core/N2Core.mm; sourceTree = "<group>"; };
 		166FDDFA18E9E2BC0005803F /* N2Values.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Values.h; path = ../../src/core/N2Values.h; sourceTree = "<group>"; };
 		166FDDFB18E9E2BC0005803F /* N2Values.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Values.mm; path = ../../src/core/N2Values.mm; sourceTree = "<group>"; };
+		16F8562118FCCCCD007984F7 /* N2Ptr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Ptr.h; path = ../../src/core/N2Ptr.h; sourceTree = "<group>"; };
+		16F8562218FCCCCD007984F7 /* N2Ptr.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Ptr.mm; path = ../../src/core/N2Ptr.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				166FDDFB18E9E2BC0005803F /* N2Values.mm */,
 				161CF29B18FC9D4A004C7D1C /* N2Objc.h */,
 				161CF29C18FC9D4A004C7D1C /* N2Objc.mm */,
+				16F8562118FCCCCD007984F7 /* N2Ptr.h */,
+				16F8562218FCCCCD007984F7 /* N2Ptr.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 			files = (
 				166FDDF418E9D97F0005803F /* N2Core.mm in Sources */,
 				166FDDB918E9D3950005803F /* N2Kernel.mm in Sources */,
+				16F8562318FCCCCD007984F7 /* N2Ptr.mm in Sources */,
 				161CF29A18FC93E4004C7D1C /* N2SignalSlot.mm in Sources */,
 				161CF29D18FC9D4A004C7D1C /* N2Objc.mm in Sources */,
 				166FDDB618E9D31A0005803F /* N2Object.mm in Sources */,

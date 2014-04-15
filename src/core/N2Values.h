@@ -31,6 +31,19 @@ public:
     
 };
 
+class Value
+: public Object
+{
+public:
+    
+    Value();
+    
+    RefPtr<Number> number;
+    RefPtr<String> string;
+    RefPtr<Object> object;
+    
+};
+
 N2CORE_END
 
 #endif

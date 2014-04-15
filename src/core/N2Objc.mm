@@ -64,7 +64,7 @@ UIDeviceType n2_uidevice_type() {
     {
         ret |= kUIDeviceTypeSimulator;
     }
-    
+
     return ret;
 }
 

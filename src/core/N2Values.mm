@@ -14,4 +14,9 @@ Number::Number(int v)
     setMeta(@(v));
 }
 
+Value::Value()
+{
+    
+}
+
 N2CORE_END

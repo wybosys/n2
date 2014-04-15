@@ -4,6 +4,7 @@
 
 #include "N2Kernel.h"
 #include "N2Object.h"
+#include "N2Ptr.h"
 
 #define N2CORE_BEGIN N2_BEGIN_NS(core)
 #define N2CORE_END N2_END_NS

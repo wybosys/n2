@@ -21,8 +21,8 @@ public:
     int execute(int, char**);
     
     // 启动，顺序 bootstrap->load
-    bool bootstrap();
-    bool load();
+    virtual bool bootstrap();
+    virtual bool load();
     
 };
 

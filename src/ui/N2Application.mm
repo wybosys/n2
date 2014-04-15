@@ -56,12 +56,12 @@ int Application::execute(int argc, char** argv)
             }
             @catch (NSException* exp)
             {
-                
+                FATAL(exp.reason.UTF8String);
             }
         }
         catch (...)
         {
-            
+            FATAL("捕获未知异常");
         }
     }
     return ret;

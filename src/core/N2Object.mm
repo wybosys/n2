@@ -22,6 +22,18 @@
     refobj_zero(_cxxobj);
 }
 
+/*
+ N2MetaObject* mo = nil;
+ if (p)
+ {
+ mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
+ if (mo == nil)
+ mo = [[N2MetaObject alloc] init];
+ mo.cxxobj = this;
+ }
+ objc_setAssociatedObject(getMeta(), &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+ */
+
 @end
 
 N2_BEGIN
@@ -87,22 +99,6 @@ bool Object::release() const
         return true;
     }
     return false;
-}
-
-static const char kMetaObjectKey = ' ';
-
-void Object::setMeta(metapointer_t p)
-{
-    N2MetaObject* mo = nil;
-    if (p) {
-        mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
-        if (mo == nil)
-            mo = [[N2MetaObject alloc] init];
-        mo.cxxobj = this;
-    }
-    objc_setAssociatedObject(getMeta(), &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
-    MetaObject::setMeta(p);
 }
 
 N2_END

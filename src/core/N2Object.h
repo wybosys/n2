@@ -49,8 +49,6 @@ public:
 
 protected:
     
-    void setMeta(metapointer_t);
-    
     mutable ulonglong _refcnt;
     
 };

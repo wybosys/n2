@@ -95,7 +95,9 @@ void Object::setMeta(metapointer_t p)
 {
     N2MetaObject* mo = nil;
     if (p) {
-        mo = [[N2MetaObject alloc] init];
+        mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
+        if (mo == nil)
+            mo = [[N2MetaObject alloc] init];
         mo.cxxobj = this;
     }
     objc_setAssociatedObject(getMeta(), &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);

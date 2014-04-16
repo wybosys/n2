@@ -1,8 +1,8 @@
 
-#import "core/N2Core.h"
 #import "N2Ui.h"
 #import "N2Application.h"
 #import "core/N2Objc.h"
+#import "N2Navigation.h"
 
 @interface N2AppImplementation : NSObject <UIApplicationDelegate>
 
@@ -52,7 +52,7 @@ int Application::execute(int argc, char** argv)
         {
             @try
             {
-                ret = UIApplicationMain(argc, argv, nil, @"N2AppImplementation");
+                ret = UIApplicationMain(argc, argv, nil, NSStringFromClass([N2AppImplementation class]));
             }
             @catch (NSException* exp)
             {
@@ -77,6 +77,14 @@ bool Application::bootstrap()
     return YES;
 }
 
+void Application::start()
+{
+    Navigation* navi = new Navigation();
+    navi->bar.hidden(true);
+    root = navi;
+    refobj_release(navi);
+}
+
 void Application::load()
 {
     PASS;
@@ -85,6 +93,8 @@ void Application::load()
 N2UI_END
 
 @implementation N2AppImplementation
+
+@synthesize window;
 
 - (id)init {
     self = [super init];
@@ -108,10 +118,20 @@ N2UI_END
     N2UI_USE;
     
     Application& rapp = Application::shared();
+    
+    // 标准设置
     if (!rapp.bootstrap()) {
         FATAL("应用初始化失败");
         return NO;
     }
+    
+    // 初始化环境
+    rapp.start();
+    
+    UIWindow* win = [[UIWindow alloc] initWithFrame:kUIScreenBounds];
+    self.window = win;;
+    win.rootViewController = *rapp.root;
+    [win makeKeyAndVisible];
     
     // 加载应用
     rapp.load();
@@ -120,11 +140,15 @@ N2UI_END
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+    LOG("Application Actived");
+    
     N2UI_USE;
     Application::shared().signals().emit(kSignalApplicationActived);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+    LOG("Application Deactiving");
+
     N2UI_USE;
     Application::shared().signals().emit(kSignalApplicationDeactiving);
 }
@@ -192,11 +216,15 @@ N2UI_END
  */
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+    LOG("Application Deactived");
+
     N2UI_USE;
     Application::shared().signals().emit(kSignalApplicationDeactived);
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    LOG("Application Activing");
+
     N2UI_USE;
     Application::shared().signals().emit(kSignalApplicationActiving);
 }

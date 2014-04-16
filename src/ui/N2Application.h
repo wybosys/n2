@@ -25,9 +25,13 @@ public:
     int execute();
     int execute(int, char**);
     
-    // 启动，顺序 bootstrap->load
+    // 启动，顺序 bootstrap->start->load
     virtual bool bootstrap();
+    virtual void start();
     virtual void load();
+    
+    // 根vc
+    RefPtr<ViewController> root;
     
     SIGNALS(SObject,
             kSignalApplicationActived,
@@ -35,7 +39,7 @@ public:
             kSignalApplicationDeactived,
             kSignalApplicationDeactiving
             );
-    
+
 };
 
 N2UI_END

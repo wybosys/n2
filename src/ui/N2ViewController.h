@@ -4,6 +4,16 @@
 
 N2UI_BEGIN
 
+class ViewController
+: public SObject
+{
+public:
+    
+    ViewController();
+    virtual ~ViewController();
+    
+};
+
 N2UI_END
 
 #endif

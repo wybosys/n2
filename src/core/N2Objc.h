@@ -7,6 +7,7 @@
 extern int kIOSMajorVersion, kIOSMinorVersion, kIOSVersion;
 extern BOOL kIOS7Above, kIOS6Above, kIOS5Above;
 extern BOOL kUIScreenIsRetina;
+extern CGRect kUIScreenBounds;
 extern CGSize kUIScreenSize;
 extern CGFloat kUIScreenScale;
 extern BOOL kDeviceIsRoot, kDeviceRunningSimulator;

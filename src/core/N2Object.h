@@ -71,7 +71,6 @@ public:
 private:
     
     mutable ulonglong _refcnt;
-    void *_mtx;
     
 };
 

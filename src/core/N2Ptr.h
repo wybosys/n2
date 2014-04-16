@@ -34,6 +34,16 @@ public:
         return *_p;
     }
     
+    inline T& operator * ()
+    {
+        return *_p;
+    }
+    
+    inline T const& operator * () const
+    {
+        return *_p;
+    }
+    
     inline T* operator -> ()
     {
         return _p;

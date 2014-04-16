@@ -9,7 +9,7 @@ N2SAMPLE_BEGIN
 
 void SampleApp::load()
 {
-
+    
 }
 
 N2SAMPLE_END

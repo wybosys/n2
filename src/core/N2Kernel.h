@@ -15,6 +15,11 @@
 # define N2_OBJC 1
 #endif
 
+#define SPACE {}
+#define COMMA ,
+#define PASS
+#define TODO
+
 #ifdef N2_CXX
 # define N2_BEGIN namespace N2NS {
 # define N2_END }
@@ -31,7 +36,6 @@
 # include <deque>
 # include <stack>
 # include <map>
-
 #else
 # define N2_BEGIN
 # define N2_END
@@ -59,9 +63,6 @@
 # define DEBUG_SYMBOL(sym)
 # define RELEASE_SYMBOL(sym) sym
 #endif
-
-#define PASS
-#define TODO
 
 #define N2_NOCOPY(cls) private: cls(cls const&); cls& operator = (cls const&);
 
@@ -103,10 +104,23 @@ typedef id metapointer_t;
 typedef void* metapointer_t;
 #endif
 
-# define LOG(fmt, ...)
-# define INFO(fmt, ...)
-# define WARN(fmt, ...)
-# define FATAL(fmt, ...)
+extern void dlog(char const*, ...);
+extern void dinfo(char const*, ...);
+extern void dwarn(char const*, ...);
+extern void dfatal(char const*, ...);
+extern void sleep_seconds(float);
+
+#ifdef DEBUG_MODE
+# define LOG N2NS::dlog
+# define INFO N2NS::dinfo
+# define WARN N2NS::dwarn
+# define FATAL N2NS::dfatal
+#else
+# define LOG(fmt, ...) SPACE
+# define INFO(fmt, ...) SPACE
+# define WARN(fmt, ...) SPACE
+# define FATAL(fmt, ...) SPACE
+#endif
 
 inline bool mask_check(uint mask, uint val)
 {

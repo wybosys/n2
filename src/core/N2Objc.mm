@@ -6,6 +6,7 @@ int kIOSMajorVersion = 0, kIOSMinorVersion = 0, kIOSVersion = 0;
 BOOL kIOS7Above = NO, kIOS6Above = NO, kIOS5Above = NO;
 BOOL kUIScreenIsRetina = NO;
 UIScreenSizeType kUIScreenSizeType = kUIScreenSizeUnknown;
+CGRect kUIScreenBounds = CGRectZero;
 CGSize kUIScreenSize = CGSizeZero;
 CGFloat kUIScreenScale = 0;
 BOOL kDeviceIsRoot = NO, kDeviceRunningSimulator = NO;
@@ -18,6 +19,7 @@ void n2_objc_foundation() {
     } else {
         kUIScreenIsRetina = YES;
     }
+    kUIScreenBounds = scr.bounds;
     kUIScreenSize = scr.applicationFrame.size;
     kUIScreenScale = scr.scale;
     if (scr.currentMode.size.height == 1136)

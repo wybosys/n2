@@ -91,7 +91,7 @@ Signals& Signals::emit(signal_t const& s)
     auto found = _ss.find(s);
     if (found == _ss.end())
     {
-        WARN("没有找到该信号", s);
+        WARN("没有找到该信号 %s", s.c_str());
         return *this;
     }
 

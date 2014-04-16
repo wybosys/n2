@@ -63,6 +63,11 @@ protected:
     Ptr<Signals> source;
 # endif
     
+    // 运行一遍
+    void run();
+    
+    friend class Signals;
+    
 private:
     
     PtrVector<Slot> _slots;

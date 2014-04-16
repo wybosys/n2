@@ -58,6 +58,11 @@ void Slots::copy(Slots const& r)
     }
 }
 
+void Slots::run()
+{
+    
+}
+
 Signals::Signals()
 {
     
@@ -83,6 +88,15 @@ Signals& Signals::add(::std::initializer_list<signal_t> sigs)
 
 Signals& Signals::emit(signal_t const& s)
 {
+    auto found = _ss.find(s);
+    if (found == _ss.end())
+    {
+        WARN("没有找到该信号", s);
+    }
+    else
+    {
+        found->second->run();
+    }
     return *this;
 }
 

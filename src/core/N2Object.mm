@@ -78,6 +78,7 @@ MetaObject MetaObject::copy() const
 static Mutex gs_mtx_MtxObject;
 
 MtxObject::MtxObject()
+: _mtx(NULL)
 {
     
 }
@@ -89,7 +90,7 @@ MtxObject::~MtxObject()
     gs_mtx_MtxObject.unlock();
 }
 
-void MtxObject::lock()
+void MtxObject::lock() const
 {
     gs_mtx_MtxObject.lock();
     if (_mtx == NULL)
@@ -98,9 +99,19 @@ void MtxObject::lock()
     ((Mutex*)_mtx)->lock();
 }
 
-void MtxObject::unlock()
+void MtxObject::unlock() const
 {
     ((Mutex*)_mtx)->unlock();
+}
+
+void MtxObject::Lock()
+{
+    gs_mtx_MtxObject.lock();
+}
+
+void MtxObject::Unlock()
+{
+    gs_mtx_MtxObject.unlock();
 }
 
 Object::Object()

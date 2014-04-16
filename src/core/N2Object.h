@@ -40,12 +40,16 @@ public:
     MtxObject();
     ~MtxObject();
     
-    void lock();
-    void unlock();
+    void lock() const;
+    void unlock() const;
+    
+    // 全局主资源保护
+    static void Lock();
+    static void Unlock();
     
 private:
     
-    void* _mtx;
+    mutable void* _mtx;
     
 };
 

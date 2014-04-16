@@ -92,11 +92,9 @@ Signals& Signals::emit(signal_t const& s)
     if (found == _ss.end())
     {
         WARN("没有找到该信号", s);
+        return *this;
     }
-    else
-    {
-        found->second->run();
-    }
+
     return *this;
 }
 
@@ -112,11 +110,14 @@ SObject::~SObject()
 
 Signals& SObject::signals() const
 {
+    lock();
     if (sigs.isnull())
     {
         sigs = new Signals();
+        sigs->owner = mutable_cast(this);
         mutable_cast(this)->init_signals();
     }
+    unlock();
     return sigs;
 }
 

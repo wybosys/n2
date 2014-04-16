@@ -11,7 +11,8 @@ public:
     
     Ptr(T* p = NULL)
     :_p(p)
-    {}
+    {
+    }
     
     inline operator T* ()
     {

@@ -3,6 +3,7 @@
 #import "N2Object.h"
 #import "N2Ptr.h"
 #include <objc/runtime.h>
+# import "N2Thread.h"
 
 @interface N2MetaObject : NSObject
 
@@ -72,6 +73,34 @@ MetaObject MetaObject::copy() const
     MetaObject ret;
     ret.setMeta(obj);
     return ret;
+}
+
+static Mutex gs_mtx_MtxObject;
+
+MtxObject::MtxObject()
+{
+    
+}
+
+MtxObject::~MtxObject()
+{
+    gs_mtx_MtxObject.lock();
+    delete (Mutex*)_mtx;
+    gs_mtx_MtxObject.unlock();
+}
+
+void MtxObject::lock()
+{
+    gs_mtx_MtxObject.lock();
+    if (_mtx == NULL)
+        _mtx = new Mutex();
+    gs_mtx_MtxObject.unlock();
+    ((Mutex*)_mtx)->lock();
+}
+
+void MtxObject::unlock()
+{
+    ((Mutex*)_mtx)->unlock();
 }
 
 Object::Object()

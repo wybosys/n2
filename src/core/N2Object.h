@@ -33,8 +33,25 @@ private:
     
 };
 
+class MtxObject
+{
+public:
+    
+    MtxObject();
+    ~MtxObject();
+    
+    void lock();
+    void unlock();
+    
+private:
+    
+    void* _mtx;
+    
+};
+
 class Object
-: public MetaObject
+: public MetaObject,
+public MtxObject
 {
     N2_NOCOPY(Object);
     
@@ -47,9 +64,10 @@ public:
     Object* retain() const;
     bool release() const;
 
-protected:
+private:
     
     mutable ulonglong _refcnt;
+    void *_mtx;
     
 };
 

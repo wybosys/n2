@@ -5,7 +5,7 @@
 N2UI_BEGIN
 
 class Application
-: public Object
+: public SObject
 {
     PRIVATE(Application);
     

@@ -2,17 +2,16 @@
 # ifndef __N2SIGNALSLOT_13FE2730AD574827A3615D30CFFCABD6_H_INCLUDED
 # define __N2SIGNALSLOT_13FE2730AD574827A3615D30CFFCABD6_H_INCLUDED
 
-# include <string>
 # include "N2Values.h"
 
-N2CORE_BEGIN
+N2_BEGIN
 
 typedef ::std::string Signal;
-class Object;
 class Slots;
 class Signals;
 
 class Slot
+: public Copyable<Slot>
 {
 public:
     
@@ -32,6 +31,8 @@ public:
     // 执行这个slot
     void emit();
     
+    void copy(Slot const&);
+    
 protected:
     
     // 源slot
@@ -46,10 +47,14 @@ protected:
 };
 
 class Slots
+: public Copyable<Slots>
 {
 public:
     
     Slots();
+    ~Slots();
+    
+    void copy(Slots const&);
     
 protected:
     
@@ -58,6 +63,9 @@ protected:
     Ptr<Signals> source;
 # endif
     
+private:
+    
+    PtrVector<Slot> _slots;
 };
 
 class Signals
@@ -65,9 +73,33 @@ class Signals
 public:
     
     Signals();
+    ~Signals();
     
+    // 所有者
+    Ptr<Object> owner;
+  
+private:
+    
+    ::std::set<Slot*> _reflects;
 };
 
-N2CORE_END
+class SObject
+: public Object
+{
+public:
+    
+    SObject();
+    virtual ~SObject();
+    
+    Signals& signals() const;
+    
+protected:
+    
+    virtual void init_signals();
+    
+    mutable Ptr<Signals> sigs;
+};
+
+N2_END
 
 # endif

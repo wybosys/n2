@@ -120,7 +120,7 @@ N2UI_END
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
-    
+    N2UI_USE;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

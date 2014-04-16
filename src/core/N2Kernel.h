@@ -23,6 +23,15 @@
 # define N2_BEGIN_NS(ns) N2_BEGIN namespace ns {
 # define N2_END_NS } N2_END
 # define N2_USE using namespace N2NS;
+
+# include <string>
+# include <vector>
+# include <list>
+# include <set>
+# include <deque>
+# include <stack>
+# include <map>
+
 #else
 # define N2_BEGIN
 # define N2_END
@@ -119,6 +128,16 @@ inline uint mask_unset(uint mask, uint val)
     val ^= mask;
     return val;
 }
+
+# ifdef N2_CXX
+
+template <typename T>
+inline T* mutable_cast(T const* p)
+{
+    return const_cast<T*>(p);
+}
+
+# endif
 
 N2_END
 

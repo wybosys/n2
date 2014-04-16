@@ -43,6 +43,17 @@ public:
         return _p;
     }
     
+    inline bool isnull() const
+    {
+        return _p == NULL;
+    }
+    
+    inline T& operator = (T* p)
+    {
+        _p = p;
+        return *this;
+    }
+    
 protected:
     
     T* _p;
@@ -91,6 +102,61 @@ public:
         refobj_release(this->_p);
     }
     
+};
+
+template <typename T>
+class PtrVector
+{
+public:
+    
+    PtrVector()
+    {
+        
+    }
+    
+    ~PtrVector()
+    {
+        clear();
+    }
+    
+    typedef typename ::std::vector<T*>::iterator iterator;
+    typedef typename ::std::vector<T*>::const_iterator const_iterator;
+    
+    void clear()
+    {
+        for (iterator i = vector.begin(); i != vector.end(); ++i)
+            delete *i;
+        vector.clear();
+    }
+    
+    iterator begin()
+    {
+        return vector.begin();
+    }
+    
+    const_iterator begin() const
+    {
+        return vector.begin();
+    }
+    
+    iterator end()
+    {
+        return vector.end();
+    }
+    
+    const_iterator end() const
+    {
+        return vector.end();
+    }
+    
+    void push_back(T* p)
+    {
+        vector.push_back(p);
+    }
+    
+protected:
+    
+    ::std::vector<T*> vector;
 };
 
 N2_END

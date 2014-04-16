@@ -80,6 +80,15 @@ friend class PRIVATE_CLASS(cls); \
 typedef class PRIVATE_CLASS(cls) private_t; \
 private_t *d_ptr;
 
+template <typename T>
+class Copyable
+{
+public:
+    
+    void copy(T const&);
+    
+};
+
 N2_END
 
 #endif

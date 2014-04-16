@@ -25,7 +25,7 @@ void Slot::copy(Slot const& r)
 {
     count = r.count;
     redirect = r.redirect;
-    value = r.value;
+    value = mutable_cast(r).value;
     
     origin = r.origin;
     target = r.target;

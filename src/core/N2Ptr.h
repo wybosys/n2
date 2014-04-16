@@ -103,7 +103,6 @@ class RefPtr
 public:
     
     RefPtr(T* p = NULL)
-    : Ptr<T>(p)
     {
         refobj_set(this->_p, p);
     }
@@ -111,6 +110,12 @@ public:
     ~RefPtr()
     {
         refobj_release(this->_p);
+    }
+    
+    RefPtr& operator = (T* r)
+    {
+        refobj_set(this->_p, r);
+        return *this;
     }
     
 };

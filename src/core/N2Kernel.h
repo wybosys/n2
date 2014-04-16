@@ -151,6 +151,12 @@ inline T* mutable_cast(T const* p)
     return const_cast<T*>(p);
 }
 
+template <typename T>
+inline T& mutable_cast(T const& p)
+{
+    return const_cast<T&>(p);
+}
+
 # endif
 
 N2_END

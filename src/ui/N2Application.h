@@ -4,6 +4,11 @@
 
 N2UI_BEGIN
 
+SIGNAL(kSignalApplicationActived) "::sys::app::actived";
+SIGNAL(kSignalApplicationActiving) "::sys::app::activiting";
+SIGNAL(kSignalApplicationDeactived) "::sys::app::deactived";
+SIGNAL(kSignalApplicationDeactiving) "::sys::app::deactiving";
+
 class Application
 : public SObject
 {
@@ -23,6 +28,13 @@ public:
     // 启动，顺序 bootstrap->load
     virtual bool bootstrap();
     virtual void load();
+    
+    SIGNALS(SObject,
+            kSignalApplicationActived,
+            kSignalApplicationActiving,
+            kSignalApplicationDeactived,
+            kSignalApplicationDeactiving
+            );
     
 };
 

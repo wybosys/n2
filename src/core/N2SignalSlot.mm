@@ -1,6 +1,7 @@
 
-# import "N2Core.h"
-# import "N2SignalSlot.h"
+# include "N2Core.h"
+# include "N2SignalSlot.h"
+# include <stdarg.h>
 
 N2_BEGIN
 
@@ -65,6 +66,24 @@ Signals::Signals()
 Signals::~Signals()
 {
     
+}
+
+Signals& Signals::add(::std::initializer_list<signal_t> sigs)
+{
+    for (auto i = sigs.begin(); i != sigs.end(); ++i)
+    {
+        auto found = _ss.find(*i);
+        if (found == _ss.end())
+        {
+            _ss[*i] = new Slots();
+        }
+    }
+    return *this;
+}
+
+Signals& Signals::emit(signal_t const& s)
+{
+    return *this;
 }
 
 SObject::SObject()

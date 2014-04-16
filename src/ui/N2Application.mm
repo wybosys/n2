@@ -121,10 +121,12 @@ N2UI_END
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     N2UI_USE;
+    Application::shared().signals().emit(kSignalApplicationActived);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-    
+    N2UI_USE;
+    Application::shared().signals().emit(kSignalApplicationDeactiving);
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
@@ -190,11 +192,13 @@ N2UI_END
  */
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
-    
+    N2UI_USE;
+    Application::shared().signals().emit(kSignalApplicationDeactived);
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    
+    N2UI_USE;
+    Application::shared().signals().emit(kSignalApplicationActiving);
 }
 
 - (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application {

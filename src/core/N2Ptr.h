@@ -106,7 +106,10 @@ public:
 
 template <typename T>
 class PtrVector
+: protected ::std::vector<T*>
 {
+    typedef ::std::vector<T*> vector_t;
+    
 public:
     
     PtrVector()
@@ -119,44 +122,49 @@ public:
         clear();
     }
     
-    typedef typename ::std::vector<T*>::iterator iterator;
-    typedef typename ::std::vector<T*>::const_iterator const_iterator;
+    using vector_t::begin;
+    using vector_t::end;
+    using vector_t::push_back;
     
     void clear()
     {
-        for (iterator i = vector.begin(); i != vector.end(); ++i)
+        for (auto i = begin(); i != end(); ++i)
             delete *i;
-        vector.clear();
+        vector_t::clear();
     }
     
-    iterator begin()
+};
+
+template <typename K, typename T>
+class PtrMap
+: protected ::std::map<K, T*>
+{
+    typedef ::std::map<K, T*> map_t;
+    
+public:
+    
+    PtrMap()
     {
-        return vector.begin();
+        
     }
     
-    const_iterator begin() const
+    ~PtrMap()
     {
-        return vector.begin();
+        clear();
     }
     
-    iterator end()
+    using map_t::begin;
+    using map_t::end;
+    using map_t::find;
+    using map_t::operator [];
+    
+    void clear()
     {
-        return vector.end();
+        for (auto i = begin(); i != end(); ++i)
+            delete i->second;
+        map_t::clear();
     }
     
-    const_iterator end() const
-    {
-        return vector.end();
-    }
-    
-    void push_back(T* p)
-    {
-        vector.push_back(p);
-    }
-    
-protected:
-    
-    ::std::vector<T*> vector;
 };
 
 N2_END

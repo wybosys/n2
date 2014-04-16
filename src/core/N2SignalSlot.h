@@ -6,7 +6,7 @@
 
 N2_BEGIN
 
-typedef ::std::string Signal;
+typedef ::std::string signal_t;
 class Slots;
 class Signals;
 
@@ -23,7 +23,7 @@ public:
     
     // 重新定向到的 signal
     // 当本 slot 激活时，将会重定向激活 target 上的该信号
-    Signal redirect;
+    signal_t redirect;
     
     // 传递的数据
     RefPtr<Value> value;
@@ -59,7 +59,7 @@ public:
 protected:
     
 # ifdef DEBUG_MODE
-    Signal signal;
+    signal_t signal;
     Ptr<Signals> source;
 # endif
     
@@ -78,8 +78,15 @@ public:
     // 所有者
     Ptr<Object> owner;
   
+    // 注册信号
+    Signals& add(::std::initializer_list<signal_t>);
+    
+    // 激活信号
+    Signals& emit(signal_t const&);
+    
 private:
     
+    PtrMap<signal_t, Slots> _ss;
     ::std::set<Slot*> _reflects;
 };
 
@@ -99,6 +106,9 @@ protected:
     
     mutable Ptr<Signals> sigs;
 };
+
+#define SIGNAL(sig) static const ::N2NS::signal_t sig = 
+#define SIGNALS(super, ...) protected: virtual void init_signals() { super::init_signals(); sigs->add({__VA_ARGS__}); }
 
 N2_END
 

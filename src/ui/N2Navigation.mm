@@ -14,4 +14,14 @@ Navigation::~Navigation()
     
 }
 
+void Navigation::push(ViewController& vc, bool ani)
+{
+    
+}
+
+void Navigation::pop()
+{
+    
+}
+
 N2UI_END

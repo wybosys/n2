@@ -14,7 +14,7 @@ View::~View()
     
 }
 
-void View::hidden(bool b)
+void View::hide(bool b)
 {
     [getMeta() setHidden:b];
 }
@@ -26,10 +26,10 @@ bool View::ishidden() const
 
 void View::visible(bool b)
 {
-    hidden(!b);
+    hide(!b);
 }
 
-bool View::isvisible() const
+bool View::isvisibled() const
 {
     return !ishidden();
 }

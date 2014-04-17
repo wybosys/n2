@@ -4,6 +4,9 @@
 
 N2UI_BEGIN
 
+static const Const<true> show = Const<true>();
+static const Const<false> hide = Const<false>();
+
 class View
 : public SObject
 {
@@ -12,10 +15,10 @@ public:
     View();
     virtual ~View();
     
-    virtual void hidden(bool);
+    virtual void hide(bool = true);
     virtual bool ishidden() const;
-    void visible(bool);
-    bool isvisible() const;
+    void visible(bool = show);
+    bool isvisibled() const;
     
 };
 

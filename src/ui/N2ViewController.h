@@ -14,6 +14,13 @@ public:
     
 };
 
+template <typename TView>
+class Controller
+: public ViewController
+{
+    
+};
+
 N2UI_END
 
 #endif

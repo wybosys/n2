@@ -20,6 +20,9 @@ public:
   
     NavigationBar bar;
     
+    void push(ViewController&, bool = animation);
+    void pop();
+    
 };
 
 N2UI_END

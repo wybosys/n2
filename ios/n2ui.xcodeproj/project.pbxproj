@@ -24,6 +24,8 @@
 		166FDDF018E9D6030005803F /* N2Application.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDEF18E9D6030005803F /* N2Application.mm */; };
 		166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDF518E9DA2A0005803F /* N2Ui.mm */; };
 		166FDDF918E9E0510005803F /* N2ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDF818E9E0510005803F /* N2ViewController.mm */; };
+		16BCB3C018FF6AE20037B101 /* VCSample.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB3BF18FF6AE20037B101 /* VCSample.mm */; };
+		16BCB3C318FF6BDB0037B101 /* N2Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB3C218FF6BDB0037B101 /* N2Animation.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,6 +68,10 @@
 		166FDDF518E9DA2A0005803F /* N2Ui.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Ui.mm; path = ../../src/ui/N2Ui.mm; sourceTree = "<group>"; };
 		166FDDF718E9E0510005803F /* N2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2ViewController.h; path = ../../src/ui/N2ViewController.h; sourceTree = "<group>"; };
 		166FDDF818E9E0510005803F /* N2ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2ViewController.mm; path = ../../src/ui/N2ViewController.mm; sourceTree = "<group>"; };
+		16BCB3BE18FF6AE20037B101 /* VCSample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCSample.h; sourceTree = "<group>"; };
+		16BCB3BF18FF6AE20037B101 /* VCSample.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VCSample.mm; sourceTree = "<group>"; };
+		16BCB3C118FF6BDB0037B101 /* N2Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Animation.h; path = ../../src/ui/N2Animation.h; sourceTree = "<group>"; };
+		16BCB3C218FF6BDB0037B101 /* N2Animation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Animation.mm; path = ../../src/ui/N2Animation.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,8 @@
 				166FDDF518E9DA2A0005803F /* N2Ui.mm */,
 				166FDDEE18E9D6030005803F /* N2Application.h */,
 				166FDDEF18E9D6030005803F /* N2Application.mm */,
+				16BCB3C118FF6BDB0037B101 /* N2Animation.h */,
+				16BCB3C218FF6BDB0037B101 /* N2Animation.mm */,
 				166FDDF718E9E0510005803F /* N2ViewController.h */,
 				166FDDF818E9E0510005803F /* N2ViewController.mm */,
 				161CF28C18FC92E3004C7D1C /* N2View.h */,
@@ -166,6 +174,8 @@
 			children = (
 				166FDDCD18E9D5680005803F /* AppDelegate.h */,
 				166FDDCE18E9D5680005803F /* AppDelegate.mm */,
+				16BCB3BE18FF6AE20037B101 /* VCSample.h */,
+				16BCB3BF18FF6AE20037B101 /* VCSample.mm */,
 				166FDDC518E9D5680005803F /* Supporting Files */,
 			);
 			path = sample.n2ui;
@@ -262,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16BCB3C318FF6BDB0037B101 /* N2Animation.mm in Sources */,
 				166FDDF918E9E0510005803F /* N2ViewController.mm in Sources */,
 				161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */,
 				166FDDF018E9D6030005803F /* N2Application.mm in Sources */,
@@ -277,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				166FDDCF18E9D5680005803F /* AppDelegate.mm in Sources */,
+				16BCB3C018FF6AE20037B101 /* VCSample.mm in Sources */,
 				166FDDCB18E9D5680005803F /* main.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

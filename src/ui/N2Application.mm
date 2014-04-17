@@ -80,7 +80,7 @@ bool Application::bootstrap()
 void Application::start()
 {
     Navigation* navi = new Navigation();
-    navi->bar.hidden(true);
+    navi->bar.hide();
     root = navi;
     refobj_release(navi);
 }

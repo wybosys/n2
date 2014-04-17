@@ -72,31 +72,6 @@ protected:
 };
 
 template <typename T>
-inline void refobj_set(T*& l, T* r)
-{
-    if (l == r) return;
-    if (l) l->release();
-    l = r;
-    if (l) l->retain();
-}
-
-template <typename T>
-inline void refobj_release(T*& l)
-{
-    if (l && l->release())
-        l = NULL;
-}
-
-template <typename T>
-inline void refobj_zero(T*& l)
-{
-    if (l) {
-        l->release();
-        l = NULL;
-    }
-}
-
-template <typename T>
 class RefPtr
 : public Ptr<T>
 {

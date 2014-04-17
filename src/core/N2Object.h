@@ -4,9 +4,13 @@
 
 N2_BEGIN
 
+typedef struct _meta_t meta_type;
+
 class MetaObject
 {
 public:
+    
+    typedef meta_type meta_type;
     
     MetaObject();
     MetaObject(MetaObject const&);
@@ -33,9 +37,13 @@ private:
     
 };
 
+typedef struct _lockable_t lockable_type;
+
 class MtxObject
 {
 public:
+    
+    typedef lockable_type lockable_type;
     
     MtxObject();
     ~MtxObject();
@@ -53,6 +61,8 @@ private:
     
 };
 
+typedef struct _ref_t ref_type;
+
 class Object
 : public MetaObject,
 public MtxObject
@@ -60,6 +70,8 @@ public MtxObject
     N2_NOCOPY(Object);
     
 public:
+    
+    typedef ref_type ref_type;
     
     Object();
     virtual ~Object();
@@ -73,6 +85,31 @@ private:
     mutable ulonglong _refcnt;
     
 };
+
+template <typename T>
+inline void refobj_set(T*& l, T* r)
+{
+    if (l == r) return;
+    if (l) l->release();
+    l = r;
+    if (l) l->retain();
+}
+
+template <typename T>
+inline void refobj_release(T*& l)
+{
+    if (l && l->release())
+        l = NULL;
+}
+
+template <typename T>
+inline void refobj_zero(T*& l)
+{
+    if (l) {
+        l->release();
+        l = NULL;
+    }
+}
 
 #define PRIVATE_CLASS(cls) cls##_Private
 
@@ -101,10 +138,14 @@ friend class PRIVATE_CLASS(cls); \
 typedef class PRIVATE_CLASS(cls) private_t; \
 private_t *d_ptr;
 
+typedef struct _copyable_t copyable_type;
+
 template <typename T>
 class Copyable
 {
 public:
+    
+    typedef copyable_type copyable_type;
     
     void copy(T const&);
     

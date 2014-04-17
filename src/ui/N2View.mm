@@ -1,6 +1,7 @@
 
-# import "N2Ui.h"
-# import "N2View.h"
+#import "N2Ui.h"
+#import "N2View.h"
+#import "core/N2Objc.h"
 
 @interface N2ViewImplementation : UIView
 

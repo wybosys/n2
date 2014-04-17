@@ -68,6 +68,11 @@
 
 #define N2_NOCOPY(cls) private: cls(cls const&); cls& operator = (cls const&);
 
+#define MACROVALUE(exp) exp
+#define _MACROCOMBINE(l, r) l ## r
+#define MACROCOMBINE(l, r) _MACROCOMBINE(l, r)
+#define AUTOVARIANTNAME MACROCOMBINE(_autovariant_, __LINE__)
+
 N2_BEGIN
 
 typedef long long longlong;

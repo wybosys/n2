@@ -5,6 +5,46 @@
 N2_BEGIN
 
 template <typename T>
+class Value
+{
+public:
+    
+    Value()
+    : _v(0)
+    {}
+    
+    inline operator T () const
+    {
+        return _v;
+    }
+    
+    inline operator T& ()
+    {
+        return _v;
+    }
+    
+    inline T& operator * ()
+    {
+        return _v;
+    }
+    
+    inline T operator * () const
+    {
+        return _v;
+    }
+    
+    inline Value& operator = (T const& v)
+    {
+        _v = v;
+        return *this;
+    }
+
+protected:
+    
+    T _v;
+};
+
+template <typename T>
 class Ptr
 {
 public:
@@ -59,7 +99,7 @@ public:
         return _p == NULL;
     }
     
-    inline T& operator = (T* p)
+    inline Ptr& operator = (T* p)
     {
         _p = p;
         return *this;

@@ -124,4 +124,26 @@ IMP class_getImplementation(Class c, SEL sel) {
     return method_getImplementation(class_getInstanceMethod(c, sel));
 }
 
+BOOL class_safeSwizzleMethod(Class c, SEL sel, SEL tosel, objc_swizzle_t* data) {
+    data->cls = c;
+    data->default_impl = class_getImplementation(data->cls, sel);
+    data->default_sel = sel;
+    if (data->default_impl == nil)
+        return NO;
+    data->next_impl = class_getImplementation(data->cls, tosel);
+    if (data->next_impl == nil)
+        return NO;
+    class_swizzleMethod(data->cls, sel, tosel);
+    return YES;
+}
+
 N2_END_C
+
+N2OBJC_BEGIN
+
+StaticPerform::StaticPerform(Class cls, SEL sel)
+{
+    class_callMethod(cls, sel);
+}
+
+N2OBJC_END

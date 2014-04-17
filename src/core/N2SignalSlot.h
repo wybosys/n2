@@ -26,7 +26,7 @@ public:
     signal_t redirect;
     
     // 传递的数据
-    RefPtr<Value> value;
+    RefPtr<Variant> data;
     
     // 执行这个slot
     void emit();

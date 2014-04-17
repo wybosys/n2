@@ -189,7 +189,7 @@ size_t String::length() const
     return [getMeta() length];
 }
 
-Value::Value()
+Variant::Variant()
 {
     
 }

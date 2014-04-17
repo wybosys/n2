@@ -34,11 +34,6 @@ EXTERN bool n2_uidevice_isroot();
 
 EXTERN void n2_objc_foundation();
 
-EXTERN id class_callMethod(Class cls, SEL sel, ...);
-EXTERN BOOL class_existMethod(Class cls, SEL sel);
-EXTERN void class_swizzleMethod(Class c, SEL origs, SEL news);
-EXTERN IMP class_getImplementation(Class cls, SEL sel);
-
 typedef struct _objc_swizzle_t
 {
     Class cls;
@@ -47,10 +42,39 @@ typedef struct _objc_swizzle_t
     IMP next_impl;
 } objc_swizzle_t;
 
+EXTERN id class_callMethod(Class cls, SEL sel, ...);
+EXTERN BOOL class_existMethod(Class cls, SEL sel);
+EXTERN void class_swizzleMethod(Class c, SEL origs, SEL news);
+EXTERN IMP class_getImplementation(Class cls, SEL sel);
+EXTERN BOOL class_safeSwizzleMethod(Class c, SEL sel, SEL tosel, objc_swizzle_t* data);
+
 # define objc_swizzle_invoke(obj, ...) (obj.default_impl)(self, obj.default_sel, ## __VA_ARGS__);
 
 # define SWIZZLE_CALLBACK(which) __swizzle_callback_##which
 
 N2_END_C
+
+#ifdef N2_CXX
+
+# define N2OBJC_BEGIN N2_BEGIN_NS(objc)
+# define N2OBJC_END N2_END_NS
+
+N2OBJC_BEGIN
+
+class StaticPerform
+{
+public:
+    
+    StaticPerform(Class, SEL);
+    
+    Class clas;
+    SEL sel;
+};
+
+#define PERFORM_STATIC(cls, sel) static const N2NS::objc::StaticPerform AUTOVARIANTNAME = N2NS::objc::StaticPerform([cls class], @selector(sel));
+
+N2OBJC_END
+
+#endif
 
 #endif

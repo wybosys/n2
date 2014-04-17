@@ -65,12 +65,12 @@ public:
     
 };
 
-class Value
+class Variant
 : public Object
 {
 public:
     
-    Value();
+    Variant();
     
     RefPtr<Number> number;
     RefPtr<String> string;

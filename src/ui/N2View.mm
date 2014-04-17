@@ -54,6 +54,11 @@ Color View::backgroundColor() const
     return [getMeta() backgroundColor];
 }
 
+void View::onLayout()
+{
+    
+}
+
 N2UI_END
 
 @implementation N2View
@@ -65,7 +70,9 @@ N2UI_END
 }
 
 - (void)SWIZZLE_CALLBACK(layout_subviews) {
-    
+    N2UI_USE;
+    View* v = MetaObject::GetObject<View>(self);
+    v->onLayout();
 }
 
 @end

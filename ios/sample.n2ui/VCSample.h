@@ -11,6 +11,10 @@ public:
     
     VSample();
     
+protected:
+    
+    void onLayout();
+    
 };
 
 class VCSample

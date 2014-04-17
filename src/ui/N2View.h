@@ -25,6 +25,10 @@ public:
     virtual void background(Color const&);
     virtual Color backgroundColor() const;
     
+hybird:
+    
+    virtual void onLayout();
+    
 };
 
 N2UI_END

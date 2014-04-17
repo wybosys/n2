@@ -10,6 +10,11 @@ VSample::VSample()
     background(ui::Color::White);
 }
 
+void VSample::onLayout()
+{
+    
+}
+
 VCSample::VCSample()
 {
     

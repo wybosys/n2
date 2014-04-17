@@ -66,6 +66,13 @@
 # define RELEASE_SYMBOL(sym) sym
 #endif
 
+#ifdef N2LIB
+# define N2LIB 1
+# define hybird public
+#else
+# define hybird protected
+#endif
+
 #define N2_NOCOPY(cls) private: cls(cls const&); cls& operator = (cls const&);
 
 #define MACROVALUE(exp) exp
@@ -100,8 +107,12 @@ typedef id metapointer_t;
 # ifdef N2_OBJC_ARC
 #  define SAFE_RELEASE(o) {o=o;}
 #  define SUPER_DEALLOC {}
+#  define MUST_ARC
+#  define MUST_NOARC error "must turn OFF arc"
 # else
 #  define NOARC_TODO
+#  define MUST_ARC error "must turn ON arc"
+#  define MUST_NOARC
 #  define SAFE_RELEASE(o) { int rc = o.retainCount; [o release]; if (rc == 1) o = nil; }
 #  define SUPER_DEALLOC {[super dealloc];}
 # endif

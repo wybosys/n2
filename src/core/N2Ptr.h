@@ -136,6 +136,21 @@ public:
 };
 
 template <typename T>
+class RefInstance
+: public RefPtr<T>
+{
+public:
+    
+    RefInstance()
+    {
+        T* o = new T();
+        refobj_set(this->_p, o);
+        o->release();
+    }
+    
+};
+
+template <typename T>
 class PtrVector
 : protected ::std::vector<T*>
 {

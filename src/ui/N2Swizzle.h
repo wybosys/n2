@@ -12,6 +12,12 @@
 
 @end
 
+@protocol UIViewControllerSwizzle <NSObject>
+
+- (void)SWIZZLE_CALLBACK(view_loaded);
+
+@end
+
 @interface UIKitSwizzle : NSObject
 
 + (void)Swizzles;

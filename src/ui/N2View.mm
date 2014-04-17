@@ -6,7 +6,7 @@
 
 PERFORM_STATIC(UIKitSwizzle, Swizzles);
 
-@interface N2ViewImplementation : UIView
+@interface N2View : UIView
 
 @end
 
@@ -14,7 +14,7 @@ N2UI_BEGIN
 
 View::View()
 {
-    N2ViewImplementation* o = [[N2ViewImplementation alloc] init];
+    N2View* o = [[N2View alloc] init];
     bindMeta(o);
     SAFE_RELEASE(o);
 }
@@ -46,7 +46,13 @@ bool View::isvisibled() const
 
 N2UI_END
 
-@implementation N2ViewImplementation
+@implementation N2View
+
+- (id)init {
+    self = [super init];
+    self.backgroundColor = [UIColor clearColor];
+    return self;
+}
 
 - (void)SWIZZLE_CALLBACK(layout_subviews) {
     

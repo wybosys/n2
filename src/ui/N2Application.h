@@ -2,6 +2,8 @@
 #ifndef __N2APPLICATION_5395AC8F4925465EA04A56EBC27875A7_H_INCLUDED
 #define __N2APPLICATION_5395AC8F4925465EA04A56EBC27875A7_H_INCLUDED
 
+#include "N2Navigation.h"
+
 N2UI_BEGIN
 
 SIGNAL(kSignalApplicationActived) "::sys::app::actived";
@@ -31,7 +33,7 @@ public:
     virtual void load();
     
     // 根vc
-    RefPtr<ViewController> root;
+    RefPtr<Navigation> root;
     
     SIGNALS(SObject,
             kSignalApplicationActived,

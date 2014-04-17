@@ -79,10 +79,8 @@ bool Application::bootstrap()
 
 void Application::start()
 {
-    Navigation* navi = new Navigation();
-    navi->bar.hide();
-    root = navi;
-    refobj_release(navi);
+    root = RefInstance<Navigation>();
+    root->bar.hide();
 }
 
 void Application::load()

@@ -4,6 +4,7 @@
 
 N2_BEGIN
 
+typedef struct _null_t null_type;
 typedef struct _meta_t meta_type;
 
 class Object;
@@ -25,6 +26,13 @@ public:
     // 复制一个对象
     MetaObject copy() const;
     
+    // 从元数据中获取对象
+    static Object* GetObject(metapointer_t);
+    template <class T>
+    static T* GetObject(metapointer_t m) {
+        return (T*)GetObject(m);
+    }
+    
 protected:
     
     // 设置元数据，不进行oc/c对象映射
@@ -34,13 +42,6 @@ protected:
     
     // 获取元数据
     metapointer_t getMeta() const;
-    
-    // 从元数据中获取对象
-    static Object* GetObject(metapointer_t);
-    template <class T>
-    inline T* GetObject(metapointer_t m) {
-        return (T*)GetObject(m);
-    }
         
 private:
     

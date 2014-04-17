@@ -9,12 +9,7 @@ N2SAMPLE_BEGIN
 
 void SampleApp::load()
 {
-    {
-        ui::ViewController xx;
-        String a = @"a";
-        String b = @"b";
-        String c = a + b;
-    }
+    root->push(RefInstance<VCSample>());
 }
 
 N2SAMPLE_END

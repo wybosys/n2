@@ -11,6 +11,7 @@
 		161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29018FC9363004C7D1C /* N2Navigation.mm */; };
 		161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29318FC937B004C7D1C /* N2Tabbar.mm */; };
 		161CF29718FC93A4004C7D1C /* N2Widgets.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29618FC93A4004C7D1C /* N2Widgets.mm */; };
+		16354A9918FFC0AF0074512C /* N2Graphics.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16354A9818FFC0AF0074512C /* N2Graphics.mm */; };
 		166FDD5A18E9D02F0005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5918E9D02F0005803F /* Foundation.framework */; };
 		166FDD8018E9D0880005803F /* libn2core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD7F18E9D0880005803F /* libn2core.a */; };
 		166FDDC018E9D5680005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD5918E9D02F0005803F /* Foundation.framework */; };
@@ -50,6 +51,8 @@
 		161CF29318FC937B004C7D1C /* N2Tabbar.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Tabbar.mm; path = ../../src/ui/N2Tabbar.mm; sourceTree = "<group>"; };
 		161CF29518FC93A4004C7D1C /* N2Widgets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Widgets.h; path = ../../src/ui/N2Widgets.h; sourceTree = "<group>"; };
 		161CF29618FC93A4004C7D1C /* N2Widgets.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Widgets.mm; path = ../../src/ui/N2Widgets.mm; sourceTree = "<group>"; };
+		16354A9718FFC0AF0074512C /* N2Graphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Graphics.h; path = ../../src/ui/N2Graphics.h; sourceTree = "<group>"; };
+		16354A9818FFC0AF0074512C /* N2Graphics.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Graphics.mm; path = ../../src/ui/N2Graphics.mm; sourceTree = "<group>"; };
 		166FDD5618E9D02F0005803F /* libn2ui.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libn2ui.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		166FDD5918E9D02F0005803F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		166FDD5D18E9D02F0005803F /* n2ui-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "n2ui-Prefix.pch"; sourceTree = "<group>"; };
@@ -160,6 +163,8 @@
 				166FDDEF18E9D6030005803F /* N2Application.mm */,
 				16BCB3C118FF6BDB0037B101 /* N2Animation.h */,
 				16BCB3C218FF6BDB0037B101 /* N2Animation.mm */,
+				16354A9718FFC0AF0074512C /* N2Graphics.h */,
+				16354A9818FFC0AF0074512C /* N2Graphics.mm */,
 				166FDDF718E9E0510005803F /* N2ViewController.h */,
 				166FDDF818E9E0510005803F /* N2ViewController.mm */,
 				161CF28C18FC92E3004C7D1C /* N2View.h */,
@@ -283,6 +288,7 @@
 				166FDDF018E9D6030005803F /* N2Application.mm in Sources */,
 				161CF29718FC93A4004C7D1C /* N2Widgets.mm in Sources */,
 				161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */,
+				16354A9918FFC0AF0074512C /* N2Graphics.mm in Sources */,
 				161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */,
 				166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */,
 				16BCB3C918FFA6E50037B101 /* N2Swizzle.mm in Sources */,
@@ -387,6 +393,10 @@
 				DSTROOT = /tmp/n2ui.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "n2ui/n2ui-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					N2LIB,
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",
@@ -404,6 +414,7 @@
 				DSTROOT = /tmp/n2ui.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "n2ui/n2ui-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = N2LIB;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",

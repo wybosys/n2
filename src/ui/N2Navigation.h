@@ -4,9 +4,15 @@
 
 N2UI_BEGIN
 
+class Navigation;
+
 class NavigationBar
 : public View
 {
+    NavigationBar();
+    friend class Navigation;
+
+public:
     
 };
 
@@ -21,7 +27,7 @@ public:
     NavigationBar bar;
     
     void push(ViewController&, bool = animation);
-    void pop();
+    void pop(bool = animation);
     
 };
 

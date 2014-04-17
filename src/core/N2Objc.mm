@@ -2,6 +2,12 @@
 #import "N2Core.h"
 #import "N2Objc.h"
 
+N2_BEGIN_C
+
+#import <objc/objc.h>
+#import <objc/runtime.h>
+#import <objc/objc-sync.h>
+
 int kIOSMajorVersion = 0, kIOSMinorVersion = 0, kIOSVersion = 0;
 BOOL kIOS7Above = NO, kIOS6Above = NO, kIOS5Above = NO;
 BOOL kUIScreenIsRetina = NO;
@@ -77,3 +83,45 @@ bool n2_uidevice_isroot() {
     pclose(fp);
     return len != 0;
 }
+
+id class_callMethod(Class cls, SEL sel, ...) {
+    Method mtd = class_getClassMethod(cls, sel);
+    IMP imp = method_getImplementation(mtd);
+    char ctype;
+    method_getReturnType(mtd, &ctype, sizeof(char));
+    
+    va_list va;
+    va_start(va, sel);
+    id argu = va_arg(va, id);
+    
+    id ret = nil;
+    if (ctype == _C_ID) {
+        ret = (imp)(nil, sel, argu);
+    } else {
+        (imp)(nil, sel, argu);
+    }
+    
+    va_end(va);
+    return ret;
+}
+
+BOOL class_existMethod(Class cls, SEL sel) {
+    Method mtd = class_getClassMethod(cls, sel);
+    return mtd != NULL;
+}
+
+void class_swizzleMethod(Class c, SEL origs, SEL news) {
+    Method origMethod = class_getInstanceMethod(c, origs);
+    Method newMethod = class_getInstanceMethod(c, news);
+    if(class_addMethod(c, origs, method_getImplementation(newMethod), method_getTypeEncoding(newMethod))) {
+        class_replaceMethod(c, news, method_getImplementation(origMethod), method_getTypeEncoding(origMethod));
+    } else {
+        method_exchangeImplementations(origMethod, newMethod);
+    }
+}
+
+IMP class_getImplementation(Class c, SEL sel) {
+    return method_getImplementation(class_getInstanceMethod(c, sel));
+}
+
+N2_END_C

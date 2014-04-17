@@ -4,6 +4,8 @@
 
 #import <UIKit/UIKit.h>
 
+N2_BEGIN_C
+
 extern int kIOSMajorVersion, kIOSMinorVersion, kIOSVersion;
 extern BOOL kIOS7Above, kIOS6Above, kIOS5Above;
 extern BOOL kUIScreenIsRetina;
@@ -27,9 +29,28 @@ enum {
     kUIDeviceTypeSimulator = 0x0001,
 };
 typedef uint UIDeviceType;
-extern UIDeviceType n2_uidevice_type();
-extern bool n2_uidevice_isroot();
+EXTERN UIDeviceType n2_uidevice_type();
+EXTERN bool n2_uidevice_isroot();
 
-extern void n2_objc_foundation();
+EXTERN void n2_objc_foundation();
+
+EXTERN id class_callMethod(Class cls, SEL sel, ...);
+EXTERN BOOL class_existMethod(Class cls, SEL sel);
+EXTERN void class_swizzleMethod(Class c, SEL origs, SEL news);
+EXTERN IMP class_getImplementation(Class cls, SEL sel);
+
+typedef struct _objc_swizzle_t
+{
+    Class cls;
+    IMP default_impl;
+    SEL default_sel;
+    IMP next_impl;
+} objc_swizzle_t;
+
+# define objc_swizzle_invoke(obj, ...) (obj.default_impl)(self, obj.default_sel, ## __VA_ARGS__);
+
+# define SWIZZLE_CALLBACK(which) __swizzle_callback_##which
+
+N2_END_C
 
 #endif

@@ -23,7 +23,7 @@
 #ifdef N2_CXX
 # define N2_BEGIN namespace N2NS {
 # define N2_END }
-# define N2_BEGIN_C exten "C" {
+# define N2_BEGIN_C extern "C" {
 # define N2_END_C }
 # define N2_BEGIN_NS(ns) N2_BEGIN namespace ns {
 # define N2_END_NS } N2_END
@@ -44,6 +44,8 @@
 # define N2_BEIGN_NS(ns)
 # define N2_END_NS
 #endif
+
+#define EXTERN extern
 
 #if defined(_DEBUG) || defined(_DEBUG_) || defined(DEBUG)
 # define PRECOMP_DEBUG_MODE

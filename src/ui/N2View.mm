@@ -2,11 +2,17 @@
 # import "N2Ui.h"
 # import "N2View.h"
 
+@interface N2ViewImplementation : UIView
+
+@end
+
 N2UI_BEGIN
 
 View::View()
 {
-    
+    N2ViewImplementation* o = [[N2ViewImplementation alloc] init];
+    bindMeta(o);
+    SAFE_RELEASE(o);
 }
 
 View::~View()
@@ -35,3 +41,7 @@ bool View::isvisibled() const
 }
 
 N2UI_END
+
+@implementation N2ViewImplementation
+
+@end

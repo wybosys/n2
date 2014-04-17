@@ -86,8 +86,17 @@ typedef id metapointer_t;
 # define API_IOS6
 # define API_IOS5
 
-# ifndef N2_OBJC_ARC
+# if __has_feature(objc_arc) == 1
+#   define N2_OBJC_ARC 1
+# endif
+
+# ifdef N2_OBJC_ARC
+#  define SAFE_RELEASE(o) {o=o;}
+#  define SUPER_DEALLOC {}
+# else
 #  define NOARC_TODO
+#  define SAFE_RELEASE(o) { int rc = o.retainCount; [o release]; if (rc == 1) o = nil; }
+#  define SUPER_DEALLOC {[super dealloc];}
 # endif
 
 # ifdef __IPHONE_7_0

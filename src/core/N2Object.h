@@ -6,6 +6,8 @@ N2_BEGIN
 
 typedef struct _meta_t meta_type;
 
+class Object;
+
 class MetaObject
 {
 public:
@@ -25,8 +27,20 @@ public:
     
 protected:
     
+    // 设置元数据，不进行oc/c对象映射
     void setMeta(metapointer_t);
+    // 绑定元数据，映射oc/c对象
+    void bindMeta(metapointer_t);
+    
+    // 获取元数据
     metapointer_t getMeta() const;
+    
+    // 从元数据中获取对象
+    static Object* GetObject(metapointer_t);
+    template <class T>
+    inline T* GetObject(metapointer_t m) {
+        return (T*)GetObject(m);
+    }
     
     // 元数据是否可以修改
     bool metamutable;

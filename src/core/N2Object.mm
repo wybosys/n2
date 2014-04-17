@@ -13,6 +13,8 @@
 
 @implementation N2MetaObject
 
+static char kMetaObjectKey = 0;
+
 - (void)setCxxobj:(::N2NS::Object*)cxxobj {
     N2_USE;
     refobj_set(_cxxobj, cxxobj);
@@ -22,18 +24,6 @@
     N2_USE;
     refobj_zero(_cxxobj);
 }
-
-/*
- N2MetaObject* mo = nil;
- if (p)
- {
- mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
- if (mo == nil)
- mo = [[N2MetaObject alloc] init];
- mo.cxxobj = this;
- }
- objc_setAssociatedObject(getMeta(), &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
- */
 
 @end
 
@@ -62,9 +52,30 @@ void MetaObject::setMeta(metapointer_t p)
     _pmeta = p;
 }
 
+void MetaObject::bindMeta(metapointer_t p)
+{
+    setMeta(p);
+    
+    N2MetaObject* mo = nil;
+    if (p)
+    {
+        mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
+        if (mo == nil)
+            mo = [[N2MetaObject alloc] init];
+        mo.cxxobj = (Object*)this;
+    }
+    objc_setAssociatedObject(p, &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 metapointer_t MetaObject::getMeta() const
 {
     return _pmeta;
+}
+
+Object* MetaObject::GetObject(metapointer_t m)
+{
+    N2MetaObject* mo = objc_getAssociatedObject(m, &kMetaObjectKey);
+    return mo.cxxobj;
 }
 
 MetaObject MetaObject::copy() const

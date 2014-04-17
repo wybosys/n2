@@ -9,7 +9,9 @@ N2SAMPLE_BEGIN
 
 void SampleApp::load()
 {
-    
+    {
+    ui::ViewController xx;
+    }
 }
 
 N2SAMPLE_END

@@ -161,6 +161,13 @@ String::String(NSMutableString* str)
     setMeta(str);
 }
 
+String String::operator + (String const& r) const
+{
+    NSString* m = getMeta();
+    m = [m stringByAppendingString:r];
+    return String(m);
+}
+
 String& String::operator += (String const& r)
 {
     id m = getMeta();

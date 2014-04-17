@@ -137,7 +137,6 @@ Data::Data(NSData* d)
 Data::Data(NSMutableData* d)
 {
     setMeta(d);
-    metamutable = true;
 }
 
 String::String()
@@ -160,22 +159,21 @@ String::String(String const& r)
 String::String(NSMutableString* str)
 {
     setMeta(str);
-    metamutable = true;
 }
 
 String& String::operator += (String const& r)
 {
-    if (metamutable)
-        [getMeta() appendString:r];
+    id m = getMeta();
+    if ([m respondsToSelector:@selector(appendString:)])
+        [m appendString:r];
     else
-        setMeta([getMeta() stringByAppendingString:r]);
+        setMeta([m stringByAppendingString:r]);
     return *this;
 }
 
 String& String::operator = (String const& r)
 {
     setMeta(r.copy());
-    metamutable = r.metamutable;
     return *this;
 }
 

@@ -37,7 +37,7 @@ static char kMetaObjectKey = 0;
 N2_BEGIN
 
 MetaObject::MetaObject()
-: _pmeta(nil), metamutable(false)
+: _pmeta(nil)
 {
     
 }
@@ -46,7 +46,6 @@ MetaObject::MetaObject(MetaObject const& r)
 : _pmeta(nil)
 {
     setMeta(r);
-    metamutable = r.metamutable;
 }
 
 MetaObject::~MetaObject()

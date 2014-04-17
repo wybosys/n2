@@ -41,10 +41,7 @@ protected:
     inline T* GetObject(metapointer_t m) {
         return (T*)GetObject(m);
     }
-    
-    // 元数据是否可以修改
-    bool metamutable;
-    
+        
 private:
     
     mutable metapointer_t _pmeta;

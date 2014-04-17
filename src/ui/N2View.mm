@@ -2,6 +2,9 @@
 #import "N2Ui.h"
 #import "N2View.h"
 #import "core/N2Objc.h"
+#import "N2Swizzle.h"
+
+PERFORM_STATIC(UIKitSwizzle, Swizzles);
 
 @interface N2ViewImplementation : UIView
 
@@ -44,5 +47,9 @@ bool View::isvisibled() const
 N2UI_END
 
 @implementation N2ViewImplementation
+
+- (void)SWIZZLE_CALLBACK(layout_subviews) {
+    
+}
 
 @end

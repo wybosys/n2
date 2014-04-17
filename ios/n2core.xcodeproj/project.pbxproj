@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		161CF29A18FC93E4004C7D1C /* N2SignalSlot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29918FC93E4004C7D1C /* N2SignalSlot.mm */; };
-		161CF29D18FC9D4A004C7D1C /* N2Objc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29C18FC9D4A004C7D1C /* N2Objc.mm */; };
+		161CF29D18FC9D4A004C7D1C /* N2Objc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29C18FC9D4A004C7D1C /* N2Objc.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		166FDD2818E9CFC70005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD2718E9CFC70005803F /* Foundation.framework */; };
 		166FDDB618E9D31A0005803F /* N2Object.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDB518E9D31A0005803F /* N2Object.mm */; };
 		166FDDB918E9D3950005803F /* N2Kernel.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDB818E9D3950005803F /* N2Kernel.mm */; };

@@ -26,6 +26,7 @@
 		166FDDF918E9E0510005803F /* N2ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 166FDDF818E9E0510005803F /* N2ViewController.mm */; };
 		16BCB3C018FF6AE20037B101 /* VCSample.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB3BF18FF6AE20037B101 /* VCSample.mm */; };
 		16BCB3C318FF6BDB0037B101 /* N2Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB3C218FF6BDB0037B101 /* N2Animation.mm */; };
+		16BCB3C918FFA6E50037B101 /* N2Swizzle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB3C818FFA6E50037B101 /* N2Swizzle.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -72,6 +73,8 @@
 		16BCB3BF18FF6AE20037B101 /* VCSample.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VCSample.mm; sourceTree = "<group>"; };
 		16BCB3C118FF6BDB0037B101 /* N2Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Animation.h; path = ../../src/ui/N2Animation.h; sourceTree = "<group>"; };
 		16BCB3C218FF6BDB0037B101 /* N2Animation.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Animation.mm; path = ../../src/ui/N2Animation.mm; sourceTree = "<group>"; };
+		16BCB3C718FFA6E50037B101 /* N2Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Swizzle.h; path = ../../src/ui/N2Swizzle.h; sourceTree = "<group>"; };
+		16BCB3C818FFA6E50037B101 /* N2Swizzle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Swizzle.mm; path = ../../src/ui/N2Swizzle.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 			children = (
 				166FDDF218E9D8870005803F /* N2Ui.h */,
 				166FDDF518E9DA2A0005803F /* N2Ui.mm */,
+				16BCB3C718FFA6E50037B101 /* N2Swizzle.h */,
+				16BCB3C818FFA6E50037B101 /* N2Swizzle.mm */,
 				166FDDEE18E9D6030005803F /* N2Application.h */,
 				166FDDEF18E9D6030005803F /* N2Application.mm */,
 				16BCB3C118FF6BDB0037B101 /* N2Animation.h */,
@@ -280,6 +285,7 @@
 				161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */,
 				161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */,
 				166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */,
+				16BCB3C918FFA6E50037B101 /* N2Swizzle.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

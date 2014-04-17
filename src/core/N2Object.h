@@ -20,7 +20,7 @@ public:
     virtual ~MetaObject();
     
     inline operator metapointer_t () const {
-        return _pmeta;
+        return getMeta();
     }
     
     // 复制一个对象
@@ -41,7 +41,7 @@ protected:
     void bindMeta(metapointer_t);
     
     // 获取元数据
-    metapointer_t getMeta() const;
+    virtual metapointer_t getMeta() const;
         
 private:
     

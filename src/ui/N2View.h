@@ -1,6 +1,8 @@
 
-# ifndef __N2VIEW_FDD406DA58574B31B98B1199757A2C99_H_INCLUDED
-# define __N2VIEW_FDD406DA58574B31B98B1199757A2C99_H_INCLUDED
+#ifndef __N2VIEW_FDD406DA58574B31B98B1199757A2C99_H_INCLUDED
+#define __N2VIEW_FDD406DA58574B31B98B1199757A2C99_H_INCLUDED
+
+#import "N2Graphics.h"
 
 N2UI_BEGIN
 
@@ -19,6 +21,9 @@ public:
     virtual bool ishidden() const;
     void visible(bool = show);
     bool isvisibled() const;
+    
+    virtual void background(Color const&);
+    virtual Color backgroundColor() const;
     
 };
 

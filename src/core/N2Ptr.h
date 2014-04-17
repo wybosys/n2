@@ -115,6 +115,8 @@ template <typename T>
 class RefPtr
 : public Ptr<T>
 {
+    typedef Ptr<T> super_type;
+    
 public:
     
     RefPtr(T* p = NULL)
@@ -132,7 +134,6 @@ public:
         refobj_set(this->_p, r);
         return *this;
     }
-    
 };
 
 template <typename T>

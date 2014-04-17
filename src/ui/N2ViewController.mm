@@ -60,8 +60,11 @@ N2UI_END
     ViewController* vc = MetaObject::GetObject<ViewController>(self);
     vc->loadView();
     
-    if (self.isViewLoaded == NO)
+    // 设置view
+    if (vc->_view.isnull())
         [super loadView];
+    else
+        self.view = *vc->_view;
 }
 
 - (void)SWIZZLE_CALLBACK(view_loaded) {

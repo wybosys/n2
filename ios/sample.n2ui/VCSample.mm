@@ -7,7 +7,7 @@ N2SAMPLE_BEGIN
 
 VSample::VSample()
 {
-    
+    background(ui::Color::White);
 }
 
 VCSample::VCSample()

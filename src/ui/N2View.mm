@@ -44,6 +44,16 @@ bool View::isvisibled() const
     return !ishidden();
 }
 
+void View::background(Color const& c)
+{
+    [getMeta() setBackgroundColor:c];
+}
+
+Color View::backgroundColor() const
+{
+    return [getMeta() backgroundColor];
+}
+
 N2UI_END
 
 @implementation N2View

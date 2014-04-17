@@ -8,6 +8,7 @@
 @interface N2MetaObject : NSObject
 
 @property (nonatomic, assign) ::N2NS::Object* cxxobj;
+- (void)clear;
 
 @end
 
@@ -23,6 +24,12 @@ static char kMetaObjectKey = 0;
 - (void)dealloc {
     N2_USE;
     refobj_zero(_cxxobj);
+    
+    SUPER_DEALLOC;
+}
+
+- (void)clear {
+    _cxxobj = NULL;
 }
 
 @end
@@ -44,7 +51,12 @@ MetaObject::MetaObject(MetaObject const& r)
 
 MetaObject::~MetaObject()
 {
-    setMeta(nil);
+    // 需要安全的释放掉cxx对象
+    N2MetaObject* mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
+    if (mo) {
+        [mo clear]; // 不能直接=nil，因为此时已经进入destroy流程，直接=nil，会引起重复release
+        objc_setAssociatedObject(getMeta(), &kMetaObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
 }
 
 void MetaObject::setMeta(metapointer_t p)

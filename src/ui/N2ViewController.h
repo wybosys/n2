@@ -20,6 +20,9 @@ public:
     
     virtual View& view();
     
+    virtual void title(String const&);
+    virtual String title() const;
+    
 hybird:
     
     virtual void loadView();

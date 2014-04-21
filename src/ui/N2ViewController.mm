@@ -41,6 +41,16 @@ void ViewController::onLoaded()
     PASS;
 }
 
+void ViewController::title(String const& s)
+{
+    [getMeta() setTitle:s];
+}
+
+String ViewController::title() const
+{
+    return [getMeta() title];
+}
+
 N2UI_END
 
 @implementation N2ViewController

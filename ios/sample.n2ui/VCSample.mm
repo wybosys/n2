@@ -17,7 +17,7 @@ void VSample::onLayout(Rect const& rc)
 
 VCSample::VCSample()
 {
-    
+    title(@"sample");
 }
 
 void VCSample::onLoaded()

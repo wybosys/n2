@@ -8,10 +8,6 @@ N2SAMPLE_BEGIN
 VSample::VSample()
 {
     background(ui::Color::White);
-    
-    weak("abc") = (void*)0x100000;
-    void* p = weak("abc");
-    p = NULL;
 }
 
 void VSample::onLayout(Rect const& rc)

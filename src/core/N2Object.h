@@ -95,12 +95,16 @@ public:
     
     template <typename T, typename V>
     class found_type
-    : public Ptr<V>
     {
     public:
         
-        inline operator T* () const {
+        inline operator V () const {
             return this->p->get(this->k);
+        }
+        
+        template <typename UV>
+        inline operator UV () const {
+            return dynamic_cast<UV>((V)*this);
         }
         
         inline found_type& operator = (V v) {
@@ -164,6 +168,14 @@ inline void refobj_release(T*& l)
 {
     if (l && l->release())
         l = NULL;
+}
+
+template <typename T>
+inline T* refobj_retain(T* l)
+{
+    if (l)
+        l->retain();
+    return l;
 }
 
 template <typename T>

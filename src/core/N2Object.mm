@@ -163,10 +163,38 @@ bool Object::release() const
     return false;
 }
 
+void AttachObject::Weak::set(::std::string const& k, void *p)
+{
+    insert(::std::make_pair(k, p));
+}
+
+void* AttachObject::Weak::get(::std::string const& k) const
+{
+    auto found = find(k);
+    if (found == end())
+        return NULL;
+    return found->second;
+}
+
 AttachObject::Strong::~Strong()
 {
     for (auto i = begin(); i != end(); ++i)
         refobj_zero(i->second);
+}
+
+void AttachObject::Strong::set(::std::string const& k, Object* p)
+{
+    Object* t = get(k);
+    refobj_release(t);
+    insert(::std::make_pair(k, refobj_retain(p)));
+}
+
+Object* AttachObject::Strong::get(::std::string const& k) const
+{
+    auto found = find(k);
+    if (found == end())
+        return NULL;
+    return found->second;
 }
 
 void* AttachObject::weak(::std::string const& k) const

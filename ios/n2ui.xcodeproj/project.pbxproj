@@ -10,8 +10,6 @@
 		1618498A1904FDD900C6EC93 /* N2List.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161849891904FDD900C6EC93 /* N2List.mm */; };
 		1618498D1905034700C6EC93 /* N2Layout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1618498C1905034700C6EC93 /* N2Layout.mm */; };
 		161849F91905086C00C6EC93 /* libmain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161849F81905086C00C6EC93 /* libmain.mm */; };
-		161849FD1905088800C6EC93 /* libn2math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161849FC1905088800C6EC93 /* libn2math.a */; };
-		161849FF1905089000C6EC93 /* libn2math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161849FE1905089000C6EC93 /* libn2math.a */; };
 		161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF28D18FC92E3004C7D1C /* N2View.mm */; };
 		161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29018FC9363004C7D1C /* N2Navigation.mm */; };
 		161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29318FC937B004C7D1C /* N2Tabbar.mm */; };
@@ -53,10 +51,7 @@
 		1618498B1905034700C6EC93 /* N2Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Layout.h; path = ../../src/ui/N2Layout.h; sourceTree = "<group>"; };
 		1618498C1905034700C6EC93 /* N2Layout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Layout.mm; path = ../../src/ui/N2Layout.mm; sourceTree = "<group>"; };
 		161849F21905071900C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
-		161849F4190507C000C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
 		161849F81905086C00C6EC93 /* libmain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = libmain.mm; sourceTree = SOURCE_ROOT; };
-		161849FC1905088800C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
-		161849FE1905089000C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
 		161CF28C18FC92E3004C7D1C /* N2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2View.h; path = ../../src/ui/N2View.h; sourceTree = "<group>"; };
 		161CF28D18FC92E3004C7D1C /* N2View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2View.mm; path = ../../src/ui/N2View.mm; sourceTree = "<group>"; };
 		161CF28F18FC9363004C7D1C /* N2Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Navigation.h; path = ../../src/ui/N2Navigation.h; sourceTree = "<group>"; };
@@ -99,7 +94,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161849FD1905088800C6EC93 /* libn2math.a in Frameworks */,
 				166FDD8018E9D0880005803F /* libn2core.a in Frameworks */,
 				166FDD5A18E9D02F0005803F /* Foundation.framework in Frameworks */,
 			);
@@ -109,7 +103,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				161849FF1905089000C6EC93 /* libn2math.a in Frameworks */,
 				166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */,
 				166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */,
 				166FDDC218E9D5680005803F /* CoreGraphics.framework in Frameworks */,
@@ -143,9 +136,6 @@
 		166FDD5818E9D02F0005803F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				161849FE1905089000C6EC93 /* libn2math.a */,
-				161849FC1905088800C6EC93 /* libn2math.a */,
-				161849F4190507C000C6EC93 /* libn2math.a */,
 				161849F21905071900C6EC93 /* libn2math.a */,
 				166FDDEC18E9D5B80005803F /* UIKit.framework */,
 				166FDD7F18E9D0880005803F /* libn2core.a */,

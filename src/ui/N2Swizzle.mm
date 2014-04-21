@@ -12,8 +12,6 @@ static objc_swizzle_t sw_uiview_layoutsubviews;
     [(id<UIViewSwizzle>)self SWIZZLE_CALLBACK(layout_subviews)];
 }
 
-- (void)SWIZZLE_CALLBACK(layout_subviews) {}
-
 + (void)Swizzles {
     Class cls = [UIView class];
     class_safeSwizzleMethod(cls, @selector(layoutSubviews), @selector(swizzle_layoutsubviews), &sw_uiview_layoutsubviews);
@@ -29,8 +27,6 @@ static objc_swizzle_t sw_uivc_viewloaded;
     objc_swizzle_invoke(sw_uivc_viewloaded);
     [(id<UIViewControllerSwizzle>)self SWIZZLE_CALLBACK(view_loaded)];
 }
-
-- (void)SWIZZLE_CALLBACK(view_loaded) {}
 
 + (void)Swizzles {
     Class cls = [UIViewController class];

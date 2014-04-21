@@ -6,6 +6,10 @@
 
 PERFORM_STATIC(UIKitSwizzle, Swizzles);
 
+@interface UIView (n2ext)
+
+@end
+
 @interface N2View : UIView
 
 @end
@@ -90,10 +94,15 @@ N2UI_END
     return self;
 }
 
+@end
+
+@implementation UIView (n2ext)
+
 - (void)SWIZZLE_CALLBACK(layout_subviews) {
     N2UI_USE;
     View* v = MetaObject::GetObject<View>(self);
-    v->onLayout(v->boundsForLayout());
+    if (v)
+        v->onLayout(v->boundsForLayout());
 }
 
 @end

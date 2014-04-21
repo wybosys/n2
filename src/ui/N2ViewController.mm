@@ -3,6 +3,10 @@
 #import "N2ViewController.h"
 #import "N2Swizzle.h"
 
+@interface UIViewController (n2ext)
+
+@end
+
 @interface N2ViewController : UIViewController
 
 @end
@@ -80,10 +84,15 @@ N2UI_END
         self.view = *vc->_view;
 }
 
+@end
+
+@implementation UIViewController (n2ext)
+
 - (void)SWIZZLE_CALLBACK(view_loaded) {
     N2UI_USE;
     ViewController* navi = MetaObject::GetObject<ViewController>(self);
-    navi->onLoaded();
+    if (navi)
+        navi->onLoaded();
 }
 
 @end

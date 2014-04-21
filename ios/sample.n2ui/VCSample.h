@@ -24,6 +24,10 @@ public:
     
     VCSample();
     
+protected:
+    
+    void onLoaded();
+    
 };
 
 N2SAMPLE_END

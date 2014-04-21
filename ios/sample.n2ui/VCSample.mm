@@ -20,4 +20,9 @@ VCSample::VCSample()
     
 }
 
+void VCSample::onLoaded()
+{
+    
+}
+
 N2SAMPLE_END

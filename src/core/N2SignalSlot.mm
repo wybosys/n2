@@ -67,7 +67,12 @@ void Slots::copy(Slots const& r)
     source = r.source;
 # endif
     
+    // 清空原来的
+    for (auto i = _slots.begin(); i != _slots.end(); ++i)
+        obj_release(*i);
     _slots.clear();
+    
+    // 复制新的
     for (auto i = r._slots.begin(); i != r._slots.end(); ++i)
     {
         Slot* r = new Slot();

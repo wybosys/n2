@@ -137,6 +137,52 @@ public:
 };
 
 template <typename T>
+inline void obj_release(T*& p)
+{
+    if (p) {
+        delete p;
+        p = NULL;
+    }
+}
+
+template <typename T>
+class LazyInstance
+: public Ptr<T>
+{
+public:
+    
+    LazyInstance()
+    {}
+    
+    ~LazyInstance()
+    {
+        obj_release(this->_p);
+    }
+    
+    inline LazyInstance& operator = (T* p)
+    {
+        obj_release(this->_p);
+        this->_p = p;
+        return *this;
+    }
+    
+};
+
+template <typename T>
+class Instance
+: public LazyInstance<T>
+{
+public:
+    
+    Instance()
+    {
+        T* o = new T();
+        this->_p = o;
+    }
+    
+};
+
+template <typename T>
 class RefInstance
 : public RefPtr<T>
 {

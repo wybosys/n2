@@ -73,11 +73,34 @@ private:
     
 };
 
+class AttachObject
+{
+public:
+    
+    class Weak
+    {
+    };
+    
+    class Strong
+    {
+    };
+    
+    void weak(::std::string const&) const;
+    void weak(::std::string const&);
+    void strong(::std::string const&) const;
+    void strong(::std::string const&);
+    
+private:
+    LazyInstance<Weak> _weak;
+    LazyInstance<Strong> _strong;
+};
+
 typedef struct _ref_t ref_type;
 
 class Object
 : public MetaObject,
-public MtxObject
+public MtxObject,
+public AttachObject
 {
     N2_NOCOPY(Object);
     

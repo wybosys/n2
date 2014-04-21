@@ -163,4 +163,30 @@ bool Object::release() const
     return false;
 }
 
+void AttachObject::weak(::std::string const& k) const
+{
+    
+}
+
+void AttachObject::weak(::std::string const& k)
+{
+    MtxObject::Lock();
+    if (_weak.isnull())
+        _weak = new Weak();
+    MtxObject::Unlock();
+}
+
+void AttachObject::strong(::std::string const& k) const
+{
+    
+}
+
+void AttachObject::strong(::std::string const& k)
+{
+    MtxObject::Lock();
+    if (_strong.isnull())
+        _strong = new Strong();
+    MtxObject::Unlock();
+}
+
 N2_END

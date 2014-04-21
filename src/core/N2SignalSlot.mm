@@ -98,6 +98,11 @@ Signals& Signals::emit(signal_t const& s)
     return *this;
 }
 
+Signals& Signals::emit(signal_t const& s, Variant const& v)
+{
+    return *this;
+}
+
 SObject::SObject()
 {
     

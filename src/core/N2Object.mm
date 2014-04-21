@@ -89,7 +89,7 @@ Object* MetaObject::GetObject(metapointer_t m)
     return mo.cxxobj;
 }
 
-MetaObject MetaObject::copy() const
+MetaObject MetaObject::metacopy() const
 {
     id obj = [_pmeta copy];
     MetaObject ret;

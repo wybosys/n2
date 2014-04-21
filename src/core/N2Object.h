@@ -24,7 +24,7 @@ public:
     }
     
     // 复制一个对象
-    MetaObject copy() const;
+    MetaObject metacopy() const;
     
     // 从元数据中获取对象
     static Object* GetObject(metapointer_t);

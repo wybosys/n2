@@ -4,6 +4,11 @@
 
 N2_BEGIN
 
+Number::Number()
+{
+    
+}
+
 Number::Number(char v)
 {
     setMeta(@(v));
@@ -124,6 +129,11 @@ Number::operator ulonglong() const
     return [getMeta() unsignedLongLongValue];
 }
 
+void Number::copy(Number const& r)
+{
+    setMeta(r.metacopy());
+}
+
 Data::Data()
 {
     
@@ -180,7 +190,7 @@ String& String::operator += (String const& r)
 
 String& String::operator = (String const& r)
 {
-    setMeta(r.copy());
+    setMeta(r.metacopy());
     return *this;
 }
 
@@ -194,9 +204,31 @@ size_t String::length() const
     return [getMeta() length];
 }
 
+void String::copy(String const& r)
+{
+    setMeta(r.metacopy());
+}
+
 Variant::Variant()
 {
     
+}
+
+Variant::Variant(Number const& n)
+{
+    number = RefInstance<Number>();
+    number->copy(n);
+}
+
+Variant::Variant(String const& s)
+{
+    string = RefInstance<String>();
+    string->copy(s);
+}
+
+Variant::Variant(Object* o)
+{
+    object = o;
 }
 
 N2_END

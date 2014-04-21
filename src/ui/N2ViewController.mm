@@ -46,7 +46,7 @@ void ViewController::title(String const& s)
     if (title() == s)
         return;
     [getMeta() setTitle:s];
-    signals().emit(kSignalTitleChanged);
+    signals().emit(kSignalTitleChanged, s);
 }
 
 String ViewController::title() const

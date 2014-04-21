@@ -5,10 +5,12 @@
 N2_BEGIN
 
 class Number
-: public Object
+: public Object,
+public Copyable<Number>
 {
 public:
     
+    Number();
     Number(char);
     Number(uchar);
     Number(short);
@@ -35,6 +37,8 @@ public:
     operator longlong () const;
     operator ulonglong () const;
     
+    void copy(Number const&);
+    
 };
 
 class Data
@@ -49,7 +53,8 @@ public:
 };
 
 class String
-: public Object
+: public Object,
+public Copyable<String>
 {
 public:
   
@@ -64,6 +69,8 @@ public:
     bool operator == (String const&) const;
     size_t length() const;
     
+    void copy(String const&);
+    
 };
 
 class Variant
@@ -72,6 +79,9 @@ class Variant
 public:
     
     Variant();
+    Variant(Number const&);
+    Variant(String const&);
+    Variant(Object*);
     
     RefPtr<Number> number;
     RefPtr<String> string;

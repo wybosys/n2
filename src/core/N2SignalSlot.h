@@ -88,6 +88,7 @@ public:
     
     // 激活信号
     Signals& emit(signal_t const&);
+    Signals& emit(signal_t const&, Variant const&);
     
 private:
     

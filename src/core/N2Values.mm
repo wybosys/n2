@@ -231,4 +231,48 @@ Variant::Variant(Object* o)
     object = o;
 }
 
+Variant::Variant(Variant const& r)
+{
+    if (!r.number.isnull())
+    {
+        number = RefInstance<Number>();
+        number->copy(r.number);
+    }
+
+    if (!r.string.isnull())
+    {
+        string = RefInstance<String>();
+        string->copy(r.string);
+    }
+    
+    object = r.object;
+}
+
+Variant& Variant::operator = (Variant const& r)
+{
+    if (!r.number.isnull())
+    {
+        number = RefInstance<Number>();
+        number->copy(r.number);
+    }
+    else
+    {
+        number = NULL;
+    }
+    
+    if (!r.string.isnull())
+    {
+        string = RefInstance<String>();
+        string->copy(r.string);
+    }
+    else
+    {
+        string = NULL;
+    }
+    
+    object = r.object;
+    
+    return *this;
+}
+
 N2_END

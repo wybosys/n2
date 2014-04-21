@@ -136,24 +136,24 @@ void MtxObject::Unlock()
     gs_mtx_MtxObject.unlock();
 }
 
-Object::Object()
+ReferenceObject::ReferenceObject()
 : _refcnt(1)
 {
     
 }
 
-Object::~Object()
+ReferenceObject::~ReferenceObject()
 {
     
 }
 
-Object* Object::retain() const
+ReferenceObject* ReferenceObject::retain() const
 {
     ++_refcnt;
-    return const_cast<Object*>(this);
+    return const_cast<ReferenceObject*>(this);
 }
 
-bool Object::release() const
+bool ReferenceObject::release() const
 {
     if (--_refcnt == 0)
     {
@@ -161,6 +161,16 @@ bool Object::release() const
         return true;
     }
     return false;
+}
+
+Object::Object()
+{
+    
+}
+
+Object::~Object()
+{
+    
 }
 
 void AttachObject::Weak::set(::std::string const& k, void *p)

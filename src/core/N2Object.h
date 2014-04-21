@@ -130,8 +130,28 @@ private:
 
 typedef struct _ref_t ref_type;
 
+class ReferenceObject
+{
+public:
+    
+    typedef ref_type ref_type;
+    
+    ReferenceObject();
+    virtual ~ReferenceObject();
+    
+    // 引用计数
+    ReferenceObject* retain() const;
+    bool release() const;
+    
+private:
+    
+    mutable ulonglong _refcnt;
+    
+};
+
 class Object
 : public MetaObject,
+public ReferenceObject,
 public MtxObject,
 public AttachObject
 {
@@ -139,18 +159,8 @@ public AttachObject
     
 public:
     
-    typedef ref_type ref_type;
-    
     Object();
     virtual ~Object();
-    
-    // 引用计数
-    Object* retain() const;
-    bool release() const;
-
-private:
-    
-    mutable ulonglong _refcnt;
     
 };
 

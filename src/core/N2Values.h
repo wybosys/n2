@@ -4,6 +4,40 @@
 
 N2_BEGIN
 
+template <int L, int R>
+struct ConstEqual
+{
+    enum { VALUE = false, IVALUE = true};
+};
+
+template <int L>
+struct ConstEqual<L, L>
+{
+    enum { VALUE = true, IVALUE = false};
+};
+
+template <int V>
+struct Const
+{
+    enum { VALUE = V };
+    
+    inline operator bool () const
+    {
+        return ConstEqual<VALUE, 0>::IVALUE;
+    }
+};
+
+template <typename T>
+class ZeroObject
+{
+public:
+    
+    static const T Zero;
+};
+
+template <typename T>
+const T ZeroObject<T>::Zero = T();
+
 class Number
 : public Object,
 public Copyable<Number>
@@ -74,7 +108,8 @@ public:
 };
 
 class Variant
-: public Object
+: public Object,
+public ZeroObject<Variant>
 {
 public:
     
@@ -82,34 +117,14 @@ public:
     Variant(Number const&);
     Variant(String const&);
     Variant(Object*);
+    Variant(Variant const&);
     
     RefPtr<Number> number;
     RefPtr<String> string;
     RefPtr<Object> object;
     
-};
+    Variant& operator = (Variant const&);
 
-template <int L, int R>
-struct ConstEqual
-{
-    enum { VALUE = false, IVALUE = true};
-};
-
-template <int L>
-struct ConstEqual<L, L>
-{
-    enum { VALUE = true, IVALUE = false};
-};
-
-template <int V>
-struct Const
-{    
-    enum { VALUE = V };
-    
-    inline operator bool () const
-    {
-        return ConstEqual<VALUE, 0>::IVALUE;
-    }
 };
 
 N2_END

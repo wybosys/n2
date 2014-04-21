@@ -73,7 +73,7 @@ void MetaObject::bindMeta(metapointer_t p)
         mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
         if (mo == nil)
             mo = [[N2MetaObject alloc] init];
-        mo.cxxobj = (Object*)this;
+        mo.cxxobj = dynamic_cast<Object*>(this);
     }
     objc_setAssociatedObject(p, &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }

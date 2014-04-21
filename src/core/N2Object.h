@@ -30,7 +30,7 @@ public:
     static Object* GetObject(metapointer_t);
     template <class T>
     static T* GetObject(metapointer_t m) {
-        return (T*)GetObject(m);
+        return dynamic_cast<T*>(GetObject(m));
     }
     
 protected:

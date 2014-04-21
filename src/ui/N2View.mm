@@ -54,9 +54,30 @@ Color View::backgroundColor() const
     return [getMeta() backgroundColor];
 }
 
-void View::onLayout()
+void View::onLayout(Rect const&)
 {
-    
+    PASS;
+}
+
+void View::frame(Rect const& rc)
+{
+    [getMeta() setFrame:rc];
+}
+
+Rect View::frame() const
+{
+    return [getMeta() frame];
+}
+
+Rect View::bounds() const
+{
+    return [getMeta() bounds];
+}
+
+Rect View::boundsForLayout() const
+{
+    Rect rc = bounds();
+    return rc;
 }
 
 N2UI_END
@@ -72,7 +93,7 @@ N2UI_END
 - (void)SWIZZLE_CALLBACK(layout_subviews) {
     N2UI_USE;
     View* v = MetaObject::GetObject<View>(self);
-    v->onLayout();
+    v->onLayout(v->boundsForLayout());
 }
 
 @end

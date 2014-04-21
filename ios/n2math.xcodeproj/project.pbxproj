@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		161849CD1905065A00C6EC93 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 161849CC1905065A00C6EC93 /* Foundation.framework */; };
 		161849FB1905088100C6EC93 /* libmain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161849FA1905088100C6EC93 /* libmain.mm */; };
+		16184A0519050B2900C6EC93 /* N2Geometry.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16184A0319050B2900C6EC93 /* N2Geometry.mm */; };
+		16184A0619050B2900C6EC93 /* N2Math.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16184A0419050B2900C6EC93 /* N2Math.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -30,6 +32,10 @@
 		161849DA1905065A00C6EC93 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		161849DD1905065A00C6EC93 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		161849FA1905088100C6EC93 /* libmain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = libmain.mm; sourceTree = SOURCE_ROOT; };
+		16184A011905093C00C6EC93 /* N2Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Geometry.h; path = ../../src/math/N2Geometry.h; sourceTree = "<group>"; };
+		16184A021905098300C6EC93 /* N2Math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Math.h; path = ../../src/math/N2Math.h; sourceTree = "<group>"; };
+		16184A0319050B2900C6EC93 /* N2Geometry.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Geometry.mm; path = ../../src/math/N2Geometry.mm; sourceTree = "<group>"; };
+		16184A0419050B2900C6EC93 /* N2Math.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Math.mm; path = ../../src/math/N2Math.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +98,10 @@
 		16184A00190508B700C6EC93 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				16184A021905098300C6EC93 /* N2Math.h */,
+				16184A0419050B2900C6EC93 /* N2Math.mm */,
+				16184A011905093C00C6EC93 /* N2Geometry.h */,
+				16184A0319050B2900C6EC93 /* N2Geometry.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -147,7 +157,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				16184A0619050B2900C6EC93 /* N2Math.mm in Sources */,
 				161849FB1905088100C6EC93 /* libmain.mm in Sources */,
+				16184A0519050B2900C6EC93 /* N2Geometry.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +244,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = ../src;
 			};
 			name = Debug;
 		};
@@ -245,6 +258,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = ../src;
 			};
 			name = Release;
 		};

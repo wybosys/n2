@@ -26,9 +26,14 @@ public:
     virtual void background(Color const&);
     virtual Color backgroundColor() const;
     
+    virtual void frame(Rect const&);
+    virtual Rect frame() const;
+    virtual Rect bounds() const;
+    
 hybird:
     
-    virtual void onLayout();
+    virtual void onLayout(Rect const&);
+    virtual Rect boundsForLayout() const;
     
 };
 

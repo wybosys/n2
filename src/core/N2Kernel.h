@@ -91,6 +91,7 @@ typedef unsigned char ubyte, uchar;
 typedef signed char sbyte;
 typedef unsigned short ushort, uword;
 typedef signed short word;
+typedef float real;
 
 #ifdef N2_OBJC
 typedef id metapointer_t;

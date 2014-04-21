@@ -69,4 +69,37 @@ metapointer_t Color::getMeta() const
 const Color Color::White = Color::ARGB(0xffffffff);
 const Color Color::Black = Color::ARGB(0xff000000);
 
+Point::Point(CGPoint const& pt)
+{
+    x = pt.x;
+    y = pt.y;
+}
+
+Point::operator CGPoint () const
+{
+    return CGPointMake(x, y);
+}
+
+Size::Size(CGSize const& sz)
+{
+    w = sz.width;
+    h = sz.height;
+}
+
+Size::operator CGSize () const
+{
+    return CGSizeMake(w, h);
+}
+
+Rect::Rect(CGRect const& r)
+{
+    origin = r.origin;
+    size = r.size;
+}
+
+Rect::operator CGRect () const
+{
+    return CGRectMake(origin.x, origin.y, size.w, size.h);
+}
+
 N2UI_END

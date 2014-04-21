@@ -134,7 +134,7 @@ protected:
     
     virtual void init_signals();
     
-    mutable Ptr<Signals> sigs;
+    mutable LazyInstance<Signals> sigs;
 };
 
 #define SIGNAL(sig) static const ::N2NS::signal_t sig = 

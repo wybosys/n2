@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		161849F71905085900C6EC93 /* libmain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161849F61905085900C6EC93 /* libmain.mm */; };
 		161CF29A18FC93E4004C7D1C /* N2SignalSlot.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29918FC93E4004C7D1C /* N2SignalSlot.mm */; };
 		161CF29D18FC9D4A004C7D1C /* N2Objc.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29C18FC9D4A004C7D1C /* N2Objc.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		166FDD2818E9CFC70005803F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 166FDD2718E9CFC70005803F /* Foundation.framework */; };
@@ -31,6 +32,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		161849F61905085900C6EC93 /* libmain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = libmain.mm; sourceTree = SOURCE_ROOT; };
 		161CF29818FC93E4004C7D1C /* N2SignalSlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2SignalSlot.h; path = ../../src/core/N2SignalSlot.h; sourceTree = "<group>"; };
 		161CF29918FC93E4004C7D1C /* N2SignalSlot.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2SignalSlot.mm; path = ../../src/core/N2SignalSlot.mm; sourceTree = "<group>"; };
 		161CF29B18FC9D4A004C7D1C /* N2Objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Objc.h; path = ../../src/core/N2Objc.h; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 		166FDD2A18E9CFC70005803F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				161849F61905085900C6EC93 /* libmain.mm */,
 				166FDD2B18E9CFC70005803F /* n2core-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -189,6 +192,7 @@
 				16F8562318FCCCCD007984F7 /* N2Ptr.mm in Sources */,
 				16DF8C9D18FE49C900F9A1DA /* N2Thread.mm in Sources */,
 				161CF29A18FC93E4004C7D1C /* N2SignalSlot.mm in Sources */,
+				161849F71905085900C6EC93 /* libmain.mm in Sources */,
 				161CF29D18FC9D4A004C7D1C /* N2Objc.mm in Sources */,
 				166FDDB618E9D31A0005803F /* N2Object.mm in Sources */,
 				166FDDFC18E9E2BC0005803F /* N2Values.mm in Sources */,

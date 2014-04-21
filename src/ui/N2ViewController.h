@@ -2,9 +2,12 @@
 #ifndef __N2VIEWCONTROLLER_359564002B6442DEABFDBE015D7E05AF_H_INCLUDED
 #define __N2VIEWCONTROLLER_359564002B6442DEABFDBE015D7E05AF_H_INCLUDED
 
-#import "N2View.h"
-
 N2UI_BEGIN
+
+SIGNAL(kSignalViewAppearing) "::ui::view::appearing";
+SIGNAL(kSignalViewAppear) "::ui::view::appear";
+SIGNAL(kSignalViewDisappearing) "::ui::view::disappearing";
+SIGNAL(kSignalViewDisappear) "::ui::view::disappear";
 
 class ViewController
 : public SObject
@@ -23,6 +26,10 @@ hybird:
     virtual void onLoaded();
     
     RefPtr<View> _view;
+    
+    SIGNALS(SObject,
+            kSignalViewAppearing, kSignalViewAppear,
+            kSignalViewDisappearing, kSignalViewDisappear);
 };
 
 template <typename TView>

@@ -3,6 +3,7 @@
 #define __N2VIEW_FDD406DA58574B31B98B1199757A2C99_H_INCLUDED
 
 #import "N2Graphics.h"
+#import "N2Layout.h"
 
 N2UI_BEGIN
 

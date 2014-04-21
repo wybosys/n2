@@ -35,6 +35,24 @@ protected:
     
 };
 
+class Point
+{
+public:
+};
+
+class Size
+{
+public:
+};
+
+class Rect
+{
+public:
+    
+    Point origin;
+    Size size;
+};
+
 N2UI_END
 
 #endif

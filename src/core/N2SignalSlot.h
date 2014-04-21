@@ -115,6 +115,23 @@ protected:
 #define SIGNAL(sig) static const ::N2NS::signal_t sig = 
 #define SIGNALS(super, ...) protected: virtual void init_signals() { super::init_signals(); sigs->add({__VA_ARGS__}); }
 
+SIGNAL(kSignalSucceed) "::any::done";
+SIGNAL(kSignalFailed) "::any::failed";
+SIGNAL(kSignalCancel) "::any::cancel";
+SIGNAL(kSignalDoing) "::any::doing";
+SIGNAL(kSignalStart) "::any::doing";
+SIGNAL(kSignalDone) "::any::done";
+SIGNAL(kSignalAction) "::any::action";
+SIGNAL(kSignalProcessed) "::any::processed";
+SIGNAL(kSignalNext) "::any::next";
+SIGNAL(kSignalPrevious) "::any::previous";
+SIGNAL(kSignalAdded) "::any::added";
+SIGNAL(kSignalRemvoed) "::any::removed";
+SIGNAL(kSignalSelectionChanging) "::any::selection::changing";
+SIGNAL(kSignalSelectionChanged) "::any::selection::changed";
+SIGNAL(kSignalValueChanging) "::any::value::changing";
+SIGNAL(kSignalValueChanged) "::any::value::changed";
+
 N2_END
 
 # endif

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1618498A1904FDD900C6EC93 /* N2List.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161849891904FDD900C6EC93 /* N2List.mm */; };
+		1618498D1905034700C6EC93 /* N2Layout.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1618498C1905034700C6EC93 /* N2Layout.mm */; };
+		161849F91905086C00C6EC93 /* libmain.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161849F81905086C00C6EC93 /* libmain.mm */; };
+		161849FD1905088800C6EC93 /* libn2math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161849FC1905088800C6EC93 /* libn2math.a */; };
+		161849FF1905089000C6EC93 /* libn2math.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 161849FE1905089000C6EC93 /* libn2math.a */; };
 		161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF28D18FC92E3004C7D1C /* N2View.mm */; };
 		161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29018FC9363004C7D1C /* N2Navigation.mm */; };
 		161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29318FC937B004C7D1C /* N2Tabbar.mm */; };
@@ -46,6 +50,13 @@
 /* Begin PBXFileReference section */
 		161849881904FDD900C6EC93 /* N2List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2List.h; path = ../../src/ui/N2List.h; sourceTree = "<group>"; };
 		161849891904FDD900C6EC93 /* N2List.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2List.mm; path = ../../src/ui/N2List.mm; sourceTree = "<group>"; };
+		1618498B1905034700C6EC93 /* N2Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Layout.h; path = ../../src/ui/N2Layout.h; sourceTree = "<group>"; };
+		1618498C1905034700C6EC93 /* N2Layout.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Layout.mm; path = ../../src/ui/N2Layout.mm; sourceTree = "<group>"; };
+		161849F21905071900C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
+		161849F4190507C000C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
+		161849F81905086C00C6EC93 /* libmain.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = libmain.mm; sourceTree = SOURCE_ROOT; };
+		161849FC1905088800C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
+		161849FE1905089000C6EC93 /* libn2math.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libn2math.a; path = "build/Debug-iphoneos/libn2math.a"; sourceTree = "<group>"; };
 		161CF28C18FC92E3004C7D1C /* N2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2View.h; path = ../../src/ui/N2View.h; sourceTree = "<group>"; };
 		161CF28D18FC92E3004C7D1C /* N2View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2View.mm; path = ../../src/ui/N2View.mm; sourceTree = "<group>"; };
 		161CF28F18FC9363004C7D1C /* N2Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Navigation.h; path = ../../src/ui/N2Navigation.h; sourceTree = "<group>"; };
@@ -88,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				161849FD1905088800C6EC93 /* libn2math.a in Frameworks */,
 				166FDD8018E9D0880005803F /* libn2core.a in Frameworks */,
 				166FDD5A18E9D02F0005803F /* Foundation.framework in Frameworks */,
 			);
@@ -97,10 +109,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */,
+				161849FF1905089000C6EC93 /* libn2math.a in Frameworks */,
 				166FDDEB18E9D5780005803F /* libn2core.a in Frameworks */,
 				166FDDEA18E9D5750005803F /* libn2ui.a in Frameworks */,
 				166FDDC218E9D5680005803F /* CoreGraphics.framework in Frameworks */,
+				166FDDED18E9D5B80005803F /* UIKit.framework in Frameworks */,
 				166FDDC018E9D5680005803F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -130,6 +143,10 @@
 		166FDD5818E9D02F0005803F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				161849FE1905089000C6EC93 /* libn2math.a */,
+				161849FC1905088800C6EC93 /* libn2math.a */,
+				161849F4190507C000C6EC93 /* libn2math.a */,
+				161849F21905071900C6EC93 /* libn2math.a */,
 				166FDDEC18E9D5B80005803F /* UIKit.framework */,
 				166FDD7F18E9D0880005803F /* libn2core.a */,
 				166FDD5918E9D02F0005803F /* Foundation.framework */,
@@ -150,6 +167,7 @@
 		166FDD5C18E9D02F0005803F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				161849F81905086C00C6EC93 /* libmain.mm */,
 				166FDD5D18E9D02F0005803F /* n2ui-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -172,6 +190,8 @@
 				166FDDF818E9E0510005803F /* N2ViewController.mm */,
 				161CF28C18FC92E3004C7D1C /* N2View.h */,
 				161CF28D18FC92E3004C7D1C /* N2View.mm */,
+				1618498B1905034700C6EC93 /* N2Layout.h */,
+				1618498C1905034700C6EC93 /* N2Layout.mm */,
 				161CF28F18FC9363004C7D1C /* N2Navigation.h */,
 				161CF29018FC9363004C7D1C /* N2Navigation.mm */,
 				161849881904FDD900C6EC93 /* N2List.h */,
@@ -292,12 +312,14 @@
 				161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */,
 				166FDDF018E9D6030005803F /* N2Application.mm in Sources */,
 				161CF29718FC93A4004C7D1C /* N2Widgets.mm in Sources */,
+				1618498D1905034700C6EC93 /* N2Layout.mm in Sources */,
 				161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */,
 				1618498A1904FDD900C6EC93 /* N2List.mm in Sources */,
 				16354A9918FFC0AF0074512C /* N2Graphics.mm in Sources */,
 				161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */,
 				166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */,
 				16BCB3C918FFA6E50037B101 /* N2Swizzle.mm in Sources */,
+				161849F91905086C00C6EC93 /* libmain.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +428,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -424,6 +447,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2-hksjinvxvujctddbywoaqdbylnwx/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -450,7 +474,10 @@
 				);
 				INFOPLIST_FILE = "sample.n2ui/sample.n2ui-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = ../src;
@@ -472,7 +499,10 @@
 				GCC_PREFIX_HEADER = "sample.n2ui/sample.n2ui-Prefix.pch";
 				INFOPLIST_FILE = "sample.n2ui/sample.n2ui-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = ../src;

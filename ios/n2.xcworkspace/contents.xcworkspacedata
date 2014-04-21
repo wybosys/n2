@@ -7,4 +7,7 @@
    <FileRef
       location = "group:n2ui.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:n2math.xcodeproj">
+   </FileRef>
 </Workspace>

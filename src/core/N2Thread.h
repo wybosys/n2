@@ -4,7 +4,13 @@
 
 N2_BEGIN
 
+INTERFACE(Locking,
+          virtual void lock() = 0;
+          virtual void unlock() = 0;
+          );
+
 class Mutex
+: public ILocking
 {
 public:
     
@@ -17,7 +23,6 @@ public:
 protected:
     
     void* _h;
-    
 };
 
 N2_END

@@ -185,6 +185,15 @@ inline T& mutable_cast(T const& p)
     return const_cast<T&>(p);
 }
 
+#define INTERFACE(cls, exp) \
+class I##cls \
+{ \
+public: \
+typedef I##cls interface_type; \
+virtual ~I##cls() {} \
+exp \
+};
+
 # endif
 
 N2_END

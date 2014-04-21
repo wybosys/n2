@@ -43,7 +43,10 @@ void ViewController::onLoaded()
 
 void ViewController::title(String const& s)
 {
+    if (title() == s)
+        return;
     [getMeta() setTitle:s];
+    signals().emit(kSignalTitleChanged);
 }
 
 String ViewController::title() const

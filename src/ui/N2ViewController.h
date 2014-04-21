@@ -9,6 +9,8 @@ SIGNAL(kSignalViewAppear) "::ui::view::appear";
 SIGNAL(kSignalViewDisappearing) "::ui::view::disappearing";
 SIGNAL(kSignalViewDisappear) "::ui::view::disappear";
 
+SIGNAL(kSignalTitleChanged) "::ui::title::changed";
+
 class ViewController
 : public SObject
 {
@@ -31,8 +33,8 @@ hybird:
     RefPtr<View> _view;
     
     SIGNALS(SObject,
-            kSignalViewAppearing, kSignalViewAppear,
-            kSignalViewDisappearing, kSignalViewDisappear);
+            kSignalViewAppearing, kSignalViewAppear, kSignalViewDisappearing, kSignalViewDisappear,            
+            kSignalTitleChanged);
 };
 
 template <typename TView>

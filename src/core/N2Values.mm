@@ -184,6 +184,11 @@ String& String::operator = (String const& r)
     return *this;
 }
 
+bool String::operator == (String const& r) const
+{
+    return [getMeta() isEqualToString:r];
+}
+
 size_t String::length() const
 {
     return [getMeta() length];

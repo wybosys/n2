@@ -61,6 +61,7 @@ public:
     String operator + (String const&) const;
     String& operator += (String const&);
     String& operator = (String const&);
+    bool operator == (String const&) const;
     size_t length() const;
     
 };

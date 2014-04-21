@@ -9,6 +9,7 @@ N2_BEGIN
 typedef ::std::string signal_t;
 class Slots;
 class Signals;
+class SObject;
 
 class Slot
 : public Copyable<Slot>,
@@ -44,10 +45,10 @@ public:
     Ptr<Slot> source;
     
     // 回调、重定向等依赖的目标对象
-    Ptr<Object> target;
+    Ptr<SObject> target;
     
     // 发送者
-    Ptr<Object> sender;
+    Ptr<SObject> sender;
     
     void copy(Slot const&);
 };
@@ -72,14 +73,14 @@ protected:
     // slots的绑定方法
     // true 绑定成功
     // false 绑定失败或已经绑定
-    bool connect(signal_t const& redirect, Object*);
+    bool connect(signal_t const& redirect, SObject*);
     bool connect(Slot::cb_sfunction);
-    bool connect(Slot::cb_mfunction, Object*);
+    bool connect(Slot::cb_mfunction, SObject*);
     
     // 根据条件查找slot
-    Slot* find(signal_t const& redirect, Object*) const;
+    Slot* find(signal_t const& redirect, SObject*) const;
     Slot* find(Slot::cb_sfunction) const;
-    Slot* find(Slot::cb_mfunction, Object*) const;
+    Slot* find(Slot::cb_mfunction, SObject*) const;
     
     // 运行一遍
     void run();
@@ -99,7 +100,7 @@ public:
     ~Signals();
     
     // 所有者
-    Ptr<Object> owner;
+    Ptr<SObject> owner;
   
     // 注册信号
     Signals& add(signal_t const&);
@@ -110,14 +111,14 @@ public:
     Signals& emit(signal_t const&, Variant const&);
     
     // 绑定
-    void connect(signal_t const&, signal_t const& redirect, Object*);
+    void connect(signal_t const&, signal_t const& redirect, SObject*);
     void connect(signal_t const&, Slot::cb_sfunction);
-    void connect(signal_t const&, Slot::cb_mfunction, Object*);
+    void connect(signal_t const&, Slot::cb_mfunction, SObject*);
     
 private:
     
     ::std::map<signal_t, Slots*> _ss;
-    ::std::set<Slot*> _reflects;
+    ::std::set<Slots*> _reflects;
 };
 
 class SObject
@@ -133,12 +134,14 @@ public:
 protected:
     
     virtual void init_signals();
+    Signals& getSignals() const;
     
     mutable LazyInstance<Signals> sigs;
 };
 
 #define SIGNAL(sig) static const ::N2NS::signal_t sig = 
 #define SIGNALS(super, ...) protected: virtual void init_signals() { super::init_signals(); sigs->add({__VA_ARGS__}); }
+#define slot(s) ((::N2NS::Slot::cb_mfunction)&s)
 
 SIGNAL(kSignalSucceed) "::any::done";
 SIGNAL(kSignalFailed) "::any::failed";

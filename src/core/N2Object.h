@@ -162,6 +162,9 @@ public:
     Object();
     virtual ~Object();
     
+    // 空函数占位
+    inline void pass() {}
+    
 };
 
 template <typename T>

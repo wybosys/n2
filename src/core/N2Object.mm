@@ -190,6 +190,7 @@ AttachObject::Strong::~Strong()
 {
     for (auto i = begin(); i != end(); ++i)
         refobj_zero(i->second);
+    clear();
 }
 
 void AttachObject::Strong::set(::std::string const& k, Object* p)

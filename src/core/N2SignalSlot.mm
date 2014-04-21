@@ -20,9 +20,7 @@ void Slot::emit()
 {
     if (!redirect.empty() && !target.isnull())
     {
-        SObject* so = dynamic_cast<SObject*>((Object*)target);
-        if (so)
-            so->signals().emit(redirect, data);
+        target->signals().emit(redirect, data);
     }
     
     if (func_s != nullptr)
@@ -82,7 +80,7 @@ void Slots::copy(Slots const& r)
     }
 }
 
-bool Slots::connect(signal_t const& redirect, Object* target)
+bool Slots::connect(signal_t const& redirect, SObject* target)
 {
     if (find(redirect, target))
         return false;
@@ -103,7 +101,7 @@ bool Slots::connect(Slot::cb_sfunction sfunc)
     return true;
 }
 
-bool Slots::connect(Slot::cb_mfunction mfunc, Object* target)
+bool Slots::connect(Slot::cb_mfunction mfunc, SObject* target)
 {
     if (find(mfunc, target))
         return false;
@@ -114,7 +112,7 @@ bool Slots::connect(Slot::cb_mfunction mfunc, Object* target)
     return true;
 }
 
-Slot* Slots::find(signal_t const& redirect, Object* target) const
+Slot* Slots::find(signal_t const& redirect, SObject* target) const
 {
     for (auto i = _slots.begin(); i != _slots.end(); ++i)
     {
@@ -137,7 +135,7 @@ Slot* Slots::find(Slot::cb_sfunction sfunc) const
     return nullptr;
 }
 
-Slot* Slots::find(Slot::cb_mfunction mfunc, Object* target) const
+Slot* Slots::find(Slot::cb_mfunction mfunc, SObject* target) const
 {
     for (auto i = _slots.begin(); i != _slots.end(); ++i)
     {
@@ -161,8 +159,25 @@ Signals::Signals()
 
 Signals::~Signals()
 {
+    // 断开所有的反连接
+    for (auto i = _reflects.begin(); i != _reflects.end(); ++i)
+    {
+        Slots* rss = *i;
+        auto j = rss->_slots.begin();
+        while (j != rss->_slots.end())
+        {
+            Slot* rs = *j;
+            if (rs->target == owner)
+            {
+                j = rss->_slots.erase(j);
+            }
+        }
+    }
+    
+    // 清空所有的已连接插槽
     for (auto i = _ss.begin(); i != _ss.end(); ++i)
         obj_release(i->second);
+    _ss.clear();
 }
 
 Signals& Signals::add(signal_t const& sig)
@@ -232,12 +247,13 @@ Signals& Signals::emit(signal_t const& s, Variant const& v)
     return *this;
 }
 
-void Signals::connect(signal_t const& sig, signal_t const& redirect, Object* target)
+void Signals::connect(signal_t const& sig, signal_t const& redirect, SObject* target)
 {
     auto fnds = _ss.find(sig);
     if (fnds == _ss.end())
         return;
     fnds->second->connect(redirect, target);
+    target->signals()._reflects.insert(fnds->second);
 }
 
 void Signals::connect(signal_t const& sig, Slot::cb_sfunction sfunc)
@@ -248,12 +264,13 @@ void Signals::connect(signal_t const& sig, Slot::cb_sfunction sfunc)
     fnds->second->connect(sfunc);
 }
 
-void Signals::connect(signal_t const& sig, Slot::cb_mfunction mfunc, Object* target)
+void Signals::connect(signal_t const& sig, Slot::cb_mfunction mfunc, SObject* target)
 {
     auto fnds = _ss.find(sig);
     if (fnds == _ss.end())
         return;
     fnds->second->connect(mfunc, target);
+    target->signals()._reflects.insert(fnds->second);
 }
 
 SObject::SObject()
@@ -267,6 +284,11 @@ SObject::~SObject()
 }
 
 Signals& SObject::signals() const
+{
+    return getSignals();
+}
+
+Signals& SObject::getSignals() const
 {
     lock();
     if (sigs.isnull())

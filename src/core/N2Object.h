@@ -78,17 +78,46 @@ class AttachObject
 public:
     
     class Weak
+    : public ::std::map<::std::string, void*>
     {
+    public:
+        void set(::std::string const&, void*);
+        void* get(::std::string const&) const;
     };
     
     class Strong
+    : public ::std::map<::std::string, Object*>
     {
+    public: ~Strong();
+        void set(::std::string const&, Object*);
+        Object* get(::std::string const&) const;
     };
     
-    void weak(::std::string const&) const;
-    void weak(::std::string const&);
-    void strong(::std::string const&) const;
-    void strong(::std::string const&);
+    template <typename T, typename V>
+    class found_type
+    : public Ptr<V>
+    {
+    public:
+        
+        inline operator T* () const {
+            return this->p->get(this->k);
+        }
+        
+        inline found_type& operator = (V v) {
+            this->p->set(this->k, v);
+            return *this;
+        }
+        
+    protected:
+        T* p;
+        ::std::string k;
+        friend class AttachObject;
+    };
+    
+    found_type<Weak, void*> weak(::std::string const&);
+    found_type<Strong, Object*> strong(::std::string const&);
+    void* weak(::std::string const&) const;
+    Object* strong(::std::string const&) const;
     
 private:
     LazyInstance<Weak> _weak;

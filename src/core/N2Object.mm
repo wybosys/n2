@@ -163,32 +163,50 @@ bool Object::release() const
     return false;
 }
 
-void AttachObject::weak(::std::string const& k) const
+AttachObject::Strong::~Strong()
 {
-    if (_weak.isnull())
-        return;
+    for (auto i = begin(); i != end(); ++i)
+        refobj_zero(i->second);
 }
 
-void AttachObject::weak(::std::string const& k)
+void* AttachObject::weak(::std::string const& k) const
+{
+    if (_weak.isnull())
+        return NULL;
+    return NULL;
+}
+
+AttachObject::found_type<AttachObject::Weak, void*> AttachObject::weak(::std::string const& k)
 {
     MtxObject::Lock();
     if (_weak.isnull())
         _weak = new Weak();
     MtxObject::Unlock();
+
+    found_type<Weak, void*> ret;
+    ret.p = _weak;
+    ret.k = k;
+    return ret;
 }
 
-void AttachObject::strong(::std::string const& k) const
+Object* AttachObject::strong(::std::string const& k) const
 {
     if (_strong.isnull())
-        return;
+        return NULL;
+    return NULL;
 }
 
-void AttachObject::strong(::std::string const& k)
+AttachObject::found_type<AttachObject::Strong, Object*> AttachObject::strong(::std::string const& k)
 {
     MtxObject::Lock();
     if (_strong.isnull())
         _strong = new Strong();
     MtxObject::Unlock();
+    
+    found_type<Strong, Object*> ret;
+    ret.p = _strong;
+    ret.k = k;
+    return ret;
 }
 
 N2_END

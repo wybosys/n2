@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1618498A1904FDD900C6EC93 /* N2List.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161849891904FDD900C6EC93 /* N2List.mm */; };
 		161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF28D18FC92E3004C7D1C /* N2View.mm */; };
 		161CF29118FC9363004C7D1C /* N2Navigation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29018FC9363004C7D1C /* N2Navigation.mm */; };
 		161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */ = {isa = PBXBuildFile; fileRef = 161CF29318FC937B004C7D1C /* N2Tabbar.mm */; };
@@ -43,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		161849881904FDD900C6EC93 /* N2List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2List.h; path = ../../src/ui/N2List.h; sourceTree = "<group>"; };
+		161849891904FDD900C6EC93 /* N2List.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2List.mm; path = ../../src/ui/N2List.mm; sourceTree = "<group>"; };
 		161CF28C18FC92E3004C7D1C /* N2View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2View.h; path = ../../src/ui/N2View.h; sourceTree = "<group>"; };
 		161CF28D18FC92E3004C7D1C /* N2View.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2View.mm; path = ../../src/ui/N2View.mm; sourceTree = "<group>"; };
 		161CF28F18FC9363004C7D1C /* N2Navigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Navigation.h; path = ../../src/ui/N2Navigation.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				161CF28D18FC92E3004C7D1C /* N2View.mm */,
 				161CF28F18FC9363004C7D1C /* N2Navigation.h */,
 				161CF29018FC9363004C7D1C /* N2Navigation.mm */,
+				161849881904FDD900C6EC93 /* N2List.h */,
+				161849891904FDD900C6EC93 /* N2List.mm */,
 				161CF29218FC937B004C7D1C /* N2Tabbar.h */,
 				161CF29318FC937B004C7D1C /* N2Tabbar.mm */,
 				161CF29518FC93A4004C7D1C /* N2Widgets.h */,
@@ -288,6 +293,7 @@
 				166FDDF018E9D6030005803F /* N2Application.mm in Sources */,
 				161CF29718FC93A4004C7D1C /* N2Widgets.mm in Sources */,
 				161CF29418FC937B004C7D1C /* N2Tabbar.mm in Sources */,
+				1618498A1904FDD900C6EC93 /* N2List.mm in Sources */,
 				16354A9918FFC0AF0074512C /* N2Graphics.mm in Sources */,
 				161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */,
 				166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */,

@@ -10,7 +10,7 @@ VSample::VSample()
     background(ui::Color::White);
 }
 
-void VSample::onLayout()
+void VSample::onLayout(Rect const& rc)
 {
     
 }

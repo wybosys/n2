@@ -13,6 +13,10 @@ SIGNAL(kSignalTouchesCancel) "::ui::touches::cancel";
 SIGNAL(kSignalTouchesMoved) "::ui::touches::moved";
 SIGNAL(kSignalTouchesDone) "::ui::touches::done";
 
+SIGNAL(kSignalClicked) "::ui::clicked";
+SIGNAL(kSignalDbClicked) "::ui::dbclicked";
+SIGNAL(kSignalLongClicked) "::ui::longclicked";
+
 static const Const<true> show = Const<true>();
 static const Const<false> hide = Const<false>();
 
@@ -42,7 +46,8 @@ hybird:
     virtual Rect boundsForLayout() const;
     
     SIGNALS(SObject,
-            kSignalTouchesBegan, kSignalTouchesCancel, kSignalTouchesDone, kSignalTouchesEnded, kSignalTouchesMoved
+            kSignalTouchesBegan, kSignalTouchesCancel, kSignalTouchesDone, kSignalTouchesEnded, kSignalTouchesMoved,
+            kSignalClicked, kSignalDbClicked, kSignalLongClicked
             );
 };
 

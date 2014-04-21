@@ -165,7 +165,8 @@ bool Object::release() const
 
 void AttachObject::weak(::std::string const& k) const
 {
-    
+    if (_weak.isnull())
+        return;
 }
 
 void AttachObject::weak(::std::string const& k)
@@ -178,7 +179,8 @@ void AttachObject::weak(::std::string const& k)
 
 void AttachObject::strong(::std::string const& k) const
 {
-    
+    if (_strong.isnull())
+        return;
 }
 
 void AttachObject::strong(::std::string const& k)

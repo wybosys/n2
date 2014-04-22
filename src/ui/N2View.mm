@@ -165,11 +165,11 @@ void Control::onTouchDown(bool repeat)
 {
     if (repeat)
     {
-        PASS;
+        signals().emit(kSignalDbClicked);
     }
     else
     {
-        
+        PASS;
     }
 }
 
@@ -177,11 +177,11 @@ void Control::onTouchUp(bool inside)
 {
     if (inside)
     {
-        
+        signals().emit(kSignalClicked);
     }
     else
     {
-        signals().emit(kSignalClicked);
+        PASS;
     }
 }
 

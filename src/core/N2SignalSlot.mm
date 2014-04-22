@@ -28,6 +28,11 @@ void Slot::emit()
         (*func_s)(*this);
     }
     
+    if (*func_λ != nullptr)
+    {
+        (*func_λ)(*this);
+    }
+    
     if (func_m != nullptr && !target.isnull())
     {
         (target->*func_m)(*this);
@@ -40,6 +45,7 @@ void Slot::copy(Slot const& r)
     redirect = r.redirect;
     data = mutable_cast(r).data;
     func_s = r.func_s;
+    func_λ = r.func_λ;
     func_m = r.func_m;
     
     source = r.source;
@@ -97,6 +103,20 @@ bool Slots::connect(Slot::cb_sfunction sfunc)
         return false;
     Slot* s = new Slot();
     s->func_s = sfunc;
+    _slots.push_back(s);
+    return true;
+}
+
+bool Slots::connect(Slot::cb_λfunction λfunc)
+{
+    Slot::cb_sfunction* sfunc = λfunc.target<Slot::cb_sfunction>();
+    // 普通静态函数
+    if (sfunc != nullptr)
+        return connect(*sfunc);
+    
+    // lambda
+    Slot* s = new Slot();
+    s->func_λ = λfunc;
     _slots.push_back(s);
     return true;
 }
@@ -256,12 +276,22 @@ void Signals::connect(signal_t const& sig, signal_t const& redirect, SObject* ta
     target->signals()._reflects.insert(fnds->second);
 }
 
+/*
 void Signals::connect(signal_t const& sig, Slot::cb_sfunction sfunc)
 {
     auto fnds = _ss.find(sig);
     if (fnds == _ss.end())
         return;
     fnds->second->connect(sfunc);
+}
+ */
+
+void Signals::connect(signal_t const& sig, Slot::cb_λfunction λfunc)
+{
+    auto fnds = _ss.find(sig);
+    if (fnds == _ss.end())
+        return;
+    fnds->second->connect(λfunc);
 }
 
 void Signals::connect(signal_t const& sig, Slot::cb_mfunction mfunc, SObject* target)

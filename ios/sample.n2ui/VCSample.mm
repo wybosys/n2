@@ -13,6 +13,10 @@ VSample::VSample()
     btn.text(Color::Black);
     btn.background(Color::Gray);
     add(btn);
+    
+    btn.signals().connect(kSignalClicked, [](Slot&) {
+        LOG("BUTTON CLICKED");
+    });
 }
 
 void VSample::onLayout(Rect const& rc)

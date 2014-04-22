@@ -38,7 +38,7 @@ public:
         _v = v;
         return *this;
     }
-
+    
 protected:
     
     T _v;

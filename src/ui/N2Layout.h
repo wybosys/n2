@@ -158,10 +158,10 @@ public:
     Box& aspect(real, real, View* = NULL, void (*)(Rect const&, View*) = NULL);
     
     // 子布局
-    Box& flex(real, void (*)(HBox&), void (*)(Rect const&) = NULL);
-    Box& flex(real, void (*)(VBox&), void (*)(Rect const&) = NULL);
-    Box& pixel(real, void (*)(HBox&), void (*)(Rect const&) = NULL);
-    Box& pixel(real, void (*)(VBox&), void (*)(Rect const&) = NULL);
+    Box& flex(real, ::std::function<void(HBox&)>, void (*)(Rect const&) = NULL);
+    Box& flex(real, ::std::function<void(VBox&)>, void (*)(Rect const&) = NULL);
+    Box& pixel(real, ::std::function<void(HBox&)>, void (*)(Rect const&) = NULL);
+    Box& pixel(real, ::std::function<void(VBox&)>, void (*)(Rect const&) = NULL);
     
     Rect const& rect() const;
     
@@ -179,7 +179,7 @@ protected:
     
     LazyInstance<layout::Linear> linear;
     LazyInstance<layout::Layout> layout;
-    ::std::vector<LayoutBlock> subs;
+    ::std::vector<LayoutBlock*> subs;
     
     void (*cb_set)(Rect const&);
     

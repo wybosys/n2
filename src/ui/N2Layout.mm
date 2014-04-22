@@ -253,6 +253,10 @@ Box::~Box()
 {
     if (!_applyed)
         apply();
+    
+    for (auto i = subs.begin(); i != subs.end(); ++i)
+        obj_release(*i);
+    subs.clear();
 }
 
 void Box::reset()
@@ -280,7 +284,7 @@ void Box::apply()
     
     for (auto i = subs.begin(); i != subs.end(); ++i)
     {
-        LayoutBlock& lb = *i;
+        LayoutBlock& lb = **i;
         
         Rect rc = layout->add(linear);
         rc = rc.integral();
@@ -312,9 +316,9 @@ void Box::apply()
 
 Box& Box::flex(real f, View* v, void (*cb)(Rect const&, View*))
 {
-    LayoutBlock lb;
-    lb.view = v;
-    lb.cb_set = cb;
+    LayoutBlock* lb = new LayoutBlock();
+    lb->view = v;
+    lb->cb_set = cb;
     subs.push_back(lb);
     
     linear->flex(f);
@@ -323,9 +327,9 @@ Box& Box::flex(real f, View* v, void (*cb)(Rect const&, View*))
 
 Box& Box::pixel(real f, View* v, void (*cb)(Rect const&, View*))
 {
-    LayoutBlock lb;
-    lb.view = v;
-    lb.cb_set = cb;
+    LayoutBlock* lb = new LayoutBlock();
+    lb->view = v;
+    lb->cb_set = cb;
     subs.push_back(lb);
     
     linear->pixel(f);
@@ -334,66 +338,62 @@ Box& Box::pixel(real f, View* v, void (*cb)(Rect const&, View*))
 
 Box& Box::aspect(real w, real h, View* v, void (*cb)(Rect const&, View*))
 {
-    LayoutBlock lb;
-    lb.view = v;
-    lb.cb_set = cb;
+    LayoutBlock* lb = new LayoutBlock();
+    lb->view = v;
+    lb->cb_set = cb;
     subs.push_back(lb);
     
     linear->aspect(w, h);
     return *this;
 }
 
-Box& Box::flex(real v, void (*cbdo)(HBox&), void (*cbset)(Rect const&))
+Box& Box::flex(real v, ::std::function<void(HBox&)> cbdo, void (*cbset)(Rect const&))
 {
-    LayoutBlock lb;
-    lb.box = Instance<HBox>(Rect::Zero);
-    lb.box->cb_set = cbset;
-    if (cbset)
-        subs.push_back(lb);
+    LayoutBlock* lb = new LayoutBlock();
+    lb->box = new HBox(Rect::Zero);
+    lb->box->cb_set = cbset;
+    subs.push_back(lb);
     
-    cbdo((HBox&)lb.box);
+    cbdo((HBox&)*lb->box);
     
     linear->flex(v);
     return *this;
 }
 
-Box& Box::flex(real v, void (*cbdo)(VBox&), void (*cbset)(Rect const&))
+Box& Box::flex(real v, ::std::function<void(VBox&)> cbdo, void (*cbset)(Rect const&))
 {
-    LayoutBlock lb;
-    lb.box = Instance<VBox>(Rect::Zero);
-    lb.box->cb_set = cbset;
-    if (cbset)
-        subs.push_back(lb);
+    LayoutBlock* lb = new LayoutBlock();
+    lb->box = new VBox(Rect::Zero);
+    lb->box->cb_set = cbset;
+    subs.push_back(lb);
     
-    cbdo((VBox&)lb.box);
+    cbdo((VBox&)*lb->box);
     
     linear->flex(v);
     return *this;
 }
 
-Box& Box::pixel(real v, void (*cbdo)(HBox&), void (*cbset)(Rect const&))
+Box& Box::pixel(real v, ::std::function<void(HBox&)> cbdo, void (*cbset)(Rect const&))
 {
-    LayoutBlock lb;
-    lb.box = Instance<HBox>(Rect::Zero);
-    lb.box->cb_set = cbset;
-    if (cbset)
-        subs.push_back(lb);
+    LayoutBlock* lb = new LayoutBlock();
+    lb->box = new HBox(Rect::Zero);
+    lb->box->cb_set = cbset;
+    subs.push_back(lb);
     
-    cbdo((HBox&)lb.box);
+    cbdo((HBox&)*lb->box);
     
     linear->pixel(v);
     return *this;
 }
 
-Box& Box::pixel(real v, void (*cbdo)(VBox&), void (*cbset)(Rect const&))
+Box& Box::pixel(real v, ::std::function<void(VBox&)> cbdo, void (*cbset)(Rect const&))
 {
-    LayoutBlock lb;
-    lb.box = Instance<VBox>(Rect::Zero);
-    lb.box->cb_set = cbset;
-    if (cbset)
-        subs.push_back(lb);
+    LayoutBlock* lb = new LayoutBlock();
+    lb->box = new VBox(Rect::Zero);
+    lb->box->cb_set = cbset;
+    subs.push_back(lb);
     
-    cbdo((VBox&)lb.box);
+    cbdo((VBox&)*lb->box);
     
     linear->pixel(v);
     return *this;

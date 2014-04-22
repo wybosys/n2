@@ -19,7 +19,11 @@ void VSample::onLayout(Rect const& rc)
 {
     VBox box(rc);
     box.flex(1);
-    box.flex(1, &btn);
+    box.flex(1, [this](HBox& box){
+        box.flex(1);
+        box.flex(1, &btn);
+        box.flex(1);
+    });
     box.flex(1);
     box.apply();
 }

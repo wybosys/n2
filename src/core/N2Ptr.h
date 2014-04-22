@@ -202,6 +202,14 @@ public:
         o->release();
     }
     
+    template <typename A0>
+    RefInstance(A0 const& a0)
+    {
+        T* o = new T(a0);
+        refobj_set(this->_p, o);
+        o->release();
+    }
+    
 };
 
 template <typename T>

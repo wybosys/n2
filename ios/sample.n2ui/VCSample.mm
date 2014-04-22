@@ -11,12 +11,17 @@ VSample::VSample()
     
     btn.title(@"BUTTON");
     btn.text(Color::Black);
+    btn.background(Color::Red);
     add(btn);
 }
 
 void VSample::onLayout(Rect const& rc)
 {
-    btn.frame(rc);
+    VBox box(rc);
+    box.flex(1);
+    box.flex(1, &btn);
+    box.flex(1);
+    box.apply();
 }
 
 VCSample::VCSample()

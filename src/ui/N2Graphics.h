@@ -14,6 +14,8 @@ public:
     
     Color();
     Color(Color const&);
+    Color(byte r, byte g, byte b, byte a = 255);
+    Color(real r, real g, real b, real a = 1.f);
     
 #ifdef N2_OBJC
     Color(UIColor*);
@@ -22,15 +24,21 @@ public:
     static Color RGBA(int);
     static Color ARGB(int);
     static Color RGB(int);
+    static Color Grayscale(float);
     
     float redf() const;
     float greenf() const;
     float bluef() const;
     float alphaf() const;
     
-    int rgba;
+    int argb;
     
-    static const Color White, Black;
+    static const Color White, Black, Red, Green, Blue, Gray;
+    
+    static real Component(ubyte);
+    static byte Component(real);
+    static int ARGBCode(real r, real g, real b, real a);
+    static int ARGBCode(byte r, byte g, byte b, byte a);
     
 protected:
     
@@ -39,13 +47,15 @@ protected:
 };
 
 class Edge
-: public math::Edge<real>
+: public math::Edge<real>,
+public ZeroObject<Rect>
 {
 public:
 };
 
 class Point
-: public math::Point<real>
+: public math::Point<real>,
+public ZeroObject<Rect>
 {
 public:
     
@@ -59,7 +69,8 @@ public:
 };
 
 class Size
-: public math::Size<real>
+: public math::Size<real>,
+public ZeroObject<Rect>
 {
 public:
     
@@ -73,7 +84,8 @@ public:
 };
 
 class Rect
-: public math::Rect<real, Point, Size>
+: public math::Rect<real, Point, Size>,
+public ZeroObject<Rect>
 {
 public:
     

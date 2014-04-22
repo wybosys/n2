@@ -89,7 +89,7 @@ typedef unsigned long long ulonglong;
 typedef signed int dword;
 typedef unsigned int uint, udword;
 typedef unsigned long ulong;
-typedef unsigned char ubyte, uchar;
+typedef unsigned char ubyte, uchar, byte;
 typedef signed char sbyte;
 typedef unsigned short ushort, uword;
 typedef signed short word;

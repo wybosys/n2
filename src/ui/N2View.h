@@ -7,8 +7,8 @@
 
 N2UI_BEGIN
 
-extern const float kDurationLongTouch;
-extern const float kDurationDbTouchInterval;
+//extern const float kDurationLongTouch;
+//extern const float kDurationDbTouchInterval;
 
 SIGNAL(kSignalTouchBegan) "::ui::touch::began";
 SIGNAL(kSignalTouchEnded) "::ui::touch::ended";

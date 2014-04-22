@@ -4,8 +4,8 @@
 #import "core/N2Objc.h"
 #import "N2Swizzle.h"
 
-const float kDurationLongTouch = .25f;
-const float kDurationDbTouchInterval = .2f;
+//const float kDurationLongTouch = .25f;
+//const float kDurationDbTouchInterval = .2f;
 
 PERFORM_STATIC(UIKitSwizzle, Swizzles);
 

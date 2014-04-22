@@ -158,6 +158,21 @@ bool Control::ishighlighted() const
     return meta<UIControl>().highlighted;
 }
 
+void Control::onTouchDown(bool repeat)
+{
+    
+}
+
+void Control::onTouchUp(bool inside)
+{
+    
+}
+
+void Control::onTouchCancel()
+{
+    
+}
+
 N2UI_END
 
 @implementation UIView (n2ext)
@@ -186,30 +201,35 @@ N2UI_END
 - (void)cbTouchDown {
     N2UI_USE;
     Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, onTouchDown(false));
     ptrcall(ctl, signals().emit(kSignalTouchDown));
 }
 
 - (void)cbTouchDownRepeat {
     N2UI_USE;
     Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, onTouchDown(true));
     ptrcall(ctl, signals().emit(kSignalTouchDownRepeat));
 }
 
 - (void)cbTouchUpInside {
     N2UI_USE;
     Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, onTouchUp(true));
     ptrcall(ctl, signals().emit(kSignalTouchUpInside));
 }
 
 - (void)cbTouchUpOutside {
     N2UI_USE;
     Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, onTouchUp(false));
     ptrcall(ctl, signals().emit(kSignalTouchUpOutside));
 }
 
 - (void)cbTouchCancel {
     N2UI_USE;
     Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, onTouchCancel());
     ptrcall(ctl, signals().emit(kSignalTouchCancel));
 }
 

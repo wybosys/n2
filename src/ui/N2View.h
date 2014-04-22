@@ -85,6 +85,12 @@ public:
     virtual void highlight(bool = on);
     virtual bool ishighlighted() const;
     
+hybird:
+    
+    virtual void onTouchDown(bool repeat);
+    virtual void onTouchUp(bool inside);
+    virtual void onTouchCancel();
+    
 protected:
     
     void bindMeta(metapointer_t);

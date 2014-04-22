@@ -66,6 +66,8 @@ public:
     operator CGPoint () const;
 #endif
     
+    Point integral() const;
+    
 };
 
 class Size
@@ -81,6 +83,8 @@ public:
     operator CGSize () const;
 #endif
     
+    Size integral() const;
+    
 };
 
 class Rect
@@ -95,6 +99,8 @@ public:
     Rect(CGRect const&);
     operator CGRect () const;
 #endif
+    
+    Rect integral() const;
     
 };
 

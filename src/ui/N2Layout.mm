@@ -91,6 +91,19 @@ void Linear::stop()
     _iter = 0;
 }
 
+void Linear::reset(Layout const& lyt)
+{
+    _changed = YES;
+    
+    if (_priority) {
+        _full = lyt.rect().size.w;
+        _relv = lyt.rect().size.h;
+    } else {
+        _full = lyt.rect().size.h;
+        _relv = lyt.rect().size.w;
+    }
+}
+
 void Linear::recalc()
 {
     if (_changed == false)
@@ -183,6 +196,11 @@ ui::Rect Layout::stride(real val)
     return ui::Rect::Zero;
 }
 
+void Layout::rect(ui::Rect const& rc)
+{
+    _rc_origin = _rc_work = rc;
+}
+
 VBox::VBox(ui::Rect const& rc)
 : Layout(rc)
 {
@@ -226,7 +244,7 @@ N2LAYOUT_END
 N2UI_BEGIN
 
 Box::Box()
-: _applyed(false)
+: _applyed(false), cb_set(0)
 {
     
 }
@@ -245,9 +263,51 @@ void Box::reset()
     linear->stop();
 }
 
+Rect const& Box::rect() const
+{
+    return layout->rect();
+}
+
+void Box::rect(Rect const& rc)
+{
+    layout->rect(rc);
+    linear->reset(layout);
+}
+
 void Box::apply()
 {
     _applyed = true;
+    
+    for (auto i = subs.begin(); i != subs.end(); ++i)
+    {
+        LayoutBlock& lb = *i;
+        
+        Rect rc = layout->add(linear);
+        rc = rc.integral();
+        
+        if (!lb.view.isnull())
+        {
+            if (lb.cb_set)
+            {
+                lb.cb_set(rc, lb.view);
+            }
+            else
+            {
+                lb.view->frame(rc);
+            }
+            continue;
+        }
+        
+        if (!lb.box.isnull())
+        {
+            lb.box->rect(rc);
+            lb.box->apply();
+            continue;
+        }        
+    }
+    
+    if (cb_set)
+        cb_set(layout->rect());
 }
 
 Box& Box::flex(real f, View* v, void (*cb)(Rect const&, View*))
@@ -261,16 +321,94 @@ Box& Box::flex(real f, View* v, void (*cb)(Rect const&, View*))
     return *this;
 }
 
+Box& Box::pixel(real f, View* v, void (*cb)(Rect const&, View*))
+{
+    LayoutBlock lb;
+    lb.view = v;
+    lb.cb_set = cb;
+    subs.push_back(lb);
+    
+    linear->pixel(f);
+    return *this;
+}
+
+Box& Box::aspect(real w, real h, View* v, void (*cb)(Rect const&, View*))
+{
+    LayoutBlock lb;
+    lb.view = v;
+    lb.cb_set = cb;
+    subs.push_back(lb);
+    
+    linear->aspect(w, h);
+    return *this;
+}
+
+Box& Box::flex(real v, void (*cbdo)(HBox&), void (*cbset)(Rect const&))
+{
+    LayoutBlock lb;
+    lb.box = Instance<HBox>(Rect::Zero);
+    lb.box->cb_set = cbset;
+    if (cbset)
+        subs.push_back(lb);
+    
+    cbdo((HBox&)lb.box);
+    
+    linear->flex(v);
+    return *this;
+}
+
+Box& Box::flex(real v, void (*cbdo)(VBox&), void (*cbset)(Rect const&))
+{
+    LayoutBlock lb;
+    lb.box = Instance<VBox>(Rect::Zero);
+    lb.box->cb_set = cbset;
+    if (cbset)
+        subs.push_back(lb);
+    
+    cbdo((VBox&)lb.box);
+    
+    linear->flex(v);
+    return *this;
+}
+
+Box& Box::pixel(real v, void (*cbdo)(HBox&), void (*cbset)(Rect const&))
+{
+    LayoutBlock lb;
+    lb.box = Instance<HBox>(Rect::Zero);
+    lb.box->cb_set = cbset;
+    if (cbset)
+        subs.push_back(lb);
+    
+    cbdo((HBox&)lb.box);
+    
+    linear->pixel(v);
+    return *this;
+}
+
+Box& Box::pixel(real v, void (*cbdo)(VBox&), void (*cbset)(Rect const&))
+{
+    LayoutBlock lb;
+    lb.box = Instance<VBox>(Rect::Zero);
+    lb.box->cb_set = cbset;
+    if (cbset)
+        subs.push_back(lb);
+    
+    cbdo((VBox&)lb.box);
+    
+    linear->pixel(v);
+    return *this;
+}
+
 VBox::VBox(Rect const& rc)
 {
     this->layout = new layout::VBox(rc);
-    this->linear = new layout::Linear((layout::VBox&)this->layout);
+    this->linear = new layout::Linear((layout::VBox&)*this->layout);
 }
 
 HBox::HBox(Rect const& rc)
 {
     this->layout = new layout::HBox(rc);
-    this->linear = new layout::Linear((layout::HBox&)this->layout);
+    this->linear = new layout::Linear((layout::HBox&)*this->layout);
 }
 
 N2UI_END

@@ -180,6 +180,13 @@ public:
         this->_p = o;
     }
     
+    template <typename A0>
+    Instance(A0 const& a0)
+    {
+        T* o = new T(a0);
+        this->_p = o;
+    }
+    
 };
 
 template <typename T>

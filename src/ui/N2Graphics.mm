@@ -121,6 +121,14 @@ Point::operator CGPoint () const
     return CGPointMake(x, y);
 }
 
+Point Point::integral() const
+{
+    Point r;
+    r.x = floor(x);
+    r.y = floor(y);
+    return r;
+}
+
 Size::Size(CGSize const& sz)
 {
     w = sz.width;
@@ -132,6 +140,14 @@ Size::operator CGSize () const
     return CGSizeMake(w, h);
 }
 
+Size Size::integral() const
+{
+    Size r;
+    r.w = floor(w);
+    r.h = floor(h);
+    return r;
+}
+
 Rect::Rect(CGRect const& r)
 {
     origin = r.origin;
@@ -141,6 +157,14 @@ Rect::Rect(CGRect const& r)
 Rect::operator CGRect () const
 {
     return CGRectMake(origin.x, origin.y, size.w, size.h);
+}
+
+Rect Rect::integral() const
+{
+    Rect r;
+    r.origin = origin.integral();
+    r.size = size.integral();
+    return r;
 }
 
 N2UI_END

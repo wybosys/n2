@@ -10,6 +10,7 @@
 N2LAYOUT_BEGIN
 
 class Linear;
+class Layout;
 class VBox;
 class HBox;
 
@@ -63,6 +64,9 @@ public:
     // 重新计算各个段的相对长度
     void recalc();
     
+    // 使用layout重新初始化linear基础数据
+    void reset(Layout const&);
+    
 protected:
     
     Linear();
@@ -88,6 +92,12 @@ public:
     ui::Rect add(Linear&);
     
     ui::Edge margin;
+    
+    inline ui::Rect const& rect() const {
+        return _rc_origin;
+    }
+    
+    void rect(ui::Rect const&);
     
 protected:
     
@@ -130,6 +140,8 @@ N2LAYOUT_END
 N2UI_BEGIN
 
 class View;
+class VBox;
+class HBox;
 
 class Box
 {
@@ -142,19 +154,34 @@ public:
     void apply();
     
     Box& flex(real, View* = NULL, void (*)(Rect const&, View*) = NULL);
+    Box& pixel(real, View* = NULL, void (*)(Rect const&, View*) = NULL);
+    Box& aspect(real, real, View* = NULL, void (*)(Rect const&, View*) = NULL);
+    
+    // 子布局
+    Box& flex(real, void (*)(HBox&), void (*)(Rect const&) = NULL);
+    Box& flex(real, void (*)(VBox&), void (*)(Rect const&) = NULL);
+    Box& pixel(real, void (*)(HBox&), void (*)(Rect const&) = NULL);
+    Box& pixel(real, void (*)(VBox&), void (*)(Rect const&) = NULL);
+    
+    Rect const& rect() const;
     
 protected:
+    
+    void rect(Rect const&);
     
     class LayoutBlock
     {
     public:
         RefPtr<View> view;
         void (*cb_set)(Rect const&, View*);
+        LazyInstance<Box> box;
     };
     
     LazyInstance<layout::Linear> linear;
     LazyInstance<layout::Layout> layout;
     ::std::vector<LayoutBlock> subs;
+    
+    void (*cb_set)(Rect const&);
     
 private:
     bool _applyed;

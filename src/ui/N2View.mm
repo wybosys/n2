@@ -10,6 +10,17 @@ PERFORM_STATIC(UIKitSwizzle, Swizzles);
 
 @end
 
+@interface UIControl (n2ext)
+
+- (void)cbTouchDown;
+- (void)cbTouchDownRepeat;
+- (void)cbTouchUpInside;
+- (void)cbTouchUpOutside;
+- (void)cbTouchCancel;
+- (void)cbValueChanged;
+
+@end
+
 @interface N2View : UIView
 
 @end
@@ -21,6 +32,11 @@ View::View()
     N2View* o = [[N2View alloc] initWithFrame:CGRectZero];
     bindMeta(o);
     OBJC_RELEASE(o);
+}
+
+View::View(metapointer_t o)
+{
+    bindMeta(o);
 }
 
 View::~View()
@@ -90,6 +106,7 @@ Rect View::boundsForLayout() const
 }
 
 Control::Control()
+: View(nil)
 {
     
 }
@@ -97,6 +114,18 @@ Control::Control()
 Control::~Control()
 {
     
+}
+
+void Control::bindMeta(metapointer_t o)
+{
+    View::bindMeta(o);
+    
+    [o addTarget:o action:@selector(cbTouchCancel) forControlEvents:UIControlEventTouchCancel];
+    [o addTarget:o action:@selector(cbTouchDown) forControlEvents:UIControlEventTouchDown];
+    [o addTarget:o action:@selector(cbTouchDownRepeat) forControlEvents:UIControlEventTouchDownRepeat];
+    [o addTarget:o action:@selector(cbTouchUpInside) forControlEvents:UIControlEventTouchUpInside];
+    [o addTarget:o action:@selector(cbTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
+    [o addTarget:o action:@selector(cbValueChanged) forControlEvents:UIControlEventValueChanged];
 }
 
 void Control::enable(bool b)
@@ -131,6 +160,17 @@ bool Control::ishighlighted() const
 
 N2UI_END
 
+@implementation UIView (n2ext)
+
+- (void)SWIZZLE_CALLBACK(layout_subviews) {
+    N2UI_USE;
+    View* v = MetaObject::GetObject<View>(self);
+    if (v)
+        v->onLayout(v->boundsForLayout());
+}
+
+@end
+
 @implementation N2View
 
 - (id)init {
@@ -141,13 +181,42 @@ N2UI_END
 
 @end
 
-@implementation UIView (n2ext)
+@implementation UIControl (n2ext)
 
-- (void)SWIZZLE_CALLBACK(layout_subviews) {
+- (void)cbTouchDown {
     N2UI_USE;
-    View* v = MetaObject::GetObject<View>(self);
-    if (v)
-        v->onLayout(v->boundsForLayout());
+    Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, signals().emit(kSignalTouchDown));
+}
+
+- (void)cbTouchDownRepeat {
+    N2UI_USE;
+    Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, signals().emit(kSignalTouchDownRepeat));
+}
+
+- (void)cbTouchUpInside {
+    N2UI_USE;
+    Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, signals().emit(kSignalTouchUpInside));
+}
+
+- (void)cbTouchUpOutside {
+    N2UI_USE;
+    Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, signals().emit(kSignalTouchUpOutside));
+}
+
+- (void)cbTouchCancel {
+    N2UI_USE;
+    Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, signals().emit(kSignalTouchCancel));
+}
+
+- (void)cbValueChanged {
+    N2UI_USE;
+    Control* ctl = MetaObject::GetObject<Control>(self);
+    ptrcall(ctl, signals().emit(kSignalValueChanged));
 }
 
 @end

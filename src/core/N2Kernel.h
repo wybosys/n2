@@ -187,7 +187,7 @@ inline T& mutable_cast(T const& p)
     return const_cast<T&>(p);
 }
 
-#define INTERFACE(cls, exp) \
+# define INTERFACE(cls, exp) \
 class I##cls \
 { \
 public: \
@@ -195,6 +195,12 @@ typedef I##cls interface_type; \
 virtual ~I##cls() {} \
 exp \
 };
+
+# define ptrcall(p, exp) { if (p) (p)->exp; }
+
+#else
+
+# define ptrcall(p, exp) { if (p) { exp; } }
 
 # endif
 

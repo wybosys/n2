@@ -7,11 +7,11 @@
 
 N2UI_BEGIN
 
-SIGNAL(kSignalTouchesBegan) "::ui::touches::began";
-SIGNAL(kSignalTouchesEnded) "::ui::touches::ended";
-SIGNAL(kSignalTouchesCancel) "::ui::touches::cancel";
-SIGNAL(kSignalTouchesMoved) "::ui::touches::moved";
-SIGNAL(kSignalTouchesDone) "::ui::touches::done";
+SIGNAL(kSignalTouchBegan) "::ui::touch::began";
+SIGNAL(kSignalTouchEnded) "::ui::touch::ended";
+SIGNAL(kSignalTouchCancel) "::ui::touch::cancel";
+SIGNAL(kSignalTouchMoved) "::ui::touch::moved";
+SIGNAL(kSignalTouchDone) "::ui::touch::done";
 
 SIGNAL(kSignalClicked) "::ui::clicked";
 SIGNAL(kSignalDbClicked) "::ui::dbclicked";
@@ -28,6 +28,7 @@ class View
 public:
     
     View();
+    View(metapointer_t);
     virtual ~View();
     
     virtual void hide(bool = true);
@@ -50,10 +51,15 @@ hybird:
     virtual Rect boundsForLayout() const;
     
     SIGNALS(SObject,
-            kSignalTouchesBegan, kSignalTouchesCancel, kSignalTouchesDone, kSignalTouchesEnded, kSignalTouchesMoved,
+            kSignalTouchBegan, kSignalTouchCancel, kSignalTouchDone, kSignalTouchEnded, kSignalTouchMoved,
             kSignalClicked, kSignalDbClicked, kSignalLongClicked
             );
 };
+
+SIGNAL(kSignalTouchDown) "::ui::touch::down";
+SIGNAL(kSignalTouchDownRepeat) "::ui::touch::down::repeat";
+SIGNAL(kSignalTouchUpInside) "::ui::touch::up::inside";
+SIGNAL(kSignalTouchUpOutside) "::ui::touch::up::outside";
 
 class Control
 : public View
@@ -79,6 +85,14 @@ public:
     virtual void highlight(bool = on);
     virtual bool ishighlighted() const;
     
+protected:
+    
+    void bindMeta(metapointer_t);
+
+    SIGNALS(View,
+            kSignalTouchDown, kSignalTouchDownRepeat, kSignalTouchUpInside, kSignalTouchUpOutside, kSignalTouchCancel,
+            kSignalValueChanged, kSignalValueChanging
+            );
 };
 
 N2UI_END

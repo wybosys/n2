@@ -10,8 +10,24 @@
 N2UI_BEGIN
 
 NavigationBar::NavigationBar()
+: View(nil)
 {
     
+}
+
+NavigationBar::~NavigationBar()
+{
+    
+}
+
+void NavigationBar::hide(bool b)
+{
+    [navigation->meta() setNavigationBarHidden:b];
+}
+
+void NavigationBar::hide(bool b, bool ani)
+{
+    [navigation->meta() setNavigationBarHidden:b animated:ani];
 }
 
 Navigation::Navigation()
@@ -20,6 +36,9 @@ Navigation::Navigation()
     N2NavigationController* o = [[N2NavigationController alloc] init];
     bindMeta(o);
     OBJC_RELEASE(o);
+    
+    bar.bindMeta(o.navigationBar);
+    bar.navigation = this;
 }
 
 Navigation::~Navigation()

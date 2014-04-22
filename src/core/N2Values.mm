@@ -71,62 +71,62 @@ Number::Number(ulonglong v)
 
 Number::operator char() const
 {
-    return [getMeta() charValue];
+    return [meta() charValue];
 }
 
 Number::operator uchar() const
 {
-    return [getMeta() unsignedCharValue];
+    return [meta() unsignedCharValue];
 }
 
 Number::operator short() const
 {
-    return [getMeta() shortValue];
+    return [meta() shortValue];
 }
 
 Number::operator ushort() const
 {
-    return [getMeta() unsignedShortValue];
+    return [meta() unsignedShortValue];
 }
 
 Number::operator int() const
 {
-    return [getMeta() intValue];
+    return [meta() intValue];
 }
 
 Number::operator uint() const
 {
-    return [getMeta() unsignedIntValue];
+    return [meta() unsignedIntValue];
 }
 
 Number::operator float() const
 {
-    return [getMeta() floatValue];
+    return [meta() floatValue];
 }
 
 Number::operator double() const
 {
-    return [getMeta() doubleValue];
+    return [meta() doubleValue];
 }
 
 Number::operator long() const
 {
-    return [getMeta() longValue];
+    return [meta() longValue];
 }
 
 Number::operator ulong() const
 {
-    return [getMeta() unsignedLongValue];
+    return [meta() unsignedLongValue];
 }
 
 Number::operator longlong() const
 {
-    return [getMeta() longLongValue];
+    return [meta() longLongValue];
 }
 
 Number::operator ulonglong() const
 {
-    return [getMeta() unsignedLongLongValue];
+    return [meta() unsignedLongLongValue];
 }
 
 void Number::copy(Number const& r)
@@ -173,14 +173,14 @@ String::String(NSMutableString* str)
 
 String String::operator + (String const& r) const
 {
-    NSString* m = getMeta();
+    NSString* m = meta();
     m = [m stringByAppendingString:r];
     return String(m);
 }
 
 String& String::operator += (String const& r)
 {
-    id m = getMeta();
+    id m = meta();
     if ([m respondsToSelector:@selector(appendString:)])
         [m appendString:r];
     else
@@ -196,12 +196,12 @@ String& String::operator = (String const& r)
 
 bool String::operator == (String const& r) const
 {
-    return [getMeta() isEqualToString:r];
+    return [meta() isEqualToString:r];
 }
 
 size_t String::length() const
 {
-    return [getMeta() length];
+    return [meta() length];
 }
 
 void String::copy(String const& r)

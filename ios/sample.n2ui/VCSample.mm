@@ -8,11 +8,15 @@ N2SAMPLE_BEGIN
 VSample::VSample()
 {
     background(ui::Color::White);
+    
+    btn.title(@"BUTTON");
+    btn.text(Color::Black);
+    add(btn);
 }
 
 void VSample::onLayout(Rect const& rc)
 {
-    
+    btn.frame(rc);
 }
 
 VCSample::VCSample()

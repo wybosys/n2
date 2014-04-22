@@ -19,6 +19,8 @@ SIGNAL(kSignalLongClicked) "::ui::longclicked";
 
 static const Const<true> show = Const<true>();
 static const Const<false> hide = Const<false>();
+static const Const<true> on = Const<true>();
+static const Const<false> off = Const<false>();
 
 class View
 : public SObject
@@ -35,10 +37,12 @@ public:
     
     virtual void background(Color const&);
     virtual Color backgroundColor() const;
-    
+        
     virtual void frame(Rect const&);
     virtual Rect frame() const;
     virtual Rect bounds() const;
+    
+    virtual void add(View&);
     
 hybird:
     
@@ -49,6 +53,32 @@ hybird:
             kSignalTouchesBegan, kSignalTouchesCancel, kSignalTouchesDone, kSignalTouchesEnded, kSignalTouchesMoved,
             kSignalClicked, kSignalDbClicked, kSignalLongClicked
             );
+};
+
+class Control
+: public View
+{
+public:
+    
+    Control();
+    virtual ~Control();
+    
+    typedef enum {
+        Normal = UIControlStateNormal,
+        Highlight = UIControlStateHighlighted,
+        Disabled = UIControlStateDisabled,
+        Selected = UIControlStateSelected,
+    } State;
+    
+    virtual void enable(bool = on);
+    virtual bool isenabled() const;
+    
+    virtual void select(bool = on);
+    virtual bool isselected() const;
+    
+    virtual void highlight(bool = on);
+    virtual bool ishighlighted() const;
+    
 };
 
 N2UI_END

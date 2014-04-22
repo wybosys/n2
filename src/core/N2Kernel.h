@@ -66,6 +66,8 @@
 # define RELEASE_SYMBOL(sym) sym
 #endif
 
+#define TRIEXPRESS(exp, v0, v1) ((exp) ? (v0) : (v1))
+
 #ifdef N2LIB
 # define N2LIB 1
 # define hybird public
@@ -106,7 +108,7 @@ typedef id metapointer_t;
 # endif
 
 # ifdef N2_OBJC_ARC
-#  define SAFE_RELEASE(o) {o=o;}
+#  define OBJC_RELEASE(o) {o=o;}
 #  define SUPER_DEALLOC {}
 #  define MUST_ARC
 #  define MUST_NOARC error "must turn OFF arc"
@@ -114,7 +116,7 @@ typedef id metapointer_t;
 #  define NOARC_TODO
 #  define MUST_ARC error "must turn ON arc"
 #  define MUST_NOARC
-#  define SAFE_RELEASE(o) { int rc = o.retainCount; [o release]; if (rc == 1) o = nil; }
+#  define OBJC_RELEASE(o) { int rc = o.retainCount; [o release]; if (rc == 1) o = nil; }
 #  define SUPER_DEALLOC {[super dealloc];}
 # endif
 

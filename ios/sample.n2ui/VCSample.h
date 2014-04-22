@@ -5,7 +5,7 @@
 N2SAMPLE_BEGIN
 
 class VSample
-: public ui::View
+: public View
 {
 public:
     
@@ -15,10 +15,11 @@ protected:
     
     void onLayout(Rect const&);
     
+    Button btn;
 };
 
 class VCSample
-: public ui::Controller<VSample>
+: public Controller<VSample>
 {
 public:
     

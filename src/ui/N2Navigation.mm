@@ -19,7 +19,7 @@ Navigation::Navigation()
 {
     N2NavigationController* o = [[N2NavigationController alloc] init];
     bindMeta(o);
-    SAFE_RELEASE(o);
+    OBJC_RELEASE(o);
 }
 
 Navigation::~Navigation()
@@ -29,12 +29,12 @@ Navigation::~Navigation()
 
 void Navigation::push(ViewController& vc, bool ani)
 {
-    [getMeta() pushViewController:vc animated:ani];
+    [meta() pushViewController:vc animated:ani];
 }
 
 void Navigation::pop(bool ani)
 {
-    [getMeta() popViewControllerAnimated:ani];
+    [meta() popViewControllerAnimated:ani];
 }
 
 N2UI_END

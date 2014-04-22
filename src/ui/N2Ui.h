@@ -19,5 +19,6 @@
 #import "N2Animation.h"
 #import "N2View.h"
 #import "N2ViewController.h"
+#import "N2Widgets.h"
 
 #endif

@@ -18,9 +18,9 @@ N2UI_BEGIN
 
 View::View()
 {
-    N2View* o = [[N2View alloc] init];
+    N2View* o = [[N2View alloc] initWithFrame:CGRectZero];
     bindMeta(o);
-    SAFE_RELEASE(o);
+    OBJC_RELEASE(o);
 }
 
 View::~View()
@@ -30,12 +30,12 @@ View::~View()
 
 void View::hide(bool b)
 {
-    [getMeta() setHidden:b];
+    [meta() setHidden:b];
 }
 
 bool View::ishidden() const
 {
-    return [getMeta() isHidden];
+    return [meta() isHidden];
 }
 
 void View::visible(bool b)
@@ -50,12 +50,12 @@ bool View::isvisibled() const
 
 void View::background(Color const& c)
 {
-    [getMeta() setBackgroundColor:c];
+    [meta() setBackgroundColor:c];
 }
 
 Color View::backgroundColor() const
 {
-    return [getMeta() backgroundColor];
+    return [meta() backgroundColor];
 }
 
 void View::onLayout(Rect const&)
@@ -65,23 +65,68 @@ void View::onLayout(Rect const&)
 
 void View::frame(Rect const& rc)
 {
-    [getMeta() setFrame:rc];
+    [meta() setFrame:rc];
 }
 
 Rect View::frame() const
 {
-    return [getMeta() frame];
+    return [meta() frame];
 }
 
 Rect View::bounds() const
 {
-    return [getMeta() bounds];
+    return [meta() bounds];
+}
+
+void View::add(View& v)
+{
+    [meta() addSubview:v];
 }
 
 Rect View::boundsForLayout() const
 {
     Rect rc = bounds();
     return rc;
+}
+
+Control::Control()
+{
+    
+}
+
+Control::~Control()
+{
+    
+}
+
+void Control::enable(bool b)
+{
+    meta<UIControl>().enabled = b;
+}
+
+bool Control::isenabled() const
+{
+    return meta<UIControl>().enabled;
+}
+
+void Control::select(bool b)
+{
+    meta<UIControl>().enabled = b;
+}
+
+bool Control::isselected() const
+{
+    return meta<UIControl>().selected;
+}
+
+void Control::highlight(bool b)
+{
+    meta<UIControl>().highlighted = b;
+}
+
+bool Control::ishighlighted() const
+{
+    return meta<UIControl>().highlighted;
 }
 
 N2UI_END

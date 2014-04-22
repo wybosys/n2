@@ -51,10 +51,10 @@ MetaObject::MetaObject(MetaObject const& r)
 MetaObject::~MetaObject()
 {
     // 需要安全的释放掉cxx对象
-    N2MetaObject* mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
+    N2MetaObject* mo = objc_getAssociatedObject(meta(), &kMetaObjectKey);
     if (mo) {
         [mo clear]; // 不能直接=nil，因为此时已经进入destroy流程，直接=nil，会引起重复release
-        objc_setAssociatedObject(getMeta(), &kMetaObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(meta(), &kMetaObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 
@@ -70,7 +70,7 @@ void MetaObject::bindMeta(metapointer_t p)
     N2MetaObject* mo = nil;
     if (p)
     {
-        mo = objc_getAssociatedObject(getMeta(), &kMetaObjectKey);
+        mo = objc_getAssociatedObject(meta(), &kMetaObjectKey);
         if (mo == nil)
             mo = [[N2MetaObject alloc] init];
         mo.cxxobj = dynamic_cast<Object*>(this);
@@ -78,7 +78,7 @@ void MetaObject::bindMeta(metapointer_t p)
     objc_setAssociatedObject(p, &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-metapointer_t MetaObject::getMeta() const
+metapointer_t MetaObject::meta() const
 {
     return _pmeta;
 }

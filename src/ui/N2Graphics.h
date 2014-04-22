@@ -34,7 +34,7 @@ public:
     
 protected:
     
-    metapointer_t getMeta() const;
+    metapointer_t meta() const;
     
 };
 

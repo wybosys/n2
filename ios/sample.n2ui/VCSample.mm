@@ -11,7 +11,7 @@ VSample::VSample()
     
     btn.title(@"BUTTON");
     btn.text(Color::Black);
-    btn.background(Color::Red);
+    btn.background(Color::Gray);
     add(btn);
 }
 

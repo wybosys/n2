@@ -5,7 +5,7 @@
 N2LAYOUT_BEGIN
 
 Linear::Linear()
-: minFlexValue(-99999999), _changed(false), _iter(-1)
+: flexValue(0), minFlexValue(-99999999), _changed(false), _iter(-1)
 {
     
 }
@@ -216,7 +216,7 @@ ui::Rect VBox::stride(real val)
     ret.origin.y = _rc_work.origin.y;
     _rc_work.origin.y += height;
     ret.size.w = _rc_work.size.w;
-    ret.size.w = height;
+    ret.size.h = height;
     return ret;
 }
 

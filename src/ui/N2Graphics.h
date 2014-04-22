@@ -38,6 +38,12 @@ protected:
     
 };
 
+class Edge
+: public math::Edge<real>
+{
+public:
+};
+
 class Point
 : public math::Point<real>
 {

@@ -5,6 +5,29 @@
 N2MATH_BEGIN
 
 template <typename T>
+class Edge
+{
+public:
+    
+    Edge(T _t = 0, T _b = 0, T _l = 0, T _r = 0)
+    : t(_t), b(_b), l(_l), r(_r)
+    {
+        
+    }
+    
+    typedef T component_type;
+    component_type t, b, l, r;
+    
+    inline T w() const {
+        return l + r;
+    }
+    
+    inline T h() const {
+        return t + b;
+    }
+};
+
+template <typename T>
 class Point
 {
 public:
@@ -38,6 +61,14 @@ public:
     typedef T component_type;
     typedef P point_type;
     typedef S size_type;
+    
+    inline Rect& operator -= (Edge<T> const& e) {
+        origin.x += e.l;
+        origin.y += e.t;
+        size.w -= e.w();
+        size.h -= e.h();
+        return *this;
+    }
     
     point_type origin;
     size_type size;

@@ -105,6 +105,7 @@ void View::add(View& v)
 Rect View::boundsForLayout() const
 {
     Rect rc = bounds();
+    rc -= edge;
     return rc;
 }
 

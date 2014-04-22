@@ -54,6 +54,8 @@ public:
         Value<bool> longclicking;
     } extension;
     
+    Edge edge;
+    
 hybird:
     
     virtual void onLayout(Rect const&);

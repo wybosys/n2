@@ -7,6 +7,9 @@
 
 N2UI_BEGIN
 
+extern const float kDurationLongTouch;
+extern const float kDurationDbTouchInterval;
+
 SIGNAL(kSignalTouchBegan) "::ui::touch::began";
 SIGNAL(kSignalTouchEnded) "::ui::touch::ended";
 SIGNAL(kSignalTouchCancel) "::ui::touch::cancel";
@@ -44,6 +47,12 @@ public:
     virtual Rect bounds() const;
     
     virtual void add(View&);
+    
+    struct
+    {
+        Value<int> touched;
+        Value<bool> longclicking;
+    } extension;
     
 hybird:
     

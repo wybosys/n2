@@ -4,6 +4,9 @@
 #import "core/N2Objc.h"
 #import "N2Swizzle.h"
 
+const float kDurationLongTouch = .25f;
+const float kDurationDbTouchInterval = .2f;
+
 PERFORM_STATIC(UIKitSwizzle, Swizzles);
 
 @interface UIView (n2ext)
@@ -160,17 +163,31 @@ bool Control::ishighlighted() const
 
 void Control::onTouchDown(bool repeat)
 {
-    
+    if (repeat)
+    {
+        PASS;
+    }
+    else
+    {
+        
+    }
 }
 
 void Control::onTouchUp(bool inside)
 {
-    
+    if (inside)
+    {
+        
+    }
+    else
+    {
+        signals().emit(kSignalClicked);
+    }
 }
 
 void Control::onTouchCancel()
 {
-    
+    PASS;
 }
 
 N2UI_END

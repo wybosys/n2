@@ -10,6 +10,8 @@ SIGNAL(kSignalApplicationActived) "::sys::app::actived";
 SIGNAL(kSignalApplicationActiving) "::sys::app::activiting";
 SIGNAL(kSignalApplicationDeactived) "::sys::app::deactived";
 SIGNAL(kSignalApplicationDeactiving) "::sys::app::deactiving";
+SIGNAL(kSignalApplicationOrientationChanging) "::sys::app::orientation::changing";
+SIGNAL(kSignalApplicationOrientationChanged) "::sys::app::orientation::changed";
 
 class Application
 : public SObject
@@ -36,10 +38,9 @@ public:
     RefPtr<Navigation> root;
     
     SIGNALS(SObject,
-            kSignalApplicationActived,
-            kSignalApplicationActiving,
-            kSignalApplicationDeactived,
-            kSignalApplicationDeactiving
+            kSignalApplicationActived, kSignalApplicationActiving,
+            kSignalApplicationDeactived, kSignalApplicationDeactiving,
+            kSignalApplicationOrientationChanging, kSignalApplicationOrientationChanged
             );
 
 };

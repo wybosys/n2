@@ -152,51 +152,58 @@ N2UI_END
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    PASS;
     return YES;
 }
 
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application {
-    
+    LOG("Memory Warning");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    
+    LOG("Terminating");
 }
 
 - (void)applicationSignificantTimeChange:(UIApplication *)application {
-    
+    PASS;
 }
 
 - (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration {
+    LOG("Orentation Chaning to:%d duration:%f", newStatusBarOrientation, duration);
     
+    N2UI_USE;
+    Application::shared().signals().emit(kSignalApplicationOrientationChanging, Number(newStatusBarOrientation));
 }
 
 - (void)application:(UIApplication *)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation {
+    LOG("Orentation Changed from:%d", oldStatusBarOrientation);
     
+    N2UI_USE;
+    Application::shared().signals().emit(kSignalApplicationOrientationChanged, Number(oldStatusBarOrientation));
 }
 
 - (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame {
-    
+    PASS;
 }
 
 - (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)oldStatusBarFrame {
-    
+    PASS;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-    
+    PASS;
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
-    
+    PASS;
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    
+    PASS;
 }
 
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification {
-    
+    PASS;
 }
 
 /*
@@ -228,11 +235,11 @@ N2UI_END
 }
 
 - (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application {
-    
+    PASS;
 }
 
 - (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application {
-    
+    PASS;
 }
 
 /*

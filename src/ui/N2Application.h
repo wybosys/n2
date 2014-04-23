@@ -37,6 +37,13 @@ public:
     // 根vc
     RefPtr<Navigation> root;
     
+    // 根window
+    Window window;
+    
+hybird:
+    
+    void bindWindow(metapointer_t);
+    
     SIGNALS(SObject,
             kSignalApplicationActived, kSignalApplicationActiving,
             kSignalApplicationDeactived, kSignalApplicationDeactiving,

@@ -48,6 +48,7 @@
 #define EXTERN extern
 
 #if defined(_DEBUG) || defined(_DEBUG_) || defined(DEBUG)
+# define TRUEDEBUG_MODE
 # define PRECOMP_DEBUG_MODE
 #endif
 
@@ -119,6 +120,7 @@ typedef id metapointer_t;
 
 # ifdef N2_OBJC_ARC
 #  define OBJC_RELEASE(o) {o=o;}
+#  define OBJC_AUTORELEASE(o) {}
 #  define OBJC_CONSIGN(o) {}
 #  define SUPER_DEALLOC {}
 #  define MUST_ARC
@@ -128,6 +130,7 @@ typedef id metapointer_t;
 #  define MUST_ARC error "must turn ON arc"
 #  define MUST_NOARC
 #  define OBJC_RELEASE(o) { int rc = o.retainCount; [o release]; if (rc == 1) o = nil; }
+#  define OBJC_AUTORELEASE(o) [o autorelease]
 #  define OBJC_CONSIGN(o) [[o retain] autorelease]
 #  define SUPER_DEALLOC {[super dealloc];}
 # endif

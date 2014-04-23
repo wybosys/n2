@@ -24,5 +24,6 @@
 #import "N2ViewController.h"
 #import "N2Widgets.h"
 #import "N2Layout.h"
+#import "N2Application.h"
 
 #endif

@@ -67,6 +67,18 @@ hybird:
             );
 };
 
+class Window
+: public View
+{
+public:
+    
+    Window();
+    Window(metapointer_t);
+    virtual ~Window();
+    
+    friend class Application;
+};
+
 SIGNAL(kSignalTouchDown) "::ui::touch::down";
 SIGNAL(kSignalTouchDownRepeat) "::ui::touch::down::repeat";
 SIGNAL(kSignalTouchUpInside) "::ui::touch::up::inside";

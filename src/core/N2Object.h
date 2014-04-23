@@ -210,7 +210,7 @@ inline void refobj_zero(T*& l)
 class PRIVATE_CLASS(cls) \
 { \
 friend class cls; \
-cls* d_owner; \
+cls* d_owner;
 
 #define PRIVATE_END \
 };

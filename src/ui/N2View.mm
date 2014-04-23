@@ -28,7 +28,13 @@ PERFORM_STATIC(UIKitSwizzle, Swizzles);
 
 @end
 
+@interface N2Window : UIWindow
+
+@end
+
 N2UI_BEGIN
+
+#pragma mark view
 
 View::View()
 {
@@ -108,6 +114,29 @@ Rect View::boundsForLayout() const
     rc -= edge;
     return rc;
 }
+
+#pragma mark window
+
+Window::Window()
+: View(nil)
+{
+    N2Window* o = [[N2Window alloc] initWithFrame:kUIScreenBounds];
+    bindMeta(o);
+    OBJC_RELEASE(o);
+}
+
+Window::Window(metapointer_t o)
+: View(o)
+{
+    
+}
+
+Window::~Window()
+{
+    
+}
+
+#pragma mark control
 
 Control::Control()
 : View(nil)
@@ -211,6 +240,10 @@ N2UI_END
     self.backgroundColor = [UIColor clearColor];
     return self;
 }
+
+@end
+
+@implementation N2Window
 
 @end
 

@@ -32,6 +32,7 @@
 		16BCB3C318FF6BDB0037B101 /* N2Animation.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB3C218FF6BDB0037B101 /* N2Animation.mm */; };
 		16BCB3C918FFA6E50037B101 /* N2Swizzle.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16BCB3C818FFA6E50037B101 /* N2Swizzle.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		16E73EDA190818AB004F929C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 16E73ED9190818AB004F929C /* Images.xcassets */; };
+		16E73EDD19081DF8004F929C /* N2QC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 16E73EDC19081DF8004F929C /* N2QC.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -89,6 +90,8 @@
 		16BCB3C718FFA6E50037B101 /* N2Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Swizzle.h; path = ../../src/ui/N2Swizzle.h; sourceTree = "<group>"; };
 		16BCB3C818FFA6E50037B101 /* N2Swizzle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2Swizzle.mm; path = ../../src/ui/N2Swizzle.mm; sourceTree = "<group>"; };
 		16E73ED9190818AB004F929C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../res/Images.xcassets; sourceTree = "<group>"; };
+		16E73EDB19081DF8004F929C /* N2QC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2QC.h; path = ../../src/ui/N2QC.h; sourceTree = "<group>"; };
+		16E73EDC19081DF8004F929C /* N2QC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = N2QC.mm; path = ../../src/ui/N2QC.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +195,8 @@
 				161CF29318FC937B004C7D1C /* N2Tabbar.mm */,
 				161CF29518FC93A4004C7D1C /* N2Widgets.h */,
 				161CF29618FC93A4004C7D1C /* N2Widgets.mm */,
+				16E73EDB19081DF8004F929C /* N2QC.h */,
+				16E73EDC19081DF8004F929C /* N2QC.mm */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -312,6 +317,7 @@
 				16354A9918FFC0AF0074512C /* N2Graphics.mm in Sources */,
 				161CF28E18FC92E3004C7D1C /* N2View.mm in Sources */,
 				166FDDF618E9DA2A0005803F /* N2Ui.mm in Sources */,
+				16E73EDD19081DF8004F929C /* N2QC.mm in Sources */,
 				16BCB3C918FFA6E50037B101 /* N2Swizzle.mm in Sources */,
 				161849F91905086C00C6EC93 /* libmain.mm in Sources */,
 			);

@@ -3,6 +3,7 @@
 #import "N2Application.h"
 #import "core/N2Objc.h"
 #import "N2Navigation.h"
+#import "N2QC.h"
 
 @interface N2AppImplementation : NSObject <UIApplicationDelegate>
 
@@ -29,6 +30,7 @@ PRIVATE_END
 Application* PRIVATE_CLASS(Application)::gs_App = NULL;
 
 Application::Application()
+: window(nil)
 {
     PRIVATE_CONSTRUCT;
 }
@@ -88,6 +90,11 @@ void Application::load()
     PASS;
 }
 
+void Application::bindWindow(metapointer_t o)
+{
+    window.bindMeta(o);
+}
+
 N2UI_END
 
 @implementation N2AppImplementation
@@ -126,10 +133,17 @@ N2UI_END
     // 初始化环境
     rapp.start();
     
-    UIWindow* win = [[UIWindow alloc] initWithFrame:kUIScreenBounds];
+    // 建立根window
+    UIWindow* win = [[NSClassFromString(@"N2Window") alloc] initWithFrame:kUIScreenBounds];
     self.window = win;;
     win.rootViewController = *rapp.root;
     [win makeKeyAndVisible];
+    rapp.bindWindow(win);
+    
+    // 加载开发测试环境
+#ifdef TRUEDEBUG_MODE
+    N2QC::shared().launch();
+#endif
     
     // 加载应用
     rapp.load();

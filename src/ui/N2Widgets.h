@@ -77,6 +77,17 @@ public:
     
 };
 
+class Keyboard
+: public SObject,
+public Singleton<Keyboard>
+{
+protected:
+    
+    Keyboard();
+    
+    friend class Singleton<Keyboard>;
+};
+
 N2UI_END
 
 #endif

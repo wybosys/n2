@@ -244,6 +244,35 @@ public:
     
 };
 
+typedef struct _singleton_t singleton_type;
+
+template <typename T>
+class Singleton
+{
+public:
+    
+    typedef singleton_type singleton_type;
+    
+    static T& shared();
+    
+protected:
+    
+    static T* _p;
+};
+
+template <typename T>
+T* Singleton<T>::_p = NULL;
+
+template <typename T>
+inline T& Singleton<T>::shared()
+{
+    MtxObject::Lock();
+    if (_p == NULL)
+        _p = new T();
+    MtxObject::Unlock();
+    return *_p;
+}
+
 N2_END
 
 #endif

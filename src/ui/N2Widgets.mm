@@ -27,6 +27,10 @@
 
 @end
 
+@interface N2Keyboard : NSObject
+
+@end
+
 N2UI_BEGIN
 
 #pragma mark label
@@ -148,6 +152,15 @@ TextEditor::~TextEditor()
     
 }
 
+#pragma mark keyboard
+
+Keyboard::Keyboard()
+{
+    N2Keyboard* kb = [[N2Keyboard alloc] init];
+    bindMeta(kb);
+    OBJC_RELEASE(kb);
+}
+
 N2UI_END
 
 @implementation N2Label
@@ -189,5 +202,9 @@ N2UI_END
     self.backgroundColor = [UIColor clearColor];
     return self;
 }
+
+@end
+
+@implementation N2Keyboard
 
 @end

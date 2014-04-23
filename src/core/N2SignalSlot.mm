@@ -375,23 +375,23 @@ SObject::~SObject()
 
 Signals& SObject::signals() const
 {
-    return getSignals();
+    return _getSignals();
 }
 
-Signals& SObject::getSignals() const
+Signals& SObject::_getSignals() const
 {
     lock();
     if (sigs.isnull())
     {
         sigs = new Signals();
         sigs->owner = mutable_cast(this);
-        mutable_cast(this)->init_signals();
+        mutable_cast(this)->_initSignals();
     }
     unlock();
     return sigs;
 }
 
-void SObject::init_signals()
+void SObject::_initSignals()
 {
     PASS;
 }

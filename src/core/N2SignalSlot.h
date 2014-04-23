@@ -146,14 +146,14 @@ public:
     
 protected:
     
-    virtual void init_signals();
-    Signals& getSignals() const;
+    virtual void _initSignals();
+    Signals& _getSignals() const;
     
     mutable LazyInstance<Signals> sigs;
 };
 
 #define SIGNAL(sig) static const ::N2NS::signal_t sig = 
-#define SIGNALS(super, ...) protected: virtual void init_signals() { super::init_signals(); sigs->add({__VA_ARGS__}); }
+#define SIGNALS(super, ...) protected: virtual void _initSignals() { super::_initSignals(); sigs->add({__VA_ARGS__}); }
 #define slot(s) ((::N2NS::Slot::cb_mfunction)&s)
 
 SIGNAL(kSignalSucceed) "::any::done";

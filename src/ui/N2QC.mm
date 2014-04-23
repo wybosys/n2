@@ -32,7 +32,7 @@ N2QC::~N2QC()
 
 void N2QC::launch()
 {
-    
+
 }
 
 N2_END

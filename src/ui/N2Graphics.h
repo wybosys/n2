@@ -67,6 +67,7 @@ public:
 #endif
     
     Point integral() const;
+    Point bbx() const;
     
 };
 
@@ -84,6 +85,7 @@ public:
 #endif
     
     Size integral() const;
+    Size bbx() const;
     
 };
 
@@ -101,6 +103,7 @@ public:
 #endif
     
     Rect integral() const;
+    Rect bbx() const;
     
 };
 

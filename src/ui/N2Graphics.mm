@@ -129,6 +129,14 @@ Point Point::integral() const
     return r;
 }
 
+Point Point::bbx() const
+{
+    Point r;
+    r.x = ceil(x);
+    r.y = ceil(y);
+    return r;
+}
+
 Size::Size(CGSize const& sz)
 {
     w = sz.width;
@@ -148,6 +156,14 @@ Size Size::integral() const
     return r;
 }
 
+Size Size::bbx() const
+{
+    Size r;
+    r.w = ceil(w);
+    r.h = ceil(h);
+    return r;
+}
+
 Rect::Rect(CGRect const& r)
 {
     origin = r.origin;
@@ -164,6 +180,14 @@ Rect Rect::integral() const
     Rect r;
     r.origin = origin.integral();
     r.size = size.integral();
+    return r;
+}
+
+Rect Rect::bbx() const
+{
+    Rect r;
+    r.origin = origin.bbx();
+    r.size = size.bbx();
     return r;
 }
 

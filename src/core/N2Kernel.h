@@ -66,6 +66,16 @@
 # define RELEASE_SYMBOL(sym) sym
 #endif
 
+#if defined(__LP64__) && __LP64__
+# define N2_64
+# define X64SYMBOL(exp) exp
+# define X32SYMBOL(exp)
+#else
+# define N2_32
+# define X64SYMBOL(exp)
+# define X32SYMBOL(exp) exp
+#endif
+
 #define TRIEXPRESS(exp, v0, v1) ((exp) ? (v0) : (v1))
 
 #ifdef N2LIB
@@ -93,7 +103,7 @@ typedef unsigned char ubyte, uchar, byte;
 typedef signed char sbyte;
 typedef unsigned short ushort, uword;
 typedef signed short word;
-typedef float real;
+typedef X32SYMBOL(float) X64SYMBOL(double) real;
 
 #ifdef N2_OBJC
 typedef id metapointer_t;

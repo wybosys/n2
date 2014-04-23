@@ -105,6 +105,8 @@ public:
     
     void copy(String const&);
     
+    static String Format(NSString* fmt, ...);
+
 };
 
 class Variant

@@ -209,6 +209,16 @@ void String::copy(String const& r)
     setMeta(r.metacopy());
 }
 
+String String::Format(NSString *fmt, ...)
+{
+    va_list va;
+    va_start(va, fmt);
+    NSString* ret = [[NSString alloc] initWithFormat:fmt arguments:va];
+    va_end(va);
+    OBJC_CONSIGN(ret);
+    return ret;
+}
+
 Variant::Variant()
 {
     

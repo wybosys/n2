@@ -119,6 +119,7 @@ typedef id metapointer_t;
 
 # ifdef N2_OBJC_ARC
 #  define OBJC_RELEASE(o) {o=o;}
+#  define OBJC_CONSIGN(o) {}
 #  define SUPER_DEALLOC {}
 #  define MUST_ARC
 #  define MUST_NOARC error "must turn OFF arc"
@@ -127,6 +128,7 @@ typedef id metapointer_t;
 #  define MUST_ARC error "must turn ON arc"
 #  define MUST_NOARC
 #  define OBJC_RELEASE(o) { int rc = o.retainCount; [o release]; if (rc == 1) o = nil; }
+#  define OBJC_CONSIGN(o) [[o retain] autorelease]
 #  define SUPER_DEALLOC {[super dealloc];}
 # endif
 

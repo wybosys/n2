@@ -12,6 +12,9 @@
 #define N2SAMPLE_BEGIN N2_BEGIN_NS(sample) using namespace N2NS::ui;
 #define N2SAMPLE_END N2_END_NS
 
+#define N2APP_BEGIN N2_BEGIN_NS(app) using namespace N2NS::ui;
+#define N2APP_END N2_END_NS
+
 #ifdef N2_OBJC
 # import <UIKit/UIKit.h>
 #endif

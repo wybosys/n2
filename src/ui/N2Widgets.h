@@ -12,6 +12,9 @@ public:
     Label();
     virtual ~Label();
     
+    virtual void text(String const&);
+    virtual String text() const;
+    
 };
 
 class Button
@@ -22,11 +25,55 @@ public:
     Button();
     virtual ~Button();
     
-    virtual void title(String const&, State = Normal);
-    virtual String title(State = Normal) const;
+    virtual void text(String const&, State = Normal);
+    virtual String text(State = Normal) const;
     
     virtual void text(Color const&, State = Normal);
     virtual Color textColor(State = Normal) const;
+    
+};
+
+class TextField
+: public Control
+{
+public:
+    
+    TextField();
+    virtual ~TextField();
+    
+};
+
+class Picture
+: public View
+{
+public:
+    
+    Picture();
+    virtual ~Picture();
+    
+};
+
+class Scroll
+: public View
+{
+public:
+    
+    Scroll();
+    virtual ~Scroll();
+    
+protected:
+    
+    Scroll(metapointer_t);
+    
+};
+
+class TextEditor
+: public Scroll
+{
+public:
+    
+    TextEditor();
+    virtual ~TextEditor();
     
 };
 

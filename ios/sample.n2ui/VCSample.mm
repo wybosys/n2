@@ -9,7 +9,7 @@ VSample::VSample()
 {
     background(ui::Color::White);
     
-    btn.title(@"BUTTON");
+    btn.text(@"BUTTON");
     btn.text(Color::Black);
     btn.background(Color::Gray);
     add(btn);

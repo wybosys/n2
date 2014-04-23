@@ -183,7 +183,7 @@ inline uint mask_unset(uint mask, uint val)
     return val;
 }
 
-# ifdef N2_CXX
+#ifdef N2_CXX
 
 template <typename T>
 inline T* mutable_cast(T const* p)
@@ -212,7 +212,7 @@ exp \
 
 # define ptrcall(p, exp) { if (p) { exp; } }
 
-# endif
+#endif
 
 N2_END
 

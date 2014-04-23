@@ -90,9 +90,9 @@ void Application::load()
     PASS;
 }
 
-void Application::bindWindow(metapointer_t o)
+void Application::_bindWindow(metapointer_t o)
 {
-    window.bindMeta(o);
+    window._bindMeta(o);
 }
 
 N2UI_END
@@ -138,7 +138,7 @@ N2UI_END
     self.window = win;;
     win.rootViewController = *rapp.root;
     [win makeKeyAndVisible];
-    rapp.bindWindow(win);
+    rapp._bindWindow(win);
     
     // 加载开发测试环境
 #ifdef TRUEDEBUG_MODE

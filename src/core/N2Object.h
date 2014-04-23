@@ -20,7 +20,7 @@ public:
     virtual ~MetaObject();
     
     inline operator metapointer_t () const {
-        return meta();
+        return _meta();
     }
     
     // 复制一个对象
@@ -36,15 +36,15 @@ public:
 protected:
     
     // 设置元数据，不进行oc/c对象映射
-    void setMeta(metapointer_t);
+    void _setMeta(metapointer_t);
     // 绑定元数据，映射oc/c对象
-    void bindMeta(metapointer_t);
+    void _bindMeta(metapointer_t);
     
     // 获取元数据
-    virtual metapointer_t meta() const;
+    virtual metapointer_t _meta() const;
     template <typename T>
-    inline T* meta() const {
-        return (T*)meta();
+    inline T* _meta() const {
+        return (T*)_meta();
     }
         
 private:

@@ -45,32 +45,32 @@ MetaObject::MetaObject()
 MetaObject::MetaObject(MetaObject const& r)
 : _pmeta(nil)
 {
-    setMeta(r);
+    _setMeta(r);
 }
 
 MetaObject::~MetaObject()
 {
     // 需要安全的释放掉cxx对象
-    N2MetaObject* mo = objc_getAssociatedObject(meta(), &kMetaObjectKey);
+    N2MetaObject* mo = objc_getAssociatedObject(_meta(), &kMetaObjectKey);
     if (mo) {
         [mo clear]; // 不能直接=nil，因为此时已经进入destroy流程，直接=nil，会引起重复release
-        objc_setAssociatedObject(meta(), &kMetaObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        objc_setAssociatedObject(_meta(), &kMetaObjectKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     }
 }
 
-void MetaObject::setMeta(metapointer_t p)
+void MetaObject::_setMeta(metapointer_t p)
 {
     _pmeta = p;
 }
 
-void MetaObject::bindMeta(metapointer_t p)
+void MetaObject::_bindMeta(metapointer_t p)
 {
-    setMeta(p);
+    _setMeta(p);
     
     N2MetaObject* mo = nil;
     if (p)
     {
-        mo = objc_getAssociatedObject(meta(), &kMetaObjectKey);
+        mo = objc_getAssociatedObject(_meta(), &kMetaObjectKey);
         if (mo == nil) {
             mo = [[N2MetaObject alloc] init];
             OBJC_AUTORELEASE(mo);
@@ -80,7 +80,7 @@ void MetaObject::bindMeta(metapointer_t p)
     objc_setAssociatedObject(p, &kMetaObjectKey, mo, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-metapointer_t MetaObject::meta() const
+metapointer_t MetaObject::_meta() const
 {
     return _pmeta;
 }
@@ -95,7 +95,7 @@ MetaObject MetaObject::metacopy() const
 {
     id obj = [_pmeta copy];
     MetaObject ret;
-    ret.setMeta(obj);
+    ret._setMeta(obj);
     return ret;
 }
 

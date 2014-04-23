@@ -11,127 +11,127 @@ Number::Number()
 
 Number::Number(char v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(uchar v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(short v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(ushort v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(int v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(uint v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(float v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(double v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(long v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(ulong v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(longlong v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::Number(ulonglong v)
 {
-    setMeta(@(v));
+    _setMeta(@(v));
 }
 
 Number::operator char() const
 {
-    return [meta() charValue];
+    return [_meta() charValue];
 }
 
 Number::operator uchar() const
 {
-    return [meta() unsignedCharValue];
+    return [_meta() unsignedCharValue];
 }
 
 Number::operator short() const
 {
-    return [meta() shortValue];
+    return [_meta() shortValue];
 }
 
 Number::operator ushort() const
 {
-    return [meta() unsignedShortValue];
+    return [_meta() unsignedShortValue];
 }
 
 Number::operator int() const
 {
-    return [meta() intValue];
+    return [_meta() intValue];
 }
 
 Number::operator uint() const
 {
-    return [meta() unsignedIntValue];
+    return [_meta() unsignedIntValue];
 }
 
 Number::operator float() const
 {
-    return [meta() floatValue];
+    return [_meta() floatValue];
 }
 
 Number::operator double() const
 {
-    return [meta() doubleValue];
+    return [_meta() doubleValue];
 }
 
 Number::operator long() const
 {
-    return [meta() longValue];
+    return [_meta() longValue];
 }
 
 Number::operator ulong() const
 {
-    return [meta() unsignedLongValue];
+    return [_meta() unsignedLongValue];
 }
 
 Number::operator longlong() const
 {
-    return [meta() longLongValue];
+    return [_meta() longLongValue];
 }
 
 Number::operator ulonglong() const
 {
-    return [meta() unsignedLongLongValue];
+    return [_meta() unsignedLongLongValue];
 }
 
 void Number::copy(Number const& r)
 {
-    setMeta(r.metacopy());
+    _setMeta(r.metacopy());
 }
 
 Data::Data()
@@ -141,24 +141,24 @@ Data::Data()
 
 Data::Data(NSData* d)
 {
-    setMeta(d);
+    _setMeta(d);
 }
 
 Data::Data(NSMutableData* d)
 {
-    setMeta(d);
+    _setMeta(d);
 }
 
 String::String()
 {
-    setMeta(@"");
+    _setMeta(@"");
 }
 
 String::String(NSString* str)
 {
     if (str == nil)
         str = @"";
-    setMeta(str);
+    _setMeta(str);
 }
 
 String::String(String const& r)
@@ -168,45 +168,45 @@ String::String(String const& r)
 
 String::String(NSMutableString* str)
 {
-    setMeta(str);
+    _setMeta(str);
 }
 
 String String::operator + (String const& r) const
 {
-    NSString* m = meta();
+    NSString* m = _meta();
     m = [m stringByAppendingString:r];
     return String(m);
 }
 
 String& String::operator += (String const& r)
 {
-    id m = meta();
+    id m = _meta();
     if ([m respondsToSelector:@selector(appendString:)])
         [m appendString:r];
     else
-        setMeta([m stringByAppendingString:r]);
+        _setMeta([m stringByAppendingString:r]);
     return *this;
 }
 
 String& String::operator = (String const& r)
 {
-    setMeta(r.metacopy());
+    _setMeta(r.metacopy());
     return *this;
 }
 
 bool String::operator == (String const& r) const
 {
-    return [meta() isEqualToString:r];
+    return [_meta() isEqualToString:r];
 }
 
 size_t String::length() const
 {
-    return [meta() length];
+    return [_meta() length];
 }
 
 void String::copy(String const& r)
 {
-    setMeta(r.metacopy());
+    _setMeta(r.metacopy());
 }
 
 String String::Format(NSString *fmt, ...)

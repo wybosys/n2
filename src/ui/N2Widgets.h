@@ -67,13 +67,13 @@ protected:
     
 };
 
-class TextEditor
+class TextArea
 : public Scroll
 {
 public:
     
-    TextEditor();
-    virtual ~TextEditor();
+    TextArea();
+    virtual ~TextArea();
     
 };
 

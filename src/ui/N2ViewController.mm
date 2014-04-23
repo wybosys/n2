@@ -16,13 +16,13 @@ N2UI_BEGIN
 ViewController::ViewController()
 {
     N2ViewController* o = [[N2ViewController alloc] init];
-    bindMeta(o);
+    _bindMeta(o);
     OBJC_RELEASE(o);
 }
 
 ViewController::ViewController(metapointer_t o)
 {
-    bindMeta(o);
+    _bindMeta(o);
 }
 
 ViewController::~ViewController()
@@ -49,13 +49,13 @@ void ViewController::title(String const& s)
 {
     if (title() == s)
         return;
-    [meta() setTitle:s];
+    [_meta() setTitle:s];
     signals().emit(kSignalTitleChanged, s);
 }
 
 String ViewController::title() const
 {
-    return [meta() title];
+    return [_meta() title];
 }
 
 N2UI_END

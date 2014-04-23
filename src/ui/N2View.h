@@ -116,7 +116,7 @@ hybird:
     
 protected:
     
-    void bindMeta(metapointer_t);
+    void _bindMeta(metapointer_t);
 
     SIGNALS(View,
             kSignalTouchDown, kSignalTouchDownRepeat, kSignalTouchUpInside, kSignalTouchUpOutside, kSignalTouchCancel,

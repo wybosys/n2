@@ -42,7 +42,7 @@ public:
     
 protected:
     
-    metapointer_t meta() const;
+    metapointer_t _meta() const;
     
 };
 

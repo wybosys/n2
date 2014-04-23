@@ -39,13 +39,13 @@ N2UI_BEGIN
 View::View()
 {
     N2View* o = [[N2View alloc] initWithFrame:CGRectZero];
-    bindMeta(o);
+    _bindMeta(o);
     OBJC_RELEASE(o);
 }
 
 View::View(metapointer_t o)
 {
-    bindMeta(o);
+    _bindMeta(o);
 }
 
 View::~View()
@@ -55,12 +55,12 @@ View::~View()
 
 void View::hide(bool b)
 {
-    [meta() setHidden:b];
+    [_meta() setHidden:b];
 }
 
 bool View::ishidden() const
 {
-    return [meta() isHidden];
+    return [_meta() isHidden];
 }
 
 void View::visible(bool b)
@@ -75,12 +75,12 @@ bool View::isvisibled() const
 
 void View::background(Color const& c)
 {
-    [meta() setBackgroundColor:c];
+    [_meta() setBackgroundColor:c];
 }
 
 Color View::backgroundColor() const
 {
-    return [meta() backgroundColor];
+    return [_meta() backgroundColor];
 }
 
 void View::onLayout(Rect const&)
@@ -90,22 +90,22 @@ void View::onLayout(Rect const&)
 
 void View::frame(Rect const& rc)
 {
-    [meta() setFrame:rc];
+    [_meta() setFrame:rc];
 }
 
 Rect View::frame() const
 {
-    return [meta() frame];
+    return [_meta() frame];
 }
 
 Rect View::bounds() const
 {
-    return [meta() bounds];
+    return [_meta() bounds];
 }
 
 void View::add(View& v)
 {
-    [meta() addSubview:v];
+    [_meta() addSubview:v];
 }
 
 Rect View::boundsForLayout() const
@@ -121,7 +121,7 @@ Window::Window()
 : View(nil)
 {
     N2Window* o = [[N2Window alloc] initWithFrame:kUIScreenBounds];
-    bindMeta(o);
+    _bindMeta(o);
     OBJC_RELEASE(o);
 }
 
@@ -149,9 +149,9 @@ Control::~Control()
     
 }
 
-void Control::bindMeta(metapointer_t o)
+void Control::_bindMeta(metapointer_t o)
 {
-    View::bindMeta(o);
+    View::_bindMeta(o);
     
     [o addTarget:o action:@selector(cbTouchCancel) forControlEvents:UIControlEventTouchCancel];
     [o addTarget:o action:@selector(cbTouchDown) forControlEvents:UIControlEventTouchDown];
@@ -163,32 +163,32 @@ void Control::bindMeta(metapointer_t o)
 
 void Control::enable(bool b)
 {
-    meta<UIControl>().enabled = b;
+    _meta<UIControl>().enabled = b;
 }
 
 bool Control::isenabled() const
 {
-    return meta<UIControl>().enabled;
+    return _meta<UIControl>().enabled;
 }
 
 void Control::select(bool b)
 {
-    meta<UIControl>().enabled = b;
+    _meta<UIControl>().enabled = b;
 }
 
 bool Control::isselected() const
 {
-    return meta<UIControl>().selected;
+    return _meta<UIControl>().selected;
 }
 
 void Control::highlight(bool b)
 {
-    meta<UIControl>().highlighted = b;
+    _meta<UIControl>().highlighted = b;
 }
 
 bool Control::ishighlighted() const
 {
-    return meta<UIControl>().highlighted;
+    return _meta<UIControl>().highlighted;
 }
 
 void Control::onTouchDown(bool repeat)

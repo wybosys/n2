@@ -38,7 +38,7 @@ N2UI_BEGIN
 Label::Label()
 {
     N2Label* lbl = [[N2Label alloc] initWithFrame:CGRectZero];
-    bindMeta(lbl);
+    _bindMeta(lbl);
     OBJC_RELEASE(lbl);
 }
 
@@ -49,12 +49,12 @@ Label::~Label()
 
 void Label::text(String const& str)
 {
-    [meta() setText:str];
+    [_meta() setText:str];
 }
 
 String Label::text() const
 {
-    return [meta() text];
+    return [_meta() text];
 }
 
 #pragma mark button
@@ -62,7 +62,7 @@ String Label::text() const
 Button::Button()
 {
     N2Button* btn = [N2Button buttonWithType:TRIEXPRESS(kIOS7Above, UIButtonTypeSystem, UIButtonTypeCustom)];
-    bindMeta(btn);
+    _bindMeta(btn);
 }
 
 Button::~Button()
@@ -72,22 +72,22 @@ Button::~Button()
 
 void Button::text(String const& str, State sta)
 {
-    [meta<UIButton>() setTitle:str forState:sta];
+    [_meta<UIButton>() setTitle:str forState:sta];
 }
 
 String Button::text(State sta) const
 {
-    return [meta<UIButton>() titleForState:sta];
+    return [_meta<UIButton>() titleForState:sta];
 }
 
 void Button::text(Color const& c, State sta)
 {
-    [meta<UIButton>() setTitleColor:c forState:sta];
+    [_meta<UIButton>() setTitleColor:c forState:sta];
 }
 
 Color Button::textColor(State sta) const
 {
-    return [meta<UIButton>() titleColorForState:sta];
+    return [_meta<UIButton>() titleColorForState:sta];
 }
 
 #pragma mark textfield
@@ -95,7 +95,7 @@ Color Button::textColor(State sta) const
 TextField::TextField()
 {
     N2TextField* tx = [[N2TextField alloc] initWithFrame:CGRectZero];
-    bindMeta(tx);
+    _bindMeta(tx);
     OBJC_RELEASE(tx);
 }
 
@@ -109,7 +109,7 @@ TextField::~TextField()
 Picture::Picture()
 {
     N2ImageView* img = [[N2ImageView alloc] initWithFrame:CGRectZero];
-    bindMeta(img);
+    _bindMeta(img);
     OBJC_RELEASE(img);
 }
 
@@ -123,13 +123,13 @@ Picture::~Picture()
 Scroll::Scroll()
 {
     N2ScrollView* sc = [[N2ScrollView alloc] initWithFrame:CGRectZero];
-    bindMeta(sc);
+    _bindMeta(sc);
     OBJC_RELEASE(sc);
 }
 
 Scroll::Scroll(metapointer_t o)
 {
-    bindMeta(o);
+    _bindMeta(o);
 }
 
 Scroll::~Scroll()
@@ -139,15 +139,15 @@ Scroll::~Scroll()
 
 #pragma mark texteditor
 
-TextEditor::TextEditor()
+TextArea::TextArea()
 : Scroll(nil)
 {
     N2TextView* tx = [[N2TextView alloc] initWithFrame:CGRectZero];
-    bindMeta(tx);
+    _bindMeta(tx);
     OBJC_RELEASE(tx);
 }
 
-TextEditor::~TextEditor()
+TextArea::~TextArea()
 {
     
 }
@@ -157,7 +157,7 @@ TextEditor::~TextEditor()
 Keyboard::Keyboard()
 {
     N2Keyboard* kb = [[N2Keyboard alloc] init];
-    bindMeta(kb);
+    _bindMeta(kb);
     OBJC_RELEASE(kb);
 }
 

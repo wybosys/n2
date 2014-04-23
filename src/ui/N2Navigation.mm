@@ -22,22 +22,22 @@ NavigationBar::~NavigationBar()
 
 void NavigationBar::hide(bool b)
 {
-    [navigation->meta() setNavigationBarHidden:b];
+    [navigation->_meta() setNavigationBarHidden:b];
 }
 
 void NavigationBar::hide(bool b, bool ani)
 {
-    [navigation->meta() setNavigationBarHidden:b animated:ani];
+    [navigation->_meta() setNavigationBarHidden:b animated:ani];
 }
 
 Navigation::Navigation()
 : ViewController(nil)
 {
     N2NavigationController* o = [[N2NavigationController alloc] init];
-    bindMeta(o);
+    _bindMeta(o);
     OBJC_RELEASE(o);
     
-    bar.bindMeta(o.navigationBar);
+    bar._bindMeta(o.navigationBar);
     bar.navigation = this;
 }
 
@@ -48,12 +48,12 @@ Navigation::~Navigation()
 
 void Navigation::push(ViewController& vc, bool ani)
 {
-    [meta() pushViewController:vc animated:ani];
+    [_meta() pushViewController:vc animated:ani];
 }
 
 void Navigation::pop(bool ani)
 {
-    [meta() popViewControllerAnimated:ani];
+    [_meta() popViewControllerAnimated:ani];
 }
 
 N2UI_END

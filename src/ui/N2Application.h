@@ -42,7 +42,7 @@ public:
     
 hybird:
     
-    void bindWindow(metapointer_t);
+    void _bindWindow(metapointer_t);
     
     SIGNALS(SObject,
             kSignalApplicationActived, kSignalApplicationActiving,

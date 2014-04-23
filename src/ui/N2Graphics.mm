@@ -88,7 +88,7 @@ float Color::alphaf() const
     return ((argb & 0xff000000) >> 24) / 255.f;
 }
 
-metapointer_t Color::meta() const
+metapointer_t Color::_meta() const
 {
     return [UIColor colorWithRed:redf() green:greenf() blue:bluef() alpha:alphaf()];
 }

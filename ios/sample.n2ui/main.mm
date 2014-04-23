@@ -5,6 +5,7 @@
 
 int main(int argc, char * argv[])
 {
-    ::n2::sample::SampleApp app;
+    N2_USE;
+    sample::SampleApp app;
     return app.execute();
 }

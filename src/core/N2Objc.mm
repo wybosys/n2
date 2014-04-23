@@ -32,7 +32,7 @@ void n2_objc_foundation() {
         kUIScreenSizeType = kUIScreenSize45;
     else
         kUIScreenSizeType = kUIScreenSize35;
-    kDeviceRunningSimulator = ::n2::mask_check(kUIDeviceTypeSimulator, n2_uidevice_type());
+    kDeviceRunningSimulator = ::N2NS::mask_check(kUIDeviceTypeSimulator, n2_uidevice_type());
     
     // 判断系统版本
     NSString* sysver = [UIDevice currentDevice].systemVersion;

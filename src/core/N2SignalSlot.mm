@@ -323,6 +323,11 @@ void Signals::connect(signal_t const& sig, signal_t const& redirect, SObject* ta
     target->signals()._reflects.insert(fnds->second);
 }
 
+void Signals::connect(signal_t const& sig, SObject* target)
+{
+    connect(sig, sig, target);
+}
+
 /*
 void Signals::connect(signal_t const& sig, Slot::cb_sfunction sfunc)
 {

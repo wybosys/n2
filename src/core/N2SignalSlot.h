@@ -122,6 +122,7 @@ public:
     
     // 绑定
     void connect(signal_t const&, signal_t const& redirect, SObject*);
+    void connect(signal_t const&, SObject*);
     //void connect(signal_t const&, Slot::cb_sfunction);
     void connect(signal_t const&, Slot::cb_λfunction);
     void connect(signal_t const&, Slot::cb_λlfunction);

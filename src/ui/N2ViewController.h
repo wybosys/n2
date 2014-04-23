@@ -45,6 +45,10 @@ public:
     
     virtual void loadView();
     
+    inline TView& view() {
+        return (TView&)ViewController::view();
+    }
+    
 };
 
 template <typename TView>

@@ -32,9 +32,13 @@ public:
     
     // 全局函数插槽
     typedef void (*cb_sfunction)(Slot&);
+    typedef void (*cb_slfunction)();
     Value<cb_sfunction> func_s;
+    Value<cb_slfunction> func_sl;
     typedef ::std::function<void(Slot&)> cb_λfunction;
+    typedef ::std::function<void()> cb_λlfunction;
     Value<cb_λfunction> func_λ;
+    Value<cb_λlfunction> func_λl;
     
     // 成员函数插槽
     typedef void (Object::*cb_mfunction)(Slot&);
@@ -77,12 +81,15 @@ protected:
     // false 绑定失败或已经绑定
     bool connect(signal_t const& redirect, SObject*);
     bool connect(Slot::cb_sfunction);
+    bool connect(Slot::cb_slfunction);
     bool connect(Slot::cb_λfunction);
+    bool connect(Slot::cb_λlfunction);
     bool connect(Slot::cb_mfunction, SObject*);
     
     // 根据条件查找slot
     Slot* find(signal_t const& redirect, SObject*) const;
     Slot* find(Slot::cb_sfunction) const;
+    Slot* find(Slot::cb_slfunction) const;
     Slot* find(Slot::cb_mfunction, SObject*) const;
     
     // 运行一遍
@@ -117,6 +124,7 @@ public:
     void connect(signal_t const&, signal_t const& redirect, SObject*);
     //void connect(signal_t const&, Slot::cb_sfunction);
     void connect(signal_t const&, Slot::cb_λfunction);
+    void connect(signal_t const&, Slot::cb_λlfunction);
     void connect(signal_t const&, Slot::cb_mfunction, SObject*);
     
 private:

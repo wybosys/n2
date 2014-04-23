@@ -161,6 +161,11 @@ Keyboard::Keyboard()
     OBJC_RELEASE(kb);
 }
 
+void Keyboard::Close()
+{
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
+
 N2UI_END
 
 @implementation N2Label

@@ -81,6 +81,11 @@ class Keyboard
 : public SObject,
 public Singleton<Keyboard>
 {
+public:
+    
+    // 关闭当前键盘
+    static void Close();
+    
 protected:
     
     Keyboard();

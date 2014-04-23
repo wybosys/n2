@@ -28,9 +28,19 @@ void Slot::emit()
         (*func_s)(*this);
     }
     
+    if (func_sl != nullptr)
+    {
+        (*func_sl)();
+    }
+    
     if (*func_λ != nullptr)
     {
         (*func_λ)(*this);
+    }
+    
+    if (*func_λl != nullptr)
+    {
+        (*func_λl)();
     }
     
     if (func_m != nullptr && !target.isnull())
@@ -45,7 +55,9 @@ void Slot::copy(Slot const& r)
     redirect = r.redirect;
     data = mutable_cast(r).data;
     func_s = r.func_s;
+    func_sl = r.func_sl;
     func_λ = r.func_λ;
+    func_λl = r.func_λl;
     func_m = r.func_m;
     
     source = r.source;
@@ -107,6 +119,16 @@ bool Slots::connect(Slot::cb_sfunction sfunc)
     return true;
 }
 
+bool Slots::connect(Slot::cb_slfunction slfunc)
+{
+    if (find(slfunc))
+        return false;
+    Slot* s = new Slot();
+    s->func_sl = slfunc;
+    _slots.push_back(s);
+    return true;
+}
+
 bool Slots::connect(Slot::cb_λfunction λfunc)
 {
     Slot::cb_sfunction* sfunc = λfunc.target<Slot::cb_sfunction>();
@@ -117,6 +139,20 @@ bool Slots::connect(Slot::cb_λfunction λfunc)
     // lambda
     Slot* s = new Slot();
     s->func_λ = λfunc;
+    _slots.push_back(s);
+    return true;
+}
+
+bool Slots::connect(Slot::cb_λlfunction λlfunc)
+{
+    Slot::cb_slfunction* slfunc = λlfunc.target<Slot::cb_slfunction>();
+    // 普通静态函数
+    if (slfunc != nullptr)
+        return connect(*slfunc);
+    
+    // lambda
+    Slot* s = new Slot();
+    s->func_λl = λlfunc;
     _slots.push_back(s);
     return true;
 }
@@ -150,6 +186,17 @@ Slot* Slots::find(Slot::cb_sfunction sfunc) const
     {
         Slot* s = *i;
         if (s->func_s == sfunc)
+            return s;
+    }
+    return nullptr;
+}
+
+Slot* Slots::find(Slot::cb_slfunction slfunc) const
+{
+    for (auto i = _slots.begin(); i != _slots.end(); ++i)
+    {
+        Slot* s = *i;
+        if (s->func_sl == slfunc)
             return s;
     }
     return nullptr;
@@ -292,6 +339,14 @@ void Signals::connect(signal_t const& sig, Slot::cb_λfunction λfunc)
     if (fnds == _ss.end())
         return;
     fnds->second->connect(λfunc);
+}
+
+void Signals::connect(signal_t const& sig, Slot::cb_λlfunction λlfunc)
+{
+    auto fnds = _ss.find(sig);
+    if (fnds == _ss.end())
+        return;
+    fnds->second->connect(λlfunc);
 }
 
 void Signals::connect(signal_t const& sig, Slot::cb_mfunction mfunc, SObject* target)

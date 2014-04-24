@@ -82,8 +82,12 @@
 #ifdef N2LIB
 # define N2LIB 1
 # define hybird public
+# define LIBSYMBOL(exp) exp
+# define NLIBSYMBOL(exp)
 #else
 # define hybird protected
+# define LIBSYMBOL(exp)
+# define NLIBSYMBOL(exp) exp
 typedef struct _metapointer_t *metapointer_t;
 #endif
 
@@ -192,6 +196,10 @@ inline uint mask_unset(uint mask, uint val)
 }
 
 #ifdef N2_CXX
+
+# define LIBONLY NLIBSYMBOL(= delete)
+# define OVERRIDE override
+# define FINAL final
 
 template <typename T>
 inline T* mutable_cast(T const* p)

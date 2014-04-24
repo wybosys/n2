@@ -19,12 +19,10 @@ public:
     MetaObject(MetaObject const&);
     virtual ~MetaObject();
     
-    inline operator metapointer_t () const {
-        return _meta();
-    }
+    operator metapointer_t () const;
     
     // 复制一个对象
-    MetaObject metacopy() const;
+    MetaObject metacopy() const LIBONLY;
     
     // 从元数据中获取对象
     static Object* GetObject(metapointer_t);
@@ -52,6 +50,14 @@ private:
     mutable metapointer_t _pmeta;
     
 };
+
+#ifdef N2LIB
+
+inline MetaObject::operator metapointer_t () const {
+    return _meta();
+}
+
+#endif
 
 typedef struct _lockable_t lockable_type;
 

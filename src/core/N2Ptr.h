@@ -150,7 +150,7 @@ struct regular_type<Ptr<T> >
     typedef T type;
 };
 
-# define REFPTR_PROTECT(ptr) RefPtr<::std::remove_pointer<regular_type<decltype(ptr)>::type>::type> AUTOVARIANTNAME;
+# define REFPTR_PROTECT(ptr) ::N2NS::RefPtr<::std::remove_pointer<regular_type<decltype(ptr)>::type>::type> AUTOVARIANTNAME;
 
 template <typename T>
 inline void obj_release(T*& p)

@@ -72,8 +72,9 @@ Slots::Slots()
 
 Slots::~Slots()
 {
-    for (auto i = _slots.begin(); i != _slots.end(); ++i)
-        obj_release(*i);
+    for (auto& i : _slots)
+        obj_release(i);
+    _slots.clear();
 }
 
 void Slots::copy(Slots const& r)
@@ -84,16 +85,16 @@ void Slots::copy(Slots const& r)
 # endif
     
     // 清空原来的
-    for (auto i = _slots.begin(); i != _slots.end(); ++i)
-        obj_release(*i);
+    for (auto& i : _slots)
+        obj_release(i);
     _slots.clear();
     
     // 复制新的
-    for (auto i = r._slots.begin(); i != r._slots.end(); ++i)
+    for (auto& i : r._slots)
     {
         Slot* r = new Slot();
-        r->copy(**i);
-        r->source = *i;
+        r->copy(*i);
+        r->source = i;
         _slots.push_back(r);
     }
 }
@@ -170,46 +171,42 @@ bool Slots::connect(Slot::cb_mfunction mfunc, SObject* target)
 
 Slot* Slots::find(signal_t const& redirect, SObject* target) const
 {
-    for (auto i = _slots.begin(); i != _slots.end(); ++i)
+    for (auto& i : _slots)
     {
-        Slot* s = *i;
-        if (s->redirect == redirect &&
-            s->target == target)
-            return s;
+        if (i->redirect == redirect &&
+            i->target == target)
+            return i;
     }
     return nullptr;
 }
 
 Slot* Slots::find(Slot::cb_sfunction sfunc) const
 {
-    for (auto i = _slots.begin(); i != _slots.end(); ++i)
+    for (auto& i : _slots)
     {
-        Slot* s = *i;
-        if (s->func_s == sfunc)
-            return s;
+        if (i->func_s == sfunc)
+            return i;
     }
     return nullptr;
 }
 
 Slot* Slots::find(Slot::cb_slfunction slfunc) const
 {
-    for (auto i = _slots.begin(); i != _slots.end(); ++i)
+    for (auto& i : _slots)
     {
-        Slot* s = *i;
-        if (s->func_sl == slfunc)
-            return s;
+        if (i->func_sl == slfunc)
+            return i;
     }
     return nullptr;
 }
 
 Slot* Slots::find(Slot::cb_mfunction mfunc, SObject* target) const
 {
-    for (auto i = _slots.begin(); i != _slots.end(); ++i)
+    for (auto& i : _slots)
     {
-        Slot* s = *i;
-        if (s->func_m == mfunc &&
-            s->target == target)
-            return s;
+        if (i->func_m == mfunc &&
+            i->target == target)
+            return i;
     }
     return nullptr;
 }
@@ -242,8 +239,8 @@ Signals::~Signals()
     }
     
     // 清空所有的已连接插槽
-    for (auto i = _ss.begin(); i != _ss.end(); ++i)
-        obj_release(i->second);
+    for (auto& i : _ss)
+        obj_release(i.second);
     _ss.clear();
 }
 
@@ -266,8 +263,8 @@ Signals& Signals::add(signal_t const& sig)
 
 Signals& Signals::add(::std::initializer_list<signal_t> sigs)
 {
-    for (auto i = sigs.begin(); i != sigs.end(); ++i)
-        add(*i);
+    for (auto const& i : sigs)
+        add(i);
     return *this;
 }
 
@@ -299,16 +296,14 @@ Signals& Signals::emit(signal_t const& s, Variant const& v)
     tmpss->copy(*ss);
     
     // 激活所有的slot
-    for (auto i = tmpss->_slots.begin(); i != tmpss->_slots.end(); ++i)
+    for (auto& i : tmpss->_slots)
     {
-        Slot* s = *i;
-        
         // 绑定运行数据
-        s->sender = owner;
-        s->data = v;
+        i->sender = owner;
+        i->data = v;
         
         // 运行
-        s->emit();
+        i->emit();
     }
     
     return *this;

@@ -224,16 +224,15 @@ Signals::Signals()
 Signals::~Signals()
 {
     // 断开所有的反连接
-    for (auto i = _reflects.begin(); i != _reflects.end(); ++i)
+    for (auto i : _reflects)
     {
-        Slots* rss = *i;
-        auto j = rss->_slots.begin();
-        while (j != rss->_slots.end())
+        auto j = i->_slots.begin();
+        while (j != i->_slots.end())
         {
             Slot* rs = *j;
             if (rs->target == owner)
             {
-                j = rss->_slots.erase(j);
+                j = i->_slots.erase(j);
             }
         }
     }

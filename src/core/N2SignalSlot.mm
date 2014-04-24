@@ -18,6 +18,8 @@ Slot::~Slot()
 
 void Slot::emit()
 {
+    REFPTR_PROTECT(target);
+    
     if (!redirect.empty() && !target.isnull())
     {
         target->signals().emit(redirect, data);

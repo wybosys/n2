@@ -49,6 +49,8 @@ class Ptr
 {
 public:
     
+    typedef T type;
+    
     Ptr(T* p = NULL)
     :_p(p)
     {
@@ -135,6 +137,20 @@ public:
         return *this;
     }
 };
+
+template <typename T>
+struct regular_type
+{
+    typedef T type;
+};
+
+template <typename T>
+struct regular_type<Ptr<T> >
+{
+    typedef T type;
+};
+
+# define REFPTR_PROTECT(ptr) RefPtr<::std::remove_pointer<regular_type<decltype(ptr)>::type>::type> AUTOVARIANTNAME;
 
 template <typename T>
 inline void obj_release(T*& p)

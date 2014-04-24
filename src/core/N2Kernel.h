@@ -84,6 +84,7 @@
 # define hybird public
 #else
 # define hybird protected
+typedef struct _metapointer_t *metapointer_t;
 #endif
 
 #define N2_NOCOPY(cls) private: cls(cls const&); cls& operator = (cls const&);
@@ -107,7 +108,9 @@ typedef signed short word;
 typedef X32SYMBOL(float) X64SYMBOL(double) real;
 
 #ifdef N2_OBJC
+# ifdef N2LIB
 typedef id metapointer_t;
+# endif
 
 # define API_IOS8
 # define API_IOS7

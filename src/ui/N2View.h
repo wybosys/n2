@@ -56,7 +56,7 @@ public:
     
     Edge edge;
     
-hybird:
+hybrid:
     
     virtual void onLayout(Rect const&);
     virtual Rect boundsForLayout() const;
@@ -108,7 +108,7 @@ public:
     virtual void highlight(bool = on);
     virtual bool ishighlighted() const;
     
-hybird:
+hybrid:
     
     virtual void onTouchDown(bool repeat);
     virtual void onTouchUp(bool inside);

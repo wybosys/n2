@@ -25,7 +25,7 @@ public:
     virtual void title(String const&);
     virtual String title() const;
     
-hybird:
+hybrid:
     
     virtual void loadView();
     virtual void onLoaded();

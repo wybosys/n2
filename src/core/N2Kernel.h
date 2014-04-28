@@ -81,11 +81,11 @@
 
 #ifdef N2LIB
 # define N2LIB 1
-# define hybird public
+# define hybrid public
 # define LIBSYMBOL(exp) exp
 # define NLIBSYMBOL(exp)
 #else
-# define hybird protected
+# define hybrid protected
 # define LIBSYMBOL(exp)
 # define NLIBSYMBOL(exp) exp
 typedef struct _metapointer_t *metapointer_t;

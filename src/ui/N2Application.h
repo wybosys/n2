@@ -40,7 +40,7 @@ public:
     // 根window
     Window window;
     
-hybird:
+hybrid:
     
     void _bindWindow(metapointer_t);
     

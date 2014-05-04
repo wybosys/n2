@@ -83,7 +83,7 @@ public:
     
 private:
     
-    mutable void* _mtx;
+    mutable ::std::recursive_mutex* _mtx;
     
 };
 

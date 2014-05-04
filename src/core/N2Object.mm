@@ -3,7 +3,6 @@
 #import "N2Object.h"
 #import "N2Ptr.h"
 #include <objc/runtime.h>
-# import "N2Thread.h"
 
 @interface N2MetaObject : NSObject
 
@@ -99,7 +98,7 @@ MetaObject MetaObject::metacopy() const
     return ret;
 }
 
-static Mutex gs_mtx_MtxObject;
+static ::std::recursive_mutex gs_mtx_MtxObject;
 
 MtxObject::MtxObject()
 : _mtx(NULL)
@@ -110,7 +109,7 @@ MtxObject::MtxObject()
 MtxObject::~MtxObject()
 {
     //gs_mtx_MtxObject.lock();
-    delete (Mutex*)_mtx;
+    delete (::std::recursive_mutex*)_mtx;
     //gs_mtx_MtxObject.unlock();
 }
 
@@ -118,14 +117,14 @@ void MtxObject::lock() const
 {
     gs_mtx_MtxObject.lock();
     if (_mtx == NULL)
-        _mtx = new Mutex();
+        _mtx = new ::std::recursive_mutex();
     gs_mtx_MtxObject.unlock();
-    ((Mutex*)_mtx)->lock();
+    ((::std::recursive_mutex*)_mtx)->lock();
 }
 
 void MtxObject::unlock() const
 {
-    ((Mutex*)_mtx)->unlock();
+    ((::std::recursive_mutex*)_mtx)->unlock();
 }
 
 void MtxObject::Lock()

@@ -8,7 +8,7 @@ PRIVATE_IMPL(N2QC)
 
 void init()
 {
-    
+    icon.image(ui::Image(@"AppIcon29x29"));
 }
 
 void fin()

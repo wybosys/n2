@@ -36,6 +36,8 @@
 # include <deque>
 # include <stack>
 # include <map>
+# include <mutex>
+# include <thread>
 #else
 # define N2_BEGIN
 # define N2_END

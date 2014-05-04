@@ -198,12 +198,19 @@ Image::Image()
 
 Image::Image(UIImage* img)
 {
-    _bindMeta(img);
+    _setMeta(img);
 }
 
 Image::Image(Image const& r)
 {
-    _bindMeta(r);
+    _setMeta(r);
+}
+
+Image::Image(String const& f)
+{
+    String path = core::Assets::shared().image(f);
+    UIImage* img = [UIImage imageWithContentsOfFile:path];
+    _setMeta(img);
 }
 
 Image::~Image()

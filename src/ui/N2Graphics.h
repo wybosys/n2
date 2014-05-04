@@ -142,6 +142,7 @@ public:
     
     Image();
     Image(Image const&);
+    Image(String const&);
     virtual ~Image();
     
 #ifdef N2_OBJC

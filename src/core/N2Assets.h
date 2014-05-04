@@ -9,6 +9,12 @@ class Assets
 {
 public:
     
+    // 根据名字查找文件的路径
+    String file(String const&) const;
+    
+    // 查找图片的路径
+    String image(String const&) const;
+    
 protected:
     
     Assets();

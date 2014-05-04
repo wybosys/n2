@@ -157,8 +157,6 @@ String::String()
 
 String::String(NSString* str)
 {
-    if (str == nil)
-        str = @"";
     _setMeta(str);
 }
 
@@ -175,6 +173,8 @@ String::String(NSMutableString* str)
 String String::operator + (String const& r) const
 {
     NSString* m = _meta();
+    if (m == nil)
+        m = @"";
     m = [m stringByAppendingString:r];
     return String(m);
 }
@@ -182,6 +182,8 @@ String String::operator + (String const& r) const
 String& String::operator += (String const& r)
 {
     id m = _meta();
+    if (m == nil)
+        m = @"";
     if ([m respondsToSelector:@selector(appendString:)])
         [m appendString:r];
     else
@@ -268,6 +270,37 @@ Regex& Regex::Cached(String const& pat, Option opt)
         return (RefPtr<ReferenceObject>)RefInstance<Regex>(pat, opt);
     });
     return reg;
+}
+
+void Regex::match(String const& str, strings_matched_t& result) const
+{
+    if (str.length() == 0)
+        return;
+
+    NSArray* tres = [_meta<NSRegularExpression>() matchesInString:str options:0 range:NSMakeRange(0, str.length())];
+
+    for (NSTextCheckingResult* each in tres) {
+        if (each.numberOfRanges == 1) {
+            NSRange rg = [each rangeAtIndex:0];
+            NSString* tmp = [str substringWithRange:rg];
+            result.push_back({tmp});
+            continue;
+        }
+        
+        strings_matched_t::value_type comps;
+        for (int i = 0; i < each.numberOfRanges; ++i) {
+            NSRange rg = [each rangeAtIndex:i];
+            if (rg.location == NSNotFound) {
+                comps.push_back(String());
+                continue;
+            }
+            
+            NSString* tmp = [str substringWithRange:rg];
+            comps.push_back(tmp);
+        }
+        
+        result.push_back(comps);
+    }
 }
 
 Variant::Variant()

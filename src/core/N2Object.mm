@@ -109,9 +109,9 @@ MtxObject::MtxObject()
 
 MtxObject::~MtxObject()
 {
-    gs_mtx_MtxObject.lock();
+    //gs_mtx_MtxObject.lock();
     delete (Mutex*)_mtx;
-    gs_mtx_MtxObject.unlock();
+    //gs_mtx_MtxObject.unlock();
 }
 
 void MtxObject::lock() const

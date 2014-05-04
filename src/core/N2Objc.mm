@@ -29,7 +29,7 @@ void n2_objc_foundation() {
     kUIScreenSize = scr.applicationFrame.size;
     kUIScreenScale = scr.scale;
     if (scr.currentMode.size.height == 1136)
-        kUIScreenSizeType = kUIScreenSize45;
+        kUIScreenSizeType = kUIScreenSize40;
     else
         kUIScreenSizeType = kUIScreenSize35;
     kDeviceRunningSimulator = ::N2NS::mask_check(kUIDeviceTypeSimulator, n2_uidevice_type());

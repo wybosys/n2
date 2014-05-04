@@ -31,6 +31,10 @@ public:
         return dynamic_cast<T*>(GetObject(m));
     }
     
+    bool isnull() const {
+        return _pmeta == NULL;
+    }
+    
 protected:
     
     // 设置元数据，不进行oc/c对象映射

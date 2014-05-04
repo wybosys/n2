@@ -16,8 +16,10 @@ extern BOOL kDeviceIsRoot, kDeviceRunningSimulator;
 
 typedef enum {
     kUIScreenSizeUnknown,
-    kUIScreenSize35,
-    kUIScreenSize45,
+    // 3.5 寸屏幕
+    kUIScreenSize35 = 1,
+    // 4.0 寸屏幕
+    kUIScreenSize40 = kUIScreenSizeUnknown,    
 } UIScreenSizeType;
 extern UIScreenSizeType kUIScreenSizeType;
 

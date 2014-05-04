@@ -4,6 +4,7 @@
 
 #import "core/N2Core.h"
 #import "core/N2SignalSlot.h"
+#import "core/N2Assets.h"
 
 #define N2UI_BEGIN N2_BEGIN_NS(ui)
 #define N2UI_END N2_END_NS

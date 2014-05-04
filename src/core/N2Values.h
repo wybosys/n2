@@ -127,6 +127,10 @@ public:
     
     static Regex& Cached(String const&, Option = 0);
     
+    // 查找所有的
+    typedef ::std::vector<::std::vector<String> > strings_matched_t;
+    void match(String const&, strings_matched_t&) const;
+    
 };
 
 class Variant

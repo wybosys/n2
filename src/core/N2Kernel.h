@@ -225,6 +225,11 @@ exp \
 typedef struct { enum { VALUE = true }; } true_type;
 typedef struct { enum { VALUE = false }; } false_type;
 
+template <typename  ...T>
+struct type_hybrid
+: public T...
+{};
+
 # define ptrcall(p, exp) { if (p) (p)->exp; }
 
 #else

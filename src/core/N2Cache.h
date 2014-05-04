@@ -11,8 +11,8 @@ public:
     ObjectCache();
     ~ObjectCache();
     
-    void add(::std::string const& k, ::std::function<ReferenceObject*()>);
-    void add(::std::string const& k, ReferenceObject*);
+    ReferenceObject& add(::std::string const& k, ::std::function<RefPtr<ReferenceObject>()>);
+    ReferenceObject& add(::std::string const& k, ReferenceObject*);
     ReferenceObject* find(::std::string const&) const;
     RefPtr<ReferenceObject> pop(::std::string const&);
     

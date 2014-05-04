@@ -16,16 +16,20 @@ ObjectCache::~ObjectCache()
     _m.clear();
 }
 
-void ObjectCache::add(::std::string const& k, ::std::function<ReferenceObject*()> fc)
+ReferenceObject& ObjectCache::add(::std::string const& k, ::std::function<RefPtr<ReferenceObject>()> fc)
 {
     auto found = _m.find(k);
     if (found == _m.end())
     {
-        _m[k] = fc();
+        RefPtr<ReferenceObject> ro = fc();
+        _m[k] = ro.retain();
+        return ro;
     }
+
+    return *found->second;
 }
 
-void ObjectCache::add(::std::string const& k, ReferenceObject* o)
+ReferenceObject& ObjectCache::add(::std::string const& k, ReferenceObject* o)
 {
     auto found = _m.find(k);
     if (found == _m.end())
@@ -36,6 +40,7 @@ void ObjectCache::add(::std::string const& k, ReferenceObject* o)
     {
         refobj_set(found->second, o);
     }
+    return *o;
 }
 
 ReferenceObject* ObjectCache::find(::std::string const& k) const

@@ -136,6 +136,12 @@ public:
         refobj_set(this->_p, r);
         return *this;
     }
+    
+    RefPtr& retain()
+    {
+        refobj_retain(this->_p);
+        return *this;
+    }
 };
 
 template <typename T>
@@ -196,10 +202,10 @@ public:
         this->_p = o;
     }
     
-    template <typename A0>
-    Instance(A0 const& a0)
+    template <typename A0, typename... AT>
+    Instance(A0 const& a0, AT... at)
     {
-        T* o = new T(a0);
+        T* o = new T(a0, at...);
         this->_p = o;
     }
     
@@ -218,10 +224,10 @@ public:
         o->release();
     }
     
-    template <typename A0>
-    RefInstance(A0 const& a0)
+    template <typename A0, typename... AT>
+    RefInstance(A0 const& a0, AT... at)
     {
-        T* o = new T(a0);
+        T* o = new T(a0, at...);
         refobj_set(this->_p, o);
         o->release();
     }

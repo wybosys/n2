@@ -107,6 +107,10 @@ public:
     
     static String Format(NSString* fmt, ...);
 
+    // 和标准string之间的转换
+    String(::std::string const&);
+    operator ::std::string () const;
+
 };
 
 class Regex
@@ -120,6 +124,8 @@ public:
     Regex(String const&, Option = 0);
     
     bool build(String const&, Option = 0);
+    
+    static Regex& Cached(String const&, Option = 0);
     
 };
 

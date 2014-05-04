@@ -1,6 +1,7 @@
 
 #include "N2Core.h"
 #include "N2Values.h"
+#include "N2Cache.h"
 
 N2_BEGIN
 
@@ -219,6 +220,22 @@ String String::Format(NSString *fmt, ...)
     return ret;
 }
 
+String::String(::std::string const& cstr)
+{
+    NSString* str = [NSString stringWithCString:cstr.c_str() encoding:NSUTF8StringEncoding];
+    _setMeta(str);
+}
+
+String::operator ::std::string() const
+{
+    return _meta<NSString>().UTF8String;
+}
+
+class RegexCache
+: public Singleton<RegexCache>,
+public core::ObjectCache
+{};
+
 Regex::Regex()
 {
     
@@ -243,6 +260,14 @@ bool Regex::build(String const& pat, Option opt)
     _setMeta(reg);
     OBJC_RELEASE(reg);
     return err == nil;
+}
+
+Regex& Regex::Cached(String const& pat, Option opt)
+{
+    Regex& reg = (Regex&)RegexCache::shared().add(pat, [&pat, &opt]() -> RefPtr<ReferenceObject> {
+        return (RefPtr<ReferenceObject>)RefInstance<Regex>(pat, opt);
+    });
+    return reg;
 }
 
 Variant::Variant()

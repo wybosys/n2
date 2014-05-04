@@ -77,6 +77,7 @@ String Assets::image(String const& f) const
         }
         
         // 带 extension 的分段查找
+        if (ret.isnull())
         {
             Regex& rx = Regex::Cached(@"([0-9a-z\\-_]+)\\.([0-9a-z]+)$", NSRegularExpressionCaseInsensitive);
             Regex::strings_matched_t result;

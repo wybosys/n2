@@ -49,6 +49,10 @@ void n2_objc_foundation() {
     [[UINavigationBar appearance] setBarStyle:UIBarStyleDefault];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 # endif
+    
+    // 打印一些系统信息
+    NSBundle* bdlMain = [NSBundle mainBundle];
+    LOG("APP运行目录 %s", bdlMain.bundlePath.UTF8String);
 }
 
 UIDeviceType n2_uidevice_type() {

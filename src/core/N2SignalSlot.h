@@ -44,6 +44,9 @@ public:
     typedef void (Object::*cb_mfunction)(Slot&);
     Value<cb_mfunction> func_m;
     
+    // 背景运行
+    bool background;
+    
     // 执行这个slot
     void emit();
     
@@ -57,6 +60,14 @@ public:
     Ptr<SObject> sender;
     
     void copy(Slot const&);
+    
+protected:
+    
+    void _emit_prepare();
+    void _emit();
+    void _emit_collect();
+    
+    friend void SlotDoAsyncEmit(Slot*);
 };
 
 class Slots

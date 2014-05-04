@@ -1,12 +1,13 @@
 
-# include "N2Core.h"
-# include "N2SignalSlot.h"
-# include <stdarg.h>
+#include "N2Core.h"
+#include "N2SignalSlot.h"
+#include <stdarg.h>
+#include <future>
 
 N2_BEGIN
 
 Slot::Slot()
-: count(-1)
+: count(-1), background(false)
 {
     
 }
@@ -16,11 +17,42 @@ Slot::~Slot()
     
 }
 
+void SlotDoAsyncEmit(Slot* s)
+{
+    s->_emit();
+    s->_emit_collect();
+}
+
 void Slot::emit()
 {
-    REFPTR_PROTECT(this);
-    REFPTR_PROTECT(target);
-    
+    if (background)
+    {
+        _emit_prepare();
+        ::std::async(SlotDoAsyncEmit, this);
+    }
+    else
+    {
+        _emit_prepare();
+        _emit();
+        _emit_collect();
+    }
+}
+
+void Slot::_emit_prepare()
+{
+    retain();
+    refobj_retain((SObject*)target);
+}
+
+void Slot::_emit_collect()
+{
+    if (!target.isnull())
+        target->release();
+    release();
+}
+
+void Slot::_emit()
+{
     if (!redirect.empty() && !target.isnull())
     {
         target->signals().emit(redirect, data);
@@ -66,6 +98,7 @@ void Slot::copy(Slot const& r)
     source = r.source;
     target = r.target;
     sender = r.sender;
+    background = r.background;
 }
 
 Slots::Slots()

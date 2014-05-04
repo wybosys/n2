@@ -21,7 +21,7 @@ struct Const
 {
     enum { VALUE = V };
     
-    inline operator bool () const
+    operator bool () const
     {
         return ConstEqual<VALUE, 0>::IVALUE;
     }

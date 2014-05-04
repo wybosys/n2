@@ -13,27 +13,27 @@ public:
     : _v(0)
     {}
     
-    inline operator T () const
+    operator T () const
     {
         return _v;
     }
     
-    inline operator T& ()
+    operator T& ()
     {
         return _v;
     }
     
-    inline T& operator * ()
+    T& operator * ()
     {
         return _v;
     }
     
-    inline T operator * () const
+    T operator * () const
     {
         return _v;
     }
     
-    inline Value& operator = (T const& v)
+    Value& operator = (T const& v)
     {
         _v = v;
         return *this;
@@ -56,52 +56,52 @@ public:
     {
     }
     
-    inline operator T* ()
+    operator T* ()
     {
         return _p;
     }
     
-    inline operator T const* () const
+    operator T const* () const
     {
         return _p;
     }
     
-    inline operator T& ()
+    operator T& ()
     {
         return *_p;
     }
     
-    inline operator T const& () const
+    operator T const& () const
     {
         return *_p;
     }
     
-    inline T& operator * ()
+    T& operator * ()
     {
         return *_p;
     }
     
-    inline T const& operator * () const
+    T const& operator * () const
     {
         return *_p;
     }
     
-    inline T* operator -> ()
+    T* operator -> ()
     {
         return _p;
     }
     
-    inline T const* operator -> () const
+    T const* operator -> () const
     {
         return _p;
     }
     
-    inline bool isnull() const
+    bool isnull() const
     {
         return _p == NULL;
     }
     
-    inline Ptr& operator = (T* p)
+    Ptr& operator = (T* p)
     {
         _p = p;
         return *this;
@@ -175,7 +175,7 @@ public:
         obj_release(this->_p);
     }
     
-    inline LazyInstance& operator = (T* p)
+    LazyInstance& operator = (T* p)
     {
         obj_release(this->_p);
         this->_p = p;

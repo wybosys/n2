@@ -45,7 +45,7 @@ public:
     
     virtual void loadView();
     
-    inline TView& view() {
+    TView& view() {
         return (TView&)ViewController::view();
     }
     

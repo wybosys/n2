@@ -93,7 +93,7 @@ public:
     
     ui::Edge margin;
     
-    inline ui::Rect const& rect() const {
+    ui::Rect const& rect() const {
         return _rc_origin;
     }
     

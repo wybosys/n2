@@ -41,7 +41,7 @@ protected:
     // 获取元数据
     virtual metapointer_t _meta() const;
     template <typename T>
-    inline T* _meta() const {
+    T* _meta() const {
         return (T*)_meta();
     }
         
@@ -108,16 +108,16 @@ public:
     {
     public:
         
-        inline operator V () const {
+        operator V () const {
             return this->p->get(this->k);
         }
         
         template <typename UV>
-        inline operator UV () const {
+        operator UV () const {
             return dynamic_cast<UV>((V)*this);
         }
         
-        inline found_type& operator = (V v) {
+        found_type& operator = (V v) {
             this->p->set(this->k, v);
             return *this;
         }
@@ -173,7 +173,7 @@ public:
     virtual ~Object();
     
     // 空函数占位
-    inline void pass() {}
+    void pass() {}
     
 };
 

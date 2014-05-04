@@ -18,11 +18,11 @@ public:
     typedef T component_type;
     component_type t, b, l, r;
     
-    inline T w() const {
+    T w() const {
         return l + r;
     }
     
-    inline T h() const {
+    T h() const {
         return t + b;
     }
 };
@@ -62,7 +62,7 @@ public:
     typedef P point_type;
     typedef S size_type;
     
-    inline Rect& operator -= (Edge<T> const& e) {
+    Rect& operator -= (Edge<T> const& e) {
         origin.x += e.l;
         origin.y += e.t;
         size.w -= e.w();

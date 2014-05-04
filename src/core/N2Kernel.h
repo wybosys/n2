@@ -93,7 +93,8 @@
 typedef struct _metapointer_t *metapointer_t;
 #endif
 
-#define N2_NOCOPY(cls) private: cls(cls const&); cls& operator = (cls const&);
+#define N2_NOCOPY(cls) \
+private: cls(cls const&); cls& operator = (cls const&);
 
 #define MACROVALUE(exp) exp
 #define _MACROCOMBINE(l, r) l ## r

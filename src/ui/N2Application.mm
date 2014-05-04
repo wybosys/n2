@@ -183,7 +183,7 @@ N2UI_END
 }
 
 - (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration {
-    LOG("Orentation Chaning to:%d duration:%f", newStatusBarOrientation, duration);
+    LOG("Orentation Chaning to:%d", newStatusBarOrientation);
     
     N2UI_USE;
     Application::shared().signals().emit(kSignalApplicationOrientationChanging, Number(newStatusBarOrientation));

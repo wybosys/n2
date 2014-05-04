@@ -101,16 +101,9 @@ public:
         return _p == NULL;
     }
     
-    Ptr& operator = (T* p)
-    {
-        _p = p;
-        return *this;
-    }
-    
 protected:
     
     T* _p;
-    
 };
 
 template <typename T>
@@ -134,6 +127,12 @@ public:
     RefPtr& operator = (T* r)
     {
         refobj_set(this->_p, r);
+        return *this;
+    }
+    
+    RefPtr& operator = (RefPtr const& r)
+    {
+        refobj_set(this->_p, r._p);
         return *this;
     }
     
@@ -171,6 +170,8 @@ template <typename T>
 class LazyInstance
 : public Ptr<T>
 {
+    N2_NOCOPY(LazyInstance);
+
 public:
     
     LazyInstance()
@@ -194,6 +195,8 @@ template <typename T>
 class Instance
 : public LazyInstance<T>
 {
+    N2_NOCOPY(Instance);
+    
 public:
     
     Instance()
@@ -215,6 +218,8 @@ template <typename T>
 class RefInstance
 : public RefPtr<T>
 {
+    N2_NOCOPY(RefInstance);
+    
 public:
     
     RefInstance()

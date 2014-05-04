@@ -218,15 +218,17 @@ inline void refobj_zero(T*& l)
 
 #define PRIVATE_IMPL(cls) \
 class PRIVATE_CLASS(cls) \
+: public SObject \
 { \
 friend class cls; \
-cls* d_owner;
+cls* d_owner; \
+typedef PRIVATE_CLASS(cls) private_type;
 
 #define PRIVATE_END \
 };
 
 #define PRIVATE_CONSTRUCT \
-d_ptr = new private_t(); \
+d_ptr = new private_type(); \
 d_ptr->d_owner = this; \
 d_ptr->init();
 
@@ -238,8 +240,8 @@ d_ptr = NULL;
 #define PRIVATE(cls) \
 private: \
 friend class PRIVATE_CLASS(cls); \
-typedef class PRIVATE_CLASS(cls) private_t; \
-private_t *d_ptr;
+typedef class PRIVATE_CLASS(cls) private_type; \
+private_type *d_ptr;
 
 typedef struct _copyable_t copyable_type;
 

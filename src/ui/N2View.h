@@ -45,6 +45,7 @@ public:
     virtual void frame(Rect const&);
     virtual Rect frame() const;
     virtual Rect bounds() const;
+    virtual void resizeToBest();
     
     virtual void add(View&);
     

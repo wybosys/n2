@@ -320,11 +320,6 @@ Variant::Variant(String const& s)
     string->copy(s);
 }
 
-Variant::Variant(Object* o)
-{
-    object = o;
-}
-
 Variant::Variant(Variant const& r)
 {
     if (!r.number.isnull())
@@ -338,8 +333,6 @@ Variant::Variant(Variant const& r)
         string = RefInstance<String>();
         string->copy(r.string);
     }
-    
-    object = r.object;
 }
 
 Variant& Variant::operator = (Variant const& r)
@@ -363,8 +356,6 @@ Variant& Variant::operator = (Variant const& r)
     {
         string = NULL;
     }
-    
-    object = r.object;
     
     return *this;
 }

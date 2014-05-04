@@ -55,12 +55,12 @@ View::~View()
 
 void View::hide(bool b)
 {
-    [_meta() setHidden:b];
+    _meta<UIView>().hidden = b;
 }
 
 bool View::ishidden() const
 {
-    return [_meta() isHidden];
+    return _meta<UIView>().hidden;
 }
 
 void View::visible(bool b)
@@ -75,12 +75,12 @@ bool View::isvisibled() const
 
 void View::background(Color const& c)
 {
-    [_meta() setBackgroundColor:c];
+    _meta<UIView>().backgroundColor = c;
 }
 
 Color View::backgroundColor() const
 {
-    return [_meta() backgroundColor];
+    return _meta<UIView>().backgroundColor;
 }
 
 void View::onLayout(Rect const&)
@@ -90,22 +90,27 @@ void View::onLayout(Rect const&)
 
 void View::frame(Rect const& rc)
 {
-    [_meta() setFrame:rc];
+    _meta<UIView>().frame = rc;
 }
 
 Rect View::frame() const
 {
-    return [_meta() frame];
+    return _meta<UIView>().frame;
 }
 
 Rect View::bounds() const
 {
-    return [_meta() bounds];
+    return _meta<UIView>().bounds;
+}
+
+void View::resizeToBest()
+{
+    [_meta<UIView>() sizeToFit];
 }
 
 void View::add(View& v)
 {
-    [_meta() addSubview:v];
+    [_meta<UIView>() addSubview:v];
 }
 
 Rect View::boundsForLayout() const

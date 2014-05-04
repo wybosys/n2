@@ -142,12 +142,10 @@ public:
     Variant();
     Variant(Number const&);
     Variant(String const&);
-    Variant(Object*);
     Variant(Variant const&);
     
     RefPtr<Number> number;
     RefPtr<String> string;
-    RefPtr<Object> object;
     
     Variant& operator = (Variant const&);
 

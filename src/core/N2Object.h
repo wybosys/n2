@@ -252,7 +252,7 @@ public:
 
 typedef struct _singleton_t singleton_type;
 
-template <typename T>
+template <typename T, bool Restrict = false_type::VALUE>
 class Singleton
 {
 public:
@@ -267,10 +267,20 @@ protected:
 };
 
 template <typename T>
-T* Singleton<T>::_p = NULL;
+class Singleton<T, true_type::VALUE>
+: public Singleton<T, false_type::VALUE>
+{
+private:
+    
+    Singleton() {}
+    
+};
 
-template <typename T>
-inline T& Singleton<T>::shared()
+template <typename T, bool Restrict>
+T* Singleton<T, Restrict>::_p = NULL;
+
+template <typename T, bool Restrict>
+inline T& Singleton<T, Restrict>::shared()
 {
     MtxObject::Lock();
     if (_p == NULL)

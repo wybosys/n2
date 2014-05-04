@@ -108,14 +108,31 @@ TextField::~TextField()
 
 Picture::Picture()
 {
-    N2ImageView* img = [[N2ImageView alloc] initWithFrame:CGRectZero];
-    _bindMeta(img);
-    OBJC_RELEASE(img);
+    N2ImageView* v = [[N2ImageView alloc] initWithFrame:CGRectZero];
+    _bindMeta(v);
+    OBJC_RELEASE(v);
+}
+
+Picture::Picture(Image const& img)
+{
+    N2ImageView* v = [[N2ImageView alloc] initWithImage:img];
+    _bindMeta(v);
+    OBJC_RELEASE(v);
 }
 
 Picture::~Picture()
 {
     
+}
+
+void Picture::image(Image const& img)
+{
+    _meta<UIImageView>().image = img;
+}
+
+Image Picture::image() const
+{
+    return _meta<UIImageView>().image;
 }
 
 #pragma mark scroll

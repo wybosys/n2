@@ -191,4 +191,34 @@ Rect Rect::bbx() const
     return r;
 }
 
+Image::Image()
+{
+    
+}
+
+Image::Image(UIImage* img)
+{
+    _bindMeta(img);
+}
+
+Image::Image(Image const& r)
+{
+    _bindMeta(r);
+}
+
+Image::~Image()
+{
+    
+}
+
+Image::operator CGImageRef () const
+{
+    return _meta<UIImage>().CGImage;
+}
+
+Size Image::size() const
+{
+    return _meta<UIImage>().size;
+}
+
 N2UI_END

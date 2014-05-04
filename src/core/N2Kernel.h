@@ -222,6 +222,9 @@ virtual ~I##cls() {} \
 exp \
 };
 
+typedef struct { enum { VALUE = true }; } true_type;
+typedef struct { enum { VALUE = false }; } false_type;
+
 # define ptrcall(p, exp) { if (p) (p)->exp; }
 
 #else

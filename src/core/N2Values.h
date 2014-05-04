@@ -109,6 +109,20 @@ public:
 
 };
 
+class Regex
+: public Object
+{
+public:
+    
+    typedef NSRegularExpressionOptions Option;
+    
+    Regex();
+    Regex(String const&, Option = 0);
+    
+    bool build(String const&, Option = 0);
+    
+};
+
 class Variant
 : public Object,
 public ZeroObject<Variant>

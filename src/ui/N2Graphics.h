@@ -46,6 +46,10 @@ protected:
     
 };
 
+class Rect;
+class Size;
+class Point;
+
 class Edge
 : public math::Edge<real>,
 public ZeroObject<Rect>
@@ -60,6 +64,7 @@ public ZeroObject<Rect>
 public:
     
     Point() {}
+    Point(Size const&);
     
 #ifdef N2_OBJC
     Point(CGPoint const&);
@@ -78,6 +83,7 @@ public ZeroObject<Rect>
 public:
     
     Size() {}
+    Size(Point const&);
     
 #ifdef N2_OBJC
     Size(CGSize const&);
@@ -89,6 +95,18 @@ public:
     
 };
 
+inline Point::Point(Size const& sz)
+{
+    x = sz.w;
+    y = sz.h;
+}
+
+inline Size::Size(Point const& pt)
+{
+    w = pt.x;
+    h = pt.y;
+}
+
 class Rect
 : public math::Rect<real, Point, Size>,
 public ZeroObject<Rect>
@@ -96,6 +114,16 @@ public ZeroObject<Rect>
 public:
     
     Rect() {}
+    Rect(Size const& sz) {
+        size = sz;
+    }
+    Rect(Point const& pt) {
+        origin = pt;
+    }
+    Rect(Point const& pt, Size const& sz) {
+        origin = pt;
+        size = sz;
+    }
     
 #ifdef N2_OBJC
     Rect(CGRect const&);
@@ -104,6 +132,24 @@ public:
     
     Rect integral() const;
     Rect bbx() const;
+    
+};
+
+class Image
+: public Object
+{
+public:
+    
+    Image();
+    Image(Image const&);
+    virtual ~Image();
+    
+#ifdef N2_OBJC
+    Image(UIImage*);
+    operator CGImageRef () const;
+#endif
+    
+    Size size() const;
     
 };
 

@@ -49,7 +49,11 @@ class Picture
 public:
     
     Picture();
+    Picture(Image const&);
     virtual ~Picture();
+    
+    virtual void image(Image const&);
+    virtual Image image() const;
     
 };
 

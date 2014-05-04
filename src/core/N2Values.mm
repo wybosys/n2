@@ -219,6 +219,32 @@ String String::Format(NSString *fmt, ...)
     return ret;
 }
 
+Regex::Regex()
+{
+    
+}
+
+Regex::Regex(String const& pat, Option opt)
+{
+    NSError* err = nil;
+    NSRegularExpression* reg = [[NSRegularExpression alloc] initWithPattern:pat
+                                                                    options:opt
+                                                                      error:&err];
+    _setMeta(reg);
+    OBJC_RELEASE(reg);
+}
+
+bool Regex::build(String const& pat, Option opt)
+{
+    NSError* err = nil;
+    NSRegularExpression* reg = [[NSRegularExpression alloc] initWithPattern:pat
+                                                                    options:opt
+                                                                      error:&err];
+    _setMeta(reg);
+    OBJC_RELEASE(reg);
+    return err == nil;
+}
+
 Variant::Variant()
 {
     

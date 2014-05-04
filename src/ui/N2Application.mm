@@ -186,14 +186,26 @@ N2UI_END
     LOG("Orentation Chaning to:%d", newStatusBarOrientation);
     
     N2UI_USE;
-    Application::shared().signals().emit(kSignalApplicationOrientationChanging, Number(newStatusBarOrientation));
+    
+    Application::Orientation info;
+    info.from = application.statusBarOrientation;
+    info.to = newStatusBarOrientation;
+    info.duration = duration;
+    
+    Application::shared().signals().emit(kSignalApplicationOrientationChanging, info);
 }
 
 - (void)application:(UIApplication *)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation {
     LOG("Orentation Changed from:%d", oldStatusBarOrientation);
     
     N2UI_USE;
-    Application::shared().signals().emit(kSignalApplicationOrientationChanged, Number(oldStatusBarOrientation));
+    
+    Application::Orientation info;
+    info.from = oldStatusBarOrientation;
+    info.to = application.statusBarOrientation;
+    info.duration = 0;
+    
+    Application::shared().signals().emit(kSignalApplicationOrientationChanged, info);
 }
 
 - (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame {

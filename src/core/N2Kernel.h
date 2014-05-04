@@ -233,6 +233,8 @@ struct type_hybrid
 : public T...
 {};
 
+extern ::std::string __typeinfo_name_humaned(::std::string const&);
+
 # define ptrcall(p, exp) { if (p) (p)->exp; }
 
 #else

@@ -144,11 +144,20 @@ public:
     Variant(String const&);
     Variant(Variant const&);
     
+    template <typename T>
+    Variant(T const& o)
+    {
+        any = (void*)&o;
+        DEBUG_EXPRESS(any_class = __typeinfo_name_humaned(typeid(o).name()));
+    }
+    
+    Value<void*> any;
+    DEBUG_EXPRESS(::std::string any_class);
+    
     RefPtr<Number> number;
     RefPtr<String> string;
     
     Variant& operator = (Variant const&);
-
 };
 
 N2_END

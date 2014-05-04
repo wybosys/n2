@@ -40,6 +40,12 @@ public:
     // 根window
     Window window;
     
+    struct Orientation
+    {
+        UIInterfaceOrientation from, to;
+        NSTimeInterval duration;
+    };
+    
 hybrid:
     
     void _bindWindow(metapointer_t);

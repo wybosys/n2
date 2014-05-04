@@ -357,6 +357,9 @@ Variant& Variant::operator = (Variant const& r)
         string = NULL;
     }
     
+    any = r.any;
+    DEBUG_EXPRESS(any_class = r.any_class);
+    
     return *this;
 }
 

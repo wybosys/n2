@@ -48,4 +48,9 @@ void sleep_seconds(float v)
     usleep(sec);
 }
 
+::std::string __typeinfo_name_humaned(::std::string const& str)
+{
+    return str;
+}
+
 N2_END

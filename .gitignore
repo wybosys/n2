@@ -46,6 +46,7 @@ objfre_*
 .AppleDouble
 .metadata
 .plugins
+.settings
 obj
 bin
 libs

@@ -1,7 +1,11 @@
 
 import n2ui
+import UIKit
 
-class AppDelegate: Application
+@UIApplicationMain
+class AppDelegate: Application, UIApplicationDelegate
 {
-    
+    func load() {
+
+    }
 }

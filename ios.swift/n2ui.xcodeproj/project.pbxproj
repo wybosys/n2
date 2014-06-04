@@ -21,13 +21,6 @@
 			remoteGlobalIDString = 1612E472193F149900D4AFD5;
 			remoteInfo = sample.n2ui;
 		};
-		1612E5B7193F23DD00D4AFD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1612E48F193F14E700D4AFD5 /* sample.n2ui.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1612E54D193F1E1400D4AFD5;
-			remoteInfo = sample.n2uiTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -92,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				1612E49F193F160500D4AFD5 /* sample.n2ui.app */,
-				1612E5B8193F23DD00D4AFD5 /* sample.n2uiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -100,8 +92,8 @@
 		1612E5B4193F23DD00D4AFD5 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				1612E5B9193F23EA00D4AFD5 /* N2Application.swift */,
 				1612E5BA193F23EA00D4AFD5 /* N2UI.swift */,
+				1612E5B9193F23EA00D4AFD5 /* N2Application.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -191,13 +183,6 @@
 			remoteRef = 1612E49E193F160500D4AFD5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1612E5B8193F23DD00D4AFD5 /* sample.n2uiTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = sample.n2uiTests.xctest;
-			remoteRef = 1612E5B7193F23DD00D4AFD5 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -243,6 +228,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -289,6 +275,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;

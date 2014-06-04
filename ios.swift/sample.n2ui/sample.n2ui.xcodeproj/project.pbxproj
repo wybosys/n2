@@ -13,21 +13,10 @@
 		1612E5C8193F24BE00D4AFD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1612E5C7193F24BE00D4AFD5 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		1612E54E193F1E1400D4AFD5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1612E538193F1E1400D4AFD5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1612E53F193F1E1400D4AFD5;
-			remoteInfo = sample.n2ui;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		1612E540193F1E1400D4AFD5 /* sample.n2ui.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sample.n2ui.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1612E544193F1E1400D4AFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1612E545193F1E1400D4AFD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		1612E54D193F1E1400D4AFD5 /* sample.n2uiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = sample.n2uiTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1612E5C2193F241000D4AFD5 /* n2core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2core.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos/n2core.framework"; sourceTree = "<absolute>"; };
 		1612E5C4193F241300D4AFD5 /* n2ui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2ui.framework; path = "../build/Debug-iphoneos/n2ui.framework"; sourceTree = "<group>"; };
 		1612E5C7193F24BE00D4AFD5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../res/Images.xcassets; sourceTree = "<group>"; };
@@ -40,13 +29,6 @@
 			files = (
 				1612E5C5193F241300D4AFD5 /* n2ui.framework in Frameworks */,
 				1612E5C3193F241000D4AFD5 /* n2core.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1612E54A193F1E1400D4AFD5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +48,6 @@
 			isa = PBXGroup;
 			children = (
 				1612E540193F1E1400D4AFD5 /* sample.n2ui.app */,
-				1612E54D193F1E1400D4AFD5 /* sample.n2uiTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -118,24 +99,6 @@
 			productReference = 1612E540193F1E1400D4AFD5 /* sample.n2ui.app */;
 			productType = "com.apple.product-type.application";
 		};
-		1612E54C193F1E1400D4AFD5 /* sample.n2uiTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1612E55A193F1E1400D4AFD5 /* Build configuration list for PBXNativeTarget "sample.n2uiTests" */;
-			buildPhases = (
-				1612E549193F1E1400D4AFD5 /* Sources */,
-				1612E54A193F1E1400D4AFD5 /* Frameworks */,
-				1612E54B193F1E1400D4AFD5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1612E54F193F1E1400D4AFD5 /* PBXTargetDependency */,
-			);
-			name = sample.n2uiTests;
-			productName = sample.n2uiTests;
-			productReference = 1612E54D193F1E1400D4AFD5 /* sample.n2uiTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -147,10 +110,6 @@
 				TargetAttributes = {
 					1612E53F193F1E1400D4AFD5 = {
 						CreatedOnToolsVersion = 6.0;
-					};
-					1612E54C193F1E1400D4AFD5 = {
-						CreatedOnToolsVersion = 6.0;
-						TestTargetID = 1612E53F193F1E1400D4AFD5;
 					};
 				};
 			};
@@ -167,7 +126,6 @@
 			projectRoot = "";
 			targets = (
 				1612E53F193F1E1400D4AFD5 /* sample.n2ui */,
-				1612E54C193F1E1400D4AFD5 /* sample.n2uiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -178,13 +136,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1612E5C8193F24BE00D4AFD5 /* Images.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1612E54B193F1E1400D4AFD5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,22 +150,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1612E549193F1E1400D4AFD5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		1612E54F193F1E1400D4AFD5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1612E53F193F1E1400D4AFD5 /* sample.n2ui */;
-			targetProxy = 1612E54E193F1E1400D4AFD5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		1612E555193F1E1400D4AFD5 /* Debug */ = {
@@ -251,7 +187,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				METAL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -288,7 +224,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				METAL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -328,42 +264,6 @@
 			};
 			name = Release;
 		};
-		1612E55B193F1E1400D4AFD5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sample.n2ui.app/sample.n2ui";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = sample.n2uiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Debug;
-		};
-		1612E55C193F1E1400D4AFD5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/sample.n2ui.app/sample.n2ui";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = sample.n2uiTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -381,15 +281,6 @@
 			buildConfigurations = (
 				1612E558193F1E1400D4AFD5 /* Debug */,
 				1612E559193F1E1400D4AFD5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1612E55A193F1E1400D4AFD5 /* Build configuration list for PBXNativeTarget "sample.n2uiTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1612E55B193F1E1400D4AFD5 /* Debug */,
-				1612E55C193F1E1400D4AFD5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

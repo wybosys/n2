@@ -37,7 +37,7 @@
 		1612E48F193F14E700D4AFD5 /* sample.n2ui.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sample.n2ui.xcodeproj; path = sample.n2ui/sample.n2ui.xcodeproj; sourceTree = "<group>"; };
 		1612E5B9193F23EA00D4AFD5 /* N2Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Application.swift; path = ../../src.swift/ui/N2Application.swift; sourceTree = "<group>"; };
 		1612E5BA193F23EA00D4AFD5 /* N2UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2UI.swift; path = ../../src.swift/ui/N2UI.swift; sourceTree = "<group>"; };
-		1612E5C0193F240B00D4AFD5 /* n2core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2core.framework; path = "../../../../Users/wybo/Library/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos/n2core.framework"; sourceTree = "<group>"; };
+		1612E5C0193F240B00D4AFD5 /* n2core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2core.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos/n2core.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,9 +55,9 @@
 		1612E43F193F13D700D4AFD5 = {
 			isa = PBXGroup;
 			children = (
-				1612E5C0193F240B00D4AFD5 /* n2core.framework */,
 				1612E44B193F13D700D4AFD5 /* n2ui */,
 				1612E48F193F14E700D4AFD5 /* sample.n2ui.xcodeproj */,
+				1612E5C9193F24DD00D4AFD5 /* Frameworks */,
 				1612E44A193F13D700D4AFD5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -104,6 +104,14 @@
 				1612E5BA193F23EA00D4AFD5 /* N2UI.swift */,
 			);
 			name = src;
+			sourceTree = "<group>";
+		};
+		1612E5C9193F24DD00D4AFD5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1612E5C0193F240B00D4AFD5 /* n2core.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

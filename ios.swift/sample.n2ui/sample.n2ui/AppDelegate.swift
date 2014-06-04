@@ -5,7 +5,9 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: Application, UIApplicationDelegate
 {
-    func load() {
-
+    override func load()
+    {
+        let sample = VCSample()
+        self.root.pushViewController(sample, animated: true)
     }
 }

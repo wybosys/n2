@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		1612E546193F1E1400D4AFD5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E545193F1E1400D4AFD5 /* AppDelegate.swift */; };
 		1612E5C3193F241000D4AFD5 /* n2core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E5C2193F241000D4AFD5 /* n2core.framework */; };
-		1612E5C5193F241300D4AFD5 /* n2ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E5C4193F241300D4AFD5 /* n2ui.framework */; };
 		1612E5C8193F24BE00D4AFD5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1612E5C7193F24BE00D4AFD5 /* Images.xcassets */; };
+		1612E5CF193F2FE200D4AFD5 /* VCSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5CE193F2FE200D4AFD5 /* VCSample.swift */; };
+		1612E5D5193F33CE00D4AFD5 /* n2ui.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E5D4193F33CE00D4AFD5 /* n2ui.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,8 +19,9 @@
 		1612E544193F1E1400D4AFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1612E545193F1E1400D4AFD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1612E5C2193F241000D4AFD5 /* n2core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2core.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos/n2core.framework"; sourceTree = "<absolute>"; };
-		1612E5C4193F241300D4AFD5 /* n2ui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2ui.framework; path = "../build/Debug-iphoneos/n2ui.framework"; sourceTree = "<group>"; };
 		1612E5C7193F24BE00D4AFD5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../../../res/Images.xcassets; sourceTree = "<group>"; };
+		1612E5CE193F2FE200D4AFD5 /* VCSample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCSample.swift; sourceTree = "<group>"; };
+		1612E5D4193F33CE00D4AFD5 /* n2ui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2ui.framework; path = "../../../../../Users/wybo/Library/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos/n2ui.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1612E5C5193F241300D4AFD5 /* n2ui.framework in Frameworks */,
+				1612E5D5193F33CE00D4AFD5 /* n2ui.framework in Frameworks */,
 				1612E5C3193F241000D4AFD5 /* n2core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				1612E545193F1E1400D4AFD5 /* AppDelegate.swift */,
+				1612E5CE193F2FE200D4AFD5 /* VCSample.swift */,
 				1612E5C7193F24BE00D4AFD5 /* Images.xcassets */,
 				1612E543193F1E1400D4AFD5 /* Supporting Files */,
 			);
@@ -73,7 +76,7 @@
 		1612E5C6193F24A100D4AFD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1612E5C4193F241300D4AFD5 /* n2ui.framework */,
+				1612E5D4193F33CE00D4AFD5 /* n2ui.framework */,
 				1612E5C2193F241000D4AFD5 /* n2core.framework */,
 			);
 			name = Frameworks;
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1612E5CF193F2FE200D4AFD5 /* VCSample.swift in Sources */,
 				1612E546193F1E1400D4AFD5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,7 +241,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = sample.n2ui/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -249,7 +256,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = sample.n2ui/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

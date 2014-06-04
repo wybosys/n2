@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1612E44F193F13D700D4AFD5 /* n2ui.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612E44E193F13D700D4AFD5 /* n2ui.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1612E5BB193F23EA00D4AFD5 /* N2Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5B9193F23EA00D4AFD5 /* N2Application.swift */; };
 		1612E5BC193F23EA00D4AFD5 /* N2UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5BA193F23EA00D4AFD5 /* N2UI.swift */; };
 		1612E5C1193F240B00D4AFD5 /* n2core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E5C0193F240B00D4AFD5 /* n2core.framework */; };
+		1612E5CC193F2F8900D4AFD5 /* N2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5CA193F2F8900D4AFD5 /* N2View.swift */; };
+		1612E5CD193F2F8900D4AFD5 /* N2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5CB193F2F8900D4AFD5 /* N2ViewController.swift */; };
+		1612E5D7193F343300D4AFD5 /* N2Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5D6193F343300D4AFD5 /* N2Application.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,9 +30,11 @@
 		1612E44D193F13D700D4AFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1612E44E193F13D700D4AFD5 /* n2ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = n2ui.h; sourceTree = "<group>"; };
 		1612E48F193F14E700D4AFD5 /* sample.n2ui.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sample.n2ui.xcodeproj; path = sample.n2ui/sample.n2ui.xcodeproj; sourceTree = "<group>"; };
-		1612E5B9193F23EA00D4AFD5 /* N2Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Application.swift; path = ../../src.swift/ui/N2Application.swift; sourceTree = "<group>"; };
 		1612E5BA193F23EA00D4AFD5 /* N2UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2UI.swift; path = ../../src.swift/ui/N2UI.swift; sourceTree = "<group>"; };
 		1612E5C0193F240B00D4AFD5 /* n2core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2core.framework; path = "/Users/wybo/Library/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos/n2core.framework"; sourceTree = "<absolute>"; };
+		1612E5CA193F2F8900D4AFD5 /* N2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2View.swift; path = ../../src.swift/ui/N2View.swift; sourceTree = "<group>"; };
+		1612E5CB193F2F8900D4AFD5 /* N2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2ViewController.swift; path = ../../src.swift/ui/N2ViewController.swift; sourceTree = "<group>"; };
+		1612E5D6193F343300D4AFD5 /* N2Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Application.swift; path = ../../src.swift/ui/N2Application.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +97,9 @@
 			isa = PBXGroup;
 			children = (
 				1612E5BA193F23EA00D4AFD5 /* N2UI.swift */,
-				1612E5B9193F23EA00D4AFD5 /* N2Application.swift */,
+				1612E5D6193F343300D4AFD5 /* N2Application.swift */,
+				1612E5CA193F2F8900D4AFD5 /* N2View.swift */,
+				1612E5CB193F2F8900D4AFD5 /* N2ViewController.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -200,7 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1612E5BB193F23EA00D4AFD5 /* N2Application.swift in Sources */,
+				1612E5CD193F2F8900D4AFD5 /* N2ViewController.swift in Sources */,
+				1612E5CC193F2F8900D4AFD5 /* N2View.swift in Sources */,
+				1612E5D7193F343300D4AFD5 /* N2Application.swift in Sources */,
 				1612E5BC193F23EA00D4AFD5 /* N2UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1612E426193F123600D4AFD5 /* n2core.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612E425193F123600D4AFD5 /* n2core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1612E43D193F132A00D4AFD5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */; };
+		1612E5BF193F23F800D4AFD5 /* N2Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5BE193F23F800D4AFD5 /* N2Core.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -16,6 +17,7 @@
 		1612E424193F123600D4AFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1612E425193F123600D4AFD5 /* n2core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = n2core.h; sourceTree = "<group>"; };
 		1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		1612E5BE193F23F800D4AFD5 /* N2Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Core.swift; path = ../../src.swift/core/N2Core.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +52,7 @@
 		1612E422193F123600D4AFD5 /* n2core */ = {
 			isa = PBXGroup;
 			children = (
-				1612E425193F123600D4AFD5 /* n2core.h */,
+				1612E5BD193F23EE00D4AFD5 /* src */,
 				1612E423193F123600D4AFD5 /* Supporting Files */,
 			);
 			path = n2core;
@@ -59,6 +61,7 @@
 		1612E423193F123600D4AFD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1612E425193F123600D4AFD5 /* n2core.h */,
 				1612E424193F123600D4AFD5 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -70,6 +73,14 @@
 				1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1612E5BD193F23EE00D4AFD5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1612E5BE193F23F800D4AFD5 /* N2Core.swift */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -150,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1612E5BF193F23F800D4AFD5 /* N2Core.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

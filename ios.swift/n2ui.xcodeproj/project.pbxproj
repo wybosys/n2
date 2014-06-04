@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1612E44F193F13D700D4AFD5 /* n2ui.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612E44E193F13D700D4AFD5 /* n2ui.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1612E5BB193F23EA00D4AFD5 /* N2Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5B9193F23EA00D4AFD5 /* N2Application.swift */; };
+		1612E5BC193F23EA00D4AFD5 /* N2UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5BA193F23EA00D4AFD5 /* N2UI.swift */; };
+		1612E5C1193F240B00D4AFD5 /* n2core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E5C0193F240B00D4AFD5 /* n2core.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -18,6 +21,13 @@
 			remoteGlobalIDString = 1612E472193F149900D4AFD5;
 			remoteInfo = sample.n2ui;
 		};
+		1612E5B7193F23DD00D4AFD5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1612E48F193F14E700D4AFD5 /* sample.n2ui.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1612E54D193F1E1400D4AFD5;
+			remoteInfo = sample.n2uiTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +35,9 @@
 		1612E44D193F13D700D4AFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1612E44E193F13D700D4AFD5 /* n2ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = n2ui.h; sourceTree = "<group>"; };
 		1612E48F193F14E700D4AFD5 /* sample.n2ui.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sample.n2ui.xcodeproj; path = sample.n2ui/sample.n2ui.xcodeproj; sourceTree = "<group>"; };
+		1612E5B9193F23EA00D4AFD5 /* N2Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Application.swift; path = ../../src.swift/ui/N2Application.swift; sourceTree = "<group>"; };
+		1612E5BA193F23EA00D4AFD5 /* N2UI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2UI.swift; path = ../../src.swift/ui/N2UI.swift; sourceTree = "<group>"; };
+		1612E5C0193F240B00D4AFD5 /* n2core.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = n2core.framework; path = "../../../../Users/wybo/Library/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos/n2core.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1612E5C1193F240B00D4AFD5 /* n2core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +55,7 @@
 		1612E43F193F13D700D4AFD5 = {
 			isa = PBXGroup;
 			children = (
+				1612E5C0193F240B00D4AFD5 /* n2core.framework */,
 				1612E44B193F13D700D4AFD5 /* n2ui */,
 				1612E48F193F14E700D4AFD5 /* sample.n2ui.xcodeproj */,
 				1612E44A193F13D700D4AFD5 /* Products */,
@@ -58,7 +73,7 @@
 		1612E44B193F13D700D4AFD5 /* n2ui */ = {
 			isa = PBXGroup;
 			children = (
-				1612E44E193F13D700D4AFD5 /* n2ui.h */,
+				1612E5B4193F23DD00D4AFD5 /* src */,
 				1612E44C193F13D700D4AFD5 /* Supporting Files */,
 			);
 			path = n2ui;
@@ -67,6 +82,7 @@
 		1612E44C193F13D700D4AFD5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1612E44E193F13D700D4AFD5 /* n2ui.h */,
 				1612E44D193F13D700D4AFD5 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -76,8 +92,18 @@
 			isa = PBXGroup;
 			children = (
 				1612E49F193F160500D4AFD5 /* sample.n2ui.app */,
+				1612E5B8193F23DD00D4AFD5 /* sample.n2uiTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		1612E5B4193F23DD00D4AFD5 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				1612E5B9193F23EA00D4AFD5 /* N2Application.swift */,
+				1612E5BA193F23EA00D4AFD5 /* N2UI.swift */,
+			);
+			name = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +183,13 @@
 			remoteRef = 1612E49E193F160500D4AFD5 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		1612E5B8193F23DD00D4AFD5 /* sample.n2uiTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = sample.n2uiTests.xctest;
+			remoteRef = 1612E5B7193F23DD00D4AFD5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -174,6 +207,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1612E5BB193F23EA00D4AFD5 /* N2Application.swift in Sources */,
+				1612E5BC193F23EA00D4AFD5 /* N2UI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +307,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = n2ui/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -287,6 +326,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/n2swift-goyfqhyxnygetlapxjqnbkrvzhyb/Build/Products/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = n2ui/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

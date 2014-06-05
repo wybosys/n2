@@ -2,7 +2,13 @@
 #import <objc/objc.h>
 #import <objc/runtime.h>
 
-typedef struct _objc_swizzle_t objc_swizzle_t;
+typedef struct _objc_swizzle_t
+{
+    Class cls;
+    IMP default_impl;
+    SEL default_sel;
+    IMP next_impl;
+} objc_swizzle_t;
 
 objc_swizzle_t* objc_swizzleNew();
 BOOL class_existMethod(Class cls, SEL sel);

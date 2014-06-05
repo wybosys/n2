@@ -2,14 +2,6 @@
 #import <stdlib.h>
 #import "N2Swizzle.h"
 
-struct _objc_swizzle_t
-{
-    Class cls;
-    IMP default_impl;
-    SEL default_sel;
-    IMP next_impl;
-};
-
 objc_swizzle_t* objc_swizzleNew() {
     return (objc_swizzle_t*)malloc(sizeof(objc_swizzle_t));
 }

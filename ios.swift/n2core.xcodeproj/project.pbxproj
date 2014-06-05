@@ -12,7 +12,6 @@
 		1612E43D193F132A00D4AFD5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */; };
 		1612E5BF193F23F800D4AFD5 /* N2Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5BE193F23F800D4AFD5 /* N2Core.swift */; };
 		1612E5D1193F32CF00D4AFD5 /* N2SignalSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5D0193F32CF00D4AFD5 /* N2SignalSlot.swift */; };
-		165967E919403F750062794F /* N2Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165967E819403F750062794F /* N2Swizzle.swift */; };
 		165967F51940471E0062794F /* n2core.h in Headers */ = {isa = PBXBuildFile; fileRef = 165967F41940471E0062794F /* n2core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -24,7 +23,6 @@
 		1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		1612E5BE193F23F800D4AFD5 /* N2Core.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Core.swift; path = ../../src.swift/core/N2Core.swift; sourceTree = "<group>"; };
 		1612E5D0193F32CF00D4AFD5 /* N2SignalSlot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2SignalSlot.swift; path = ../../src.swift/core/N2SignalSlot.swift; sourceTree = "<group>"; };
-		165967E819403F750062794F /* N2Swizzle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Swizzle.swift; path = ../../src.swift/core/N2Swizzle.swift; sourceTree = "<group>"; };
 		165967F41940471E0062794F /* n2core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = n2core.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +86,6 @@
 			children = (
 				1612E5BE193F23F800D4AFD5 /* N2Core.swift */,
 				1612E5D0193F32CF00D4AFD5 /* N2SignalSlot.swift */,
-				165967E819403F750062794F /* N2Swizzle.swift */,
 				160D344919404EBC00737C95 /* N2Swizzle.h */,
 				160D344A19404EBC00737C95 /* N2Swizzle.m */,
 			);
@@ -177,7 +174,6 @@
 				1612E5BF193F23F800D4AFD5 /* N2Core.swift in Sources */,
 				1612E5D1193F32CF00D4AFD5 /* N2SignalSlot.swift in Sources */,
 				160D344C19404EBC00737C95 /* N2Swizzle.m in Sources */,
-				165967E919403F750062794F /* N2Swizzle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

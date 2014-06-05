@@ -1,12 +1,22 @@
 
-protocol UIViewExt
+extension UIView
 {
+    @final
+    func _ext_layoutsubviews()
+    {
+        var rc = self.rectForLayout()
+        self.onlayout(rc)
+    }
     
-}
-
-extension UIView : UIViewExt
-{
+    func rectForLayout() -> CGRect
+    {
+        return self.bounds
+    }
     
+    func onlayout(rect: CGRect)
+    {
+        
+    }
 }
 
 class View : UIView, NSObjectExt
@@ -38,19 +48,7 @@ class View : UIView, NSObjectExt
     // 内容的偏移
     var offsetEdge: CGPoint = CGPoint.zeroPoint
     
-    @final
-    override func layoutSubviews()
-    {
-        var rc = self.rectForLayout()
-        self.onlayout(rc)
-    }
-    
-    func onlayout(rect: CGRect)
-    {
-        
-    }
-    
-    func rectForLayout() -> CGRect
+    override func rectForLayout() -> CGRect
     {
         var ret = self.bounds
         ret.apply(self.paddingEdge)

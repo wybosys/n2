@@ -29,4 +29,12 @@ class VCSample : ViewController
         super.oninit()
         self.classForView = type(VSample)
     }
+    
+    override func onloaded()
+    {
+        let v = self.view as VSample
+        v.btnTest.signals().connect(kSignalClicked, {(slot:Slot) in
+            log("CLICKED")
+            })
+    }
 }

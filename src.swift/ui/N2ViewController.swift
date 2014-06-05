@@ -1,5 +1,5 @@
 
-class ViewController : UIViewController, NSObjectExt
+class ViewController : UIViewController, ObjectExt
 {
     var classForView: AnyClass?
     
@@ -24,13 +24,28 @@ class ViewController : UIViewController, NSObjectExt
         
     }
     
+    @final
     override func loadView()
     {
-        if self.classForView {
+        if self.classForView
+        {
             self.view = self.classForView!.`new`() as UIView
-        } else {
+        }
+        else
+        {
             self.view = View()
         }
+    }
+    
+    @final
+    override func viewDidLoad()
+    {
+        self.onloaded()
+    }
+    
+    func onloaded()
+    {
+        
     }
     
 }

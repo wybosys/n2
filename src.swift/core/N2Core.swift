@@ -5,13 +5,13 @@ func n2_core_foundation()
 {
 }
 
-protocol NSObjectExt
+protocol ObjectExt
 {
     func oninit()
     func onfin()
 }
 
-class Object : NSObject, NSObjectExt
+class Object : NSObject, ObjectExt
 {
     init()
     {
@@ -39,3 +39,8 @@ func type(cls:AnyClass!) -> AnyClass
 {
     return cls
 }
+
+let kSignalValueChanging = "::core::value::changing"
+let kSignalValueChanged = "::core::value::changed"
+let kSignalSelectionChanging = "::core::selection::changing"
+let kSignalSelectionChanged = "::core::selection::changed"

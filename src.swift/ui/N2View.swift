@@ -16,13 +16,13 @@ extension UIView
     {
         var rc = self.rectForLayout()
         if self.respondsToSelector(Selector("onlayout:")) {
-            let sf = self as AnyObject
+            let sf:AnyObject = self
             sf.onlayout(rc)
         }
     }
 }
 
-class View : UIView, NSObjectExt, IView
+class View : UIView, ObjectExt, IView
 {
     convenience init()
     {

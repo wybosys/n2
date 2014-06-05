@@ -141,8 +141,6 @@ class Signals
     }
 }
 
-var __nsobj_dynamickey_signals: CConstVoidPointer?
-
 protocol SignalSlotPattern
 {
     func signals() -> Signals
@@ -151,16 +149,8 @@ protocol SignalSlotPattern
 
 struct SignalSlotImpl
 {
-    static func signals(obj: AnyObject!) -> Signals
+    static func signals(obj: NSObject!) -> Signals
     {
-        var ret = objc_getAssociatedObject(obj, &__nsobj_dynamickey_signals) as Signals
-        if ret === nil
-        {
-            ret = Signals()
-            ret._owner = obj
-            objc_setAssociatedObject(obj, &__nsobj_dynamickey_signals, ret, OBJC_ASSOCIATION_RETAIN_NONATOMIC.asUnsigned())
-            //NSObject.performSelector(Selector("siginit"), onThread: NSThread.currentThread(), withObject: nil, waitUntilDone: true)
-        }
-        return ret as Signals
+        return Signals()
     }
 }

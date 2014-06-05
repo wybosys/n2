@@ -37,3 +37,18 @@ BOOL class_safeSwizzleMethod(Class c, SEL sel, SEL tosel, objc_swizzle_t* data) 
     class_swizzleMethod(data->cls, sel, tosel);
     return YES;
 }
+
+@implementation NSObject (extension)
+
+static char __nsobjdynkey_signals = 0;
+
+- (id)_inner_signals {
+    id ret = objc_getAssociatedObject(self, &__nsobjdynkey_signals);
+    return ret;
+}
+
+- (void)set_inner_signals:(id)signals {
+    objc_setAssociatedObject(self, &__nsobjdynkey_signals, signals, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+@end

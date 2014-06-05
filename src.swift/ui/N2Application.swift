@@ -1,5 +1,4 @@
 
-import UIKit
 import n2core
 
 class Application : UIResponder, UIApplicationDelegate

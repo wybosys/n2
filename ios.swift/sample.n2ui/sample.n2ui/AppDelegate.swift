@@ -8,6 +8,6 @@ class AppDelegate: Application, UIApplicationDelegate
     override func load()
     {
         let sample = VCSample()
-        self.root.pushViewController(sample, animated: true)
+        self.root.pushViewController(sample, animated: false)
     }
 }

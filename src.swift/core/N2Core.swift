@@ -37,5 +37,5 @@ class Object : NSObject, NSObjectExt
 
 func type(cls:AnyClass!) -> AnyClass
 {
-    return cls;
+    return cls
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		160D344F1940599B00737C95 /* N2UISwizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 160D344D1940599B00737C95 /* N2UISwizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		160D34501940599B00737C95 /* N2UISwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D344E1940599B00737C95 /* N2UISwizzle.m */; };
 		1612E44F193F13D700D4AFD5 /* n2ui.h in Headers */ = {isa = PBXBuildFile; fileRef = 1612E44E193F13D700D4AFD5 /* n2ui.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1612E5BC193F23EA00D4AFD5 /* N2UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5BA193F23EA00D4AFD5 /* N2UI.swift */; };
 		1612E5CC193F2F8900D4AFD5 /* N2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5CA193F2F8900D4AFD5 /* N2View.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		160D344D1940599B00737C95 /* N2UISwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2UISwizzle.h; path = ../../src.swift/ui/N2UISwizzle.h; sourceTree = "<group>"; };
+		160D344E1940599B00737C95 /* N2UISwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = N2UISwizzle.m; path = ../../src.swift/ui/N2UISwizzle.m; sourceTree = "<group>"; };
 		1612E449193F13D700D4AFD5 /* n2ui.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = n2ui.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1612E44D193F13D700D4AFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1612E44E193F13D700D4AFD5 /* n2ui.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = n2ui.h; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				165967E319401F660062794F /* N2Graphics.swift */,
 				165967E619403DFC0062794F /* N2Widgets.swift */,
 				165967EA194041DF0062794F /* N2Layout.swift */,
+				160D344D1940599B00737C95 /* N2UISwizzle.h */,
+				160D344E1940599B00737C95 /* N2UISwizzle.m */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -131,6 +137,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1612E44F193F13D700D4AFD5 /* n2ui.h in Headers */,
+				160D344F1940599B00737C95 /* N2UISwizzle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +230,7 @@
 				1612E5BC193F23EA00D4AFD5 /* N2UI.swift in Sources */,
 				165967E419401F660062794F /* N2Graphics.swift in Sources */,
 				165967E719403DFC0062794F /* N2Widgets.swift in Sources */,
+				160D34501940599B00737C95 /* N2UISwizzle.m in Sources */,
 				165967EB194041DF0062794F /* N2Layout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

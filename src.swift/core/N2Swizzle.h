@@ -15,3 +15,7 @@ BOOL class_existMethod(Class cls, SEL sel);
 void class_swizzleMethod(Class c, SEL origs, SEL news);
 IMP class_getImplementation(Class c, SEL sel);
 BOOL class_safeSwizzleMethod(Class c, SEL sel, SEL tosel, objc_swizzle_t* data);
+
+#define SWIZZLE_CALLBACK(which) __swizzle_callback_##which
+//#define objc_swizzle_invoke(obj, ...) (obj.default_impl)(self, obj.default_sel, ## __VA_ARGS__);
+#define objc_swizzle_invoke(obj, ...) (obj.default_impl)();

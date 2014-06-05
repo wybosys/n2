@@ -9,7 +9,7 @@ class Application : UIResponder, UIApplicationDelegate
         n2_core_foundation()
         
         // 替换一些标准类的函数
-        //uikit_swizzles()
+        uikit_swizzles()
         
         return true
     }

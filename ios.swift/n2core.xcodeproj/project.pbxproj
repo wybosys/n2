@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		160D344B19404EBC00737C95 /* N2Swizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 160D344919404EBC00737C95 /* N2Swizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		160D344C19404EBC00737C95 /* N2Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D344A19404EBC00737C95 /* N2Swizzle.m */; };
+		160D345519405E0100737C95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160D345419405E0100737C95 /* Foundation.framework */; };
 		1612E43D193F132A00D4AFD5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */; };
 		1612E5BF193F23F800D4AFD5 /* N2Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5BE193F23F800D4AFD5 /* N2Core.swift */; };
 		1612E5D1193F32CF00D4AFD5 /* N2SignalSlot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5D0193F32CF00D4AFD5 /* N2SignalSlot.swift */; };
@@ -18,6 +19,8 @@
 /* Begin PBXFileReference section */
 		160D344919404EBC00737C95 /* N2Swizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = N2Swizzle.h; path = ../../src.swift/core/N2Swizzle.h; sourceTree = "<group>"; };
 		160D344A19404EBC00737C95 /* N2Swizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = N2Swizzle.m; path = ../../src.swift/core/N2Swizzle.m; sourceTree = "<group>"; };
+		160D345219405DDE00737C95 /* libobjc.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libobjc.dylib; path = usr/lib/libobjc.dylib; sourceTree = SDKROOT; };
+		160D345419405E0100737C95 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1612E420193F123600D4AFD5 /* n2core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = n2core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1612E424193F123600D4AFD5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				160D345519405E0100737C95 /* Foundation.framework in Frameworks */,
 				1612E43D193F132A00D4AFD5 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +80,8 @@
 		1612E43E193F133C00D4AFD5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				160D345419405E0100737C95 /* Foundation.framework */,
+				160D345219405DDE00737C95 /* libobjc.dylib */,
 				1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;

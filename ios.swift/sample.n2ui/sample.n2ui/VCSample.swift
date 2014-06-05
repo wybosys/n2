@@ -9,12 +9,10 @@ class VSample : View
         super.oninit()
     }
     
-    /*
     override func onlayout(rect: CGRect)
     {
         super.onlayout(rect)
     }
-    */
 }
 
 class VCSample : ViewController

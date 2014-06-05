@@ -1,25 +1,28 @@
 
+protocol IView
+{
+    func onlayout(rect:CGRect)
+}
+
 extension UIView
 {
-    @final
-    func _ext_layoutsubviews()
-    {
-        var rc = self.rectForLayout()
-        self.onlayout(rc)
-    }
-    
     func rectForLayout() -> CGRect
     {
         return self.bounds
     }
     
-    func onlayout(rect: CGRect)
+    @final
+    func __swcb_layoutsubviews()
     {
-        
+        var rc = self.rectForLayout()
+        if self.respondsToSelector(Selector("onlayout:")) {
+            let sf = self as AnyObject
+            sf.onlayout(rc)
+        }
     }
 }
 
-class View : UIView, NSObjectExt
+class View : UIView, NSObjectExt, IView
 {
     convenience init()
     {
@@ -56,4 +59,8 @@ class View : UIView, NSObjectExt
         return ret
     }
     
+    func onlayout(rect: CGRect)
+    {
+        
+    }
 }

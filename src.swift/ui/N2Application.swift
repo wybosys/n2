@@ -1,6 +1,4 @@
 
-import n2core
-
 class Application : UIResponder, UIApplicationDelegate
 {
     var window: UIWindow?

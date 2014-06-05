@@ -1,6 +1,4 @@
 
-import n2core
-
 class ViewController : UIViewController, NSObjectExt
 {
     var classForView: AnyClass?

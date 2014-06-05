@@ -141,7 +141,7 @@ class Signals
     }
 }
 
-var __nsobj_dynamickey_signals: Void?
+var __nsobj_dynamickey_signals: CConstVoidPointer?
 
 protocol SignalSlotPattern
 {

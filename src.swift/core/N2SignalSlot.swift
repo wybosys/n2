@@ -141,7 +141,7 @@ class Signals
     }
 }
 
-var __nsobj_dynamickey_signals: CConstVoidPointer?
+var __nsobj_dynamickey_signals: Void?
 
 protocol SignalSlotPattern
 {
@@ -159,7 +159,7 @@ struct SignalSlotImpl
             ret = Signals()
             ret._owner = obj
             objc_setAssociatedObject(obj, &__nsobj_dynamickey_signals, ret, OBJC_ASSOCIATION_RETAIN_NONATOMIC.asUnsigned())
-            NSObject.performSelector(Selector("siginit"), onThread: NSThread.currentThread(), withObject: nil, waitUntilDone: true)
+            //NSObject.performSelector(Selector("siginit"), onThread: NSThread.currentThread(), withObject: nil, waitUntilDone: true)
         }
         return ret as Signals
     }

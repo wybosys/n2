@@ -6,25 +6,30 @@ class Application : UIResponder, UIApplicationDelegate
     var window: UIWindow?
     var root: UINavigationController!
     
-    func bootstrap() -> Bool {
+    func bootstrap() -> Bool
+    {
+        n2_core_foundation()
+        
+        // 替换一些标准类的函数
+        //uikit_swizzles()
+        
         return true
     }
     
-    func start() {
+    func start()
+    {
         self.root = UINavigationController()
         self.root.navigationBarHidden = true
     }
     
-    func load() {
+    func load()
+    {
         
     }
     
     @final
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool
-    {
-        // 初始化基础架构
-        n2_core_foundation()
-        
+    {        
         // 引导应用
         if !self.bootstrap() {
             return false

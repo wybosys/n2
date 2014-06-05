@@ -1,6 +1,16 @@
 
 import n2core
 
+protocol UIViewExt
+{
+    
+}
+
+extension UIView : UIViewExt
+{
+    
+}
+
 class View : UIView, NSObjectExt
 {
     convenience init()
@@ -49,10 +59,5 @@ class View : UIView, NSObjectExt
         ret.offset(self.offsetEdge)
         return ret
     }
-    
-}
-
-class Control
-{
     
 }

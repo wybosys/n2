@@ -24,7 +24,10 @@ class View : UIView, NSObjectExt
         
     }
     
+    // 边缘的留空
     var paddingEdge: CGPadding = CGPadding.zeroPadding
+    
+    // 内容的偏移
     var offsetEdge: CGPoint = CGPoint.zeroPoint
     
     @final
@@ -46,5 +49,10 @@ class View : UIView, NSObjectExt
         ret.offset(self.offsetEdge)
         return ret
     }
+    
+}
+
+class Control
+{
     
 }

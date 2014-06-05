@@ -15,3 +15,13 @@ class Signals : NSObject
 {
     
 }
+
+protocol SignalSlotPattern
+{
+    
+}
+
+extension NSObject : SignalSlotPattern
+{
+    
+}

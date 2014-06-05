@@ -154,7 +154,8 @@ struct SignalSlotImpl
     static func signals(obj: AnyObject!) -> Signals
     {
         var ret = objc_getAssociatedObject(obj, &__nsobj_dynamickey_signals) as Signals
-        if ret === nil {
+        if ret === nil
+        {
             ret = Signals()
             ret._owner = obj
             objc_setAssociatedObject(obj, &__nsobj_dynamickey_signals, ret, OBJC_ASSOCIATION_RETAIN_NONATOMIC.asUnsigned())

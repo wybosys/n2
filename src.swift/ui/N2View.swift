@@ -23,4 +23,28 @@ class View : UIView, NSObjectExt
     {
         
     }
+    
+    var paddingEdge: CGPadding = CGPadding.zeroPadding
+    var offsetEdge: CGPoint = CGPoint.zeroPoint
+    
+    @final
+    override func layoutSubviews()
+    {
+        var rc = self.rectForLayout()
+        self.onlayout(rc)
+    }
+    
+    func onlayout(rect: CGRect)
+    {
+        
+    }
+    
+    func rectForLayout() -> CGRect
+    {
+        var ret = self.bounds
+        ret.apply(self.paddingEdge)
+        ret.offset(self.offsetEdge)
+        return ret
+    }
+    
 }

@@ -13,6 +13,7 @@
 		1612E5CC193F2F8900D4AFD5 /* N2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5CA193F2F8900D4AFD5 /* N2View.swift */; };
 		1612E5CD193F2F8900D4AFD5 /* N2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5CB193F2F8900D4AFD5 /* N2ViewController.swift */; };
 		1612E5D7193F343300D4AFD5 /* N2Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5D6193F343300D4AFD5 /* N2Application.swift */; };
+		165967E419401F660062794F /* N2Graphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 165967E319401F660062794F /* N2Graphics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		1612E5CA193F2F8900D4AFD5 /* N2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2View.swift; path = ../../src.swift/ui/N2View.swift; sourceTree = "<group>"; };
 		1612E5CB193F2F8900D4AFD5 /* N2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2ViewController.swift; path = ../../src.swift/ui/N2ViewController.swift; sourceTree = "<group>"; };
 		1612E5D6193F343300D4AFD5 /* N2Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Application.swift; path = ../../src.swift/ui/N2Application.swift; sourceTree = "<group>"; };
+		165967E319401F660062794F /* N2Graphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = N2Graphics.swift; path = ../../src.swift/ui/N2Graphics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				1612E5D6193F343300D4AFD5 /* N2Application.swift */,
 				1612E5CA193F2F8900D4AFD5 /* N2View.swift */,
 				1612E5CB193F2F8900D4AFD5 /* N2ViewController.swift */,
+				165967E319401F660062794F /* N2Graphics.swift */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -210,6 +213,7 @@
 				1612E5CC193F2F8900D4AFD5 /* N2View.swift in Sources */,
 				1612E5D7193F343300D4AFD5 /* N2Application.swift in Sources */,
 				1612E5BC193F23EA00D4AFD5 /* N2UI.swift in Sources */,
+				165967E419401F660062794F /* N2Graphics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

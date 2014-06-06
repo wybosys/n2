@@ -151,6 +151,10 @@ struct SignalSlotImpl
 {
     static func signals(obj: NSObject!) -> Signals
     {
-        return Signals()
+        if obj._inner_signals === nil {
+            obj._inner_signals = Signals()
+            obj.invokeSelector(Selector("siginit"), withObject:nil)
+        }
+        return obj._inner_signals as Signals
     }
 }

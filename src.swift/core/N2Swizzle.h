@@ -25,4 +25,6 @@ BOOL class_safeSwizzleMethod(Class c, SEL sel, SEL tosel, objc_swizzle_t* data);
 
 @property (nonatomic, retain) id _inner_signals;
 
+- (void)invokeSelector:(SEL)aSelector withObject:(id)obj;
+
 @end

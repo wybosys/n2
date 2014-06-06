@@ -51,4 +51,8 @@ static char __nsobjdynkey_signals = 0;
     objc_setAssociatedObject(self, &__nsobjdynkey_signals, signals, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
+- (void)invokeSelector:(SEL)aSelector withObject:(id)obj {
+    [self performSelector:aSelector withObject:obj];
+}
+
 @end

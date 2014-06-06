@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		160D344B19404EBC00737C95 /* N2Swizzle.h in Headers */ = {isa = PBXBuildFile; fileRef = 160D344919404EBC00737C95 /* N2Swizzle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		160D344C19404EBC00737C95 /* N2Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D344A19404EBC00737C95 /* N2Swizzle.m */; };
+		160D344C19404EBC00737C95 /* N2Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 160D344A19404EBC00737C95 /* N2Swizzle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		160D345519405E0100737C95 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160D345419405E0100737C95 /* Foundation.framework */; };
 		1612E43D193F132A00D4AFD5 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1612E43C193F132A00D4AFD5 /* CoreFoundation.framework */; };
 		1612E5BF193F23F800D4AFD5 /* N2Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1612E5BE193F23F800D4AFD5 /* N2Core.swift */; };

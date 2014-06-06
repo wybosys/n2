@@ -34,7 +34,13 @@ class VCSample : ViewController
     {
         let v = self.view as VSample
         v.btnTest.signals().connect(kSignalClicked, {(slot:Slot) in
-            log("CLICKED")
+            log("CLICKED IN BLOCK")
             })
+        v.btnTest.signals().connect(kSignalClicked, sel: Selector("actclicked:"), target: self)
+    }
+    
+    func actclicked(s:Slot)
+    {
+        log("CLICKED IN SELECTOR")
     }
 }

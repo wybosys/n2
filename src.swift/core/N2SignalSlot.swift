@@ -16,7 +16,7 @@ class Slot : NSObject, NSCopying
     var redirect: SSignal?
     
     // 回调、重定向等依赖的目标对象
-    weak var target: AnyObject?
+    weak var target: NSObject?
     
     // 回调用的 sel
     var selector: Selector?
@@ -29,14 +29,14 @@ class Slot : NSObject, NSCopying
     var data: AnyObject?
     
     // 发送者
-    weak var sender: AnyObject?
+    weak var sender: NSObject?
     
     // 激活这个slot运行
     func emit()
     {
         if self.target && self.selector
         {
-            
+            self.target!.invokeSelector(self.selector!, withObject:nil)
         }
         else if self.closure
         {
@@ -87,7 +87,7 @@ class Slots : NSObject, NSCopying
 class Signals
 {
     var _sigslots = Dictionary<SSignal, Slots>()
-    weak var _owner: AnyObject?
+    weak var _owner: NSObject?
     
     func add(signal: SSignal!)
     {
@@ -104,7 +104,7 @@ class Signals
         return self._sigslots[signal] !== nil
     }
     
-    func connect(signal: SSignal!, sel: Selector!, target: AnyObject!)
+    func connect(signal: SSignal!, sel: Selector!, target: NSObject!)
     {
         if var ss = self._sigslots[signal]
         {
@@ -132,7 +132,7 @@ class Signals
             // 遍历信号
             for slot in ss._slots
             {
-                slot.sender = self
+                slot.sender = self._owner
                 
                 // 激活
                 slot.emit()

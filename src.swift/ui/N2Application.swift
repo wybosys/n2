@@ -1,5 +1,5 @@
 
-class Application : UIResponder, UIApplicationDelegate
+class Application : UIResponder, UIApplicationDelegate, SignalSlotPattern
 {
     var window: UIWindow?
     var root: UINavigationController!
@@ -51,33 +51,52 @@ class Application : UIResponder, UIApplicationDelegate
     @final
     func applicationWillResignActive(application: UIApplication)
     {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        log("Application Deactivating")
+        self.signals().emit(kSignalApplicationDeactivating)
     }
     
     @final
     func applicationDidEnterBackground(application: UIApplication)
     {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        log("Application Deactivated")
+        self.signals().emit(kSignalApplicationDeactivated)
     }
     
     @final
     func applicationWillEnterForeground(application: UIApplication)
     {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        log("Application Activating")
+        self.signals().emit(kSignalApplicationActivating)
     }
     
     @final
     func applicationDidBecomeActive(application: UIApplication)
     {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        log("Application Activated")
+        self.signals().emit(kSignalApplicationActivated)
     }
     
     @final
     func applicationWillTerminate(application: UIApplication)
     {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        log("terminating")
     }
     
+    func signals() -> Signals
+    {
+        return SignalSlotImpl.signals(self)
+    }
+    
+    func siginit()
+    {
+        self.signals().add(kSignalApplicationActivating)
+        self.signals().add(kSignalApplicationActivated)
+        self.signals().add(kSignalApplicationDeactivating)
+        self.signals().add(kSignalApplicationDeactivated)
+    }
 }
+
+let kSignalApplicationActivating = "::ui::app::activating";
+let kSignalApplicationActivated = "::ui::app::activated";
+let kSignalApplicationDeactivating = "::ui::app::deactivating";
+let kSignalApplicationDeactivated = "::ui::app::deactivated";

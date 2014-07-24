@@ -25,7 +25,7 @@ class Application : UIResponder, UIApplicationDelegate, SignalSlotPattern
         
     }
     
-    @final
+    final
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool
     {        
         // 引导应用
@@ -48,35 +48,35 @@ class Application : UIResponder, UIApplicationDelegate, SignalSlotPattern
         return true
     }
     
-    @final
+    final
     func applicationWillResignActive(application: UIApplication)
     {
         log("Application Deactivating")
         self.signals().emit(kSignalApplicationDeactivating)
     }
     
-    @final
+    final
     func applicationDidEnterBackground(application: UIApplication)
     {
         log("Application Deactivated")
         self.signals().emit(kSignalApplicationDeactivated)
     }
     
-    @final
+    final
     func applicationWillEnterForeground(application: UIApplication)
     {
         log("Application Activating")
         self.signals().emit(kSignalApplicationActivating)
     }
     
-    @final
+    final
     func applicationDidBecomeActive(application: UIApplication)
     {
         log("Application Activated")
         self.signals().emit(kSignalApplicationActivated)
     }
     
-    @final
+    final
     func applicationWillTerminate(application: UIApplication)
     {
         log("terminating")

@@ -11,7 +11,7 @@ extension UIView
         return self.bounds
     }
     
-    @final
+    final
     func __swcb_layoutsubviews()
     {
         var rc = self.rectForLayout()

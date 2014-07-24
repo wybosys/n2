@@ -58,7 +58,7 @@ class Slot : NSObject, NSCopying
 
 class Slots : NSObject, NSCopying
 {
-    var _slots = Slot[]()
+    var _slots:[Slot] = []
     
     func add(slot: Slot!)
     {
@@ -79,7 +79,7 @@ class Slots : NSObject, NSCopying
     func copyWithZone(zone: NSZone) -> AnyObject!
     {
         var ret = Slots()
-        ret._slots = self._slots.copy()
+        ret._slots = self._slots
         return ret
     }
 }

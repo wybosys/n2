@@ -24,7 +24,7 @@ class ViewController : UIViewController, ObjectExt
         
     }
     
-    @final
+    final
     override func loadView()
     {
         if self.classForView
@@ -37,7 +37,7 @@ class ViewController : UIViewController, ObjectExt
         }
     }
     
-    @final
+    final
     override func viewDidLoad()
     {
         self.onloaded()

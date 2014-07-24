@@ -35,7 +35,7 @@ class Button : UIButton, SignalSlotPattern
         self.signals().add(kSignalClicked)
     }
     
-    @final
+    final
     func __act_clicked()
     {
         self.signals().emit(kSignalClicked)

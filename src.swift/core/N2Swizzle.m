@@ -38,7 +38,7 @@ BOOL class_safeSwizzleMethod(Class c, SEL sel, SEL tosel, objc_swizzle_t* data) 
     return YES;
 }
 
-@implementation NSObject (extension)
+@implementation NSObject (n2_extension)
 
 static char __nsobjdynkey_signals = 0;
 

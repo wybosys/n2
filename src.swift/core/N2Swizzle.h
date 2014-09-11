@@ -21,7 +21,7 @@ BOOL class_safeSwizzleMethod(Class c, SEL sel, SEL tosel, objc_swizzle_t* data);
 //#define objc_swizzle_invoke(obj, ...) (obj.default_impl)(self, obj.default_sel, ## __VA_ARGS__);
 #define objc_swizzle_invoke(obj, ...) (obj.default_impl)();
 
-@interface NSObject (extension)
+@interface NSObject (n2_extension)
 
 @property (nonatomic, retain) id _inner_signals;
 

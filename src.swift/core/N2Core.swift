@@ -13,7 +13,7 @@ protocol ObjectExt
 
 class Object : NSObject, ObjectExt
 {
-    init()
+    override init()
     {
         super.init()
         self.oninit()

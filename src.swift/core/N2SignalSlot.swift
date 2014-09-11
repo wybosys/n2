@@ -34,18 +34,19 @@ class Slot : NSObject, NSCopying
     // 激活这个slot运行
     func emit()
     {
-        if self.target && self.selector
+        if self.target != nil &&
+            self.selector != nil
         {
             self.target!.invokeSelector(self.selector!, withObject:nil)
         }
-        else if self.closure
+        else if self.closure != nil
         {
             self.closure!(slot:self)
         }
     }
     
     // 复制
-    func copyWithZone(zone: NSZone) -> AnyObject!
+    func copyWithZone(zone: NSZone) -> AnyObject
     {
         var ret = Slot()
         ret.origin = self
@@ -76,7 +77,7 @@ class Slots : NSObject, NSCopying
     }
     
     // 复制
-    func copyWithZone(zone: NSZone) -> AnyObject!
+    func copyWithZone(zone: NSZone) -> AnyObject
     {
         var ret = Slots()
         ret._slots = self._slots

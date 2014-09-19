@@ -7,7 +7,7 @@ var n2 = new function() {
 	
 	function Signals(own) {
 		this._own = own;
-		this.store = new Object();
+		this._store = new Object();
 		if (typeof(own._initsignals) != "undefined") {
 			own._initsignals(); 
 		}

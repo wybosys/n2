@@ -13,7 +13,7 @@ var n2 = new function() {
 		}
 		Signals.prototype.emit = function(sig, result) {
 			alert(sig);	
-		}
+		};
 		return this;
 	}
 	this.signals = new Signals(this);

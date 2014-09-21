@@ -1,7 +1,6 @@
-
 var n2 = new function() {
 
-	this.core = new function() {
+	this.core = new function() {	
 		return this;
 	}();
 	
